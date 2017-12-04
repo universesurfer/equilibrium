@@ -1,0 +1,27 @@
+.category-wrapper {
+  display: flex;
+  justify-content: center;
+  height: 900px;
+  background-color: #f5f7f7;
+}
+
+.categories {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 60%;
+  height: 580px;
+}
+
+
+.square {
+  height: 180px;
+  width: 200px;
+  background-color: black;
+  margin: 5px 5px 5px 5px;
+}
+
+.square:hover {
+  background-color: silver;
+}

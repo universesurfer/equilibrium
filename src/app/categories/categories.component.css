@@ -15,24 +15,106 @@
 }
 
 
-.square {
+.tile {
   color: white;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 180px;
+  height: 170px;
   width: 200px;
   background-color: black;
   margin: 5px 5px 5px 5px;
 }
 
-.square > div {
+.tile > div {
   font-weight: lighter;
   font-size: 1.2em;
 }
 
 
-.square:hover {
-  background-color: silver;
+.tile:hover {
+
+}
+
+
+/*CATEGORIES*/
+#women-apparel {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenFashion-pete-bellis.jpg");
+  background-size: 100% 100%;
+}
+
+#women-accessories {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenAccessories-zeny-rosalina.jpg");
+  background-size: 100% 100%;
+}
+
+#men-apparel {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/MenFashion-julian-alexander.jpg");
+  background-size: 100% 100%;
+}
+
+#men-accessories {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/MenAccessories-mink-mingle.jpg");
+  background-size: 100% 100%;
+}
+
+#beauty {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/BEAUTY-jamie-street.jpg");
+  background-size: 100% 100%;
+}
+
+#bath-body {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/BATH-jennifer-burk.jpg");
+  background-size: 100% 100%;
+}
+
+#kitchen {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/KITCHEN-caroline-attwood.jpg");
+  background-size: 100% 100%;
+}
+
+#home-garden {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/HomeGarden-dane-deaner.jpg");
+  background-size: 100% 100%;
+}
+
+/*#cleaning {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenAccessories-zeny-rosalina.jpg");
+  background-size: 100% 100%;
+}*/
+
+#bulk-food {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/BULK-calum-lewis.jpg");
+  background-size: 100% 100%;
+}
+
+/*#everyday-carry {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenAccessories-zeny-rosalina.jpg");
+  background-size: 100% 100%;
+}*/
+
+#writing {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WRITING-joanna-kosinska.jpg");
+  background-size: 100% 100%;
+}
+
+/*#computer-accessories {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenAccessories-zeny-rosalina.jpg");
+  background-size: 100% 100%;
+}*/
+
+#DIY {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/DIY-todd-quackenbush.jpg");
+  background-size: 100% 100%;
+}
+
+#pets {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/PETS-baptist-standaert.jpg");
+  background-size: 100% 100%;
+}
+
+#vintage {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/VINTAGE-florian-klauer.jpg");
+  background-size: 100% 100%;
 }

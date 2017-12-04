@@ -16,11 +16,17 @@
 
 
 .square {
+  color: white;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 180px;
   width: 200px;
   background-color: black;
   margin: 5px 5px 5px 5px;
 }
+
 
 .square:hover {
   background-color: silver;

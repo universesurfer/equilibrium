@@ -27,6 +27,11 @@
   margin: 5px 5px 5px 5px;
 }
 
+.square > div {
+  font-weight: lighter;
+  font-size: 1.2em;
+}
+
 
 .square:hover {
   background-color: silver;

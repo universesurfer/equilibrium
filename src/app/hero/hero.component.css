@@ -1,6 +1,18 @@
 .hero {
+    background-image: url("/assets/images/doodles.png");
+     /*url("https://images.unsplash.com/photo-1502920970741-47c1bafc8d49?auto=format&fit=crop&w=1950&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");*/
+    background-size: contain;
+    background-repeat: repeat;
+    background-position: 0px 0px;
+    opacity: .5;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 450px;
+    -webkit-animation: slide 60s linear infinite;
+}
+
+@-webkit-keyframes slide {
+    from { background-position: 0px 0px; }
+    to { background-position: 0px 450px; }  /*Set background-position to height of element for vertical animation*/
 }

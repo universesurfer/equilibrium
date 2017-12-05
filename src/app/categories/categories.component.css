@@ -10,9 +10,10 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 60%;
+  width: 75%;
   height: 580px;
 }
+
 
 
 .tile {
@@ -34,87 +35,87 @@
 
 
 .tile:hover {
-
+  opacity: .9;
 }
 
 
 /*CATEGORIES*/
 #women-apparel {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenFashion-pete-bellis.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1952&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 #women-accessories {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenAccessories-zeny-rosalina.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1486308510493-aa64833637bc?auto=format&fit=crop&w=2001&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 #men-apparel {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/MenFashion-julian-alexander.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1434510423563-c7e99bbc5bbd?auto=format&fit=crop&w=934&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 #men-accessories {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/MenAccessories-mink-mingle.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1506169894395-36397e4aaee4?auto=format&fit=crop&w=1950&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 #beauty {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/BEAUTY-jamie-street.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1500840216050-6ffa99d75160?auto=format&fit=crop&w=1973&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 #bath-body {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/BATH-jennifer-burk.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1478473495191-2d8dd1398896?auto=format&fit=crop&w=1950&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 #kitchen {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/KITCHEN-caroline-attwood.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1492739159057-7d1896b3c63f?auto=format&fit=crop&w=2378&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 #home-garden {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/HomeGarden-dane-deaner.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1496180727794-817822f65950?auto=format&fit=crop&w=1000&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 /*#cleaning {
   background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenAccessories-zeny-rosalina.jpg");
-  background-size: 100% 100%;
+  background-size: cover;
 }*/
 
 #bulk-food {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/BULK-calum-lewis.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=934&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 /*#everyday-carry {
   background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenAccessories-zeny-rosalina.jpg");
-  background-size: 100% 100%;
+  background-size: cover;
 }*/
 
 #writing {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WRITING-joanna-kosinska.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1494319827402-c4b839aed26b?auto=format&fit=crop&w=1950&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 /*#computer-accessories {
   background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenAccessories-zeny-rosalina.jpg");
-  background-size: 100% 100%;
+  background-size: cover;
 }*/
 
 #DIY {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/DIY-todd-quackenbush.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/reserve/oIpwxeeSPy1cnwYpqJ1w_Dufer%20Collateral%20test.jpg?auto=format&fit=crop&w=1516&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 #pets {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/PETS-baptist-standaert.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?auto=format&fit=crop&w=933&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }
 
 #vintage {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/VINTAGE-florian-klauer.jpg");
-  background-size: 100% 100%;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?auto=format&fit=crop&w=941&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
 }

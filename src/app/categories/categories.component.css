@@ -10,7 +10,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  width: 75%;
+  width: 65%;
   overflow: hidden;
 }
 
@@ -80,10 +80,10 @@
   background-size: cover;
 }
 
-/*#cleaning {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenAccessories-zeny-rosalina.jpg");
+#cleaning {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1485116480018-f1aa5e621bbb?auto=format&fit=crop&w=1950&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
   background-size: cover;
-}*/
+}
 
 #bulk-food {
   background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1506368249639-73a05d6f6488?auto=format&fit=crop&w=934&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
@@ -100,13 +100,23 @@
   background-size: cover;
 }
 
-/*#computer-accessories {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("/assets/images/WomenAccessories-zeny-rosalina.jpg");
+#computer-accessories {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://ecocult.com/wp-content/uploads/2016/05/madeclose_ipad.jpg");
   background-size: cover;
-}*/
+}
 
 #DIY {
   background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/reserve/oIpwxeeSPy1cnwYpqJ1w_Dufer%20Collateral%20test.jpg?auto=format&fit=crop&w=1516&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
+}
+
+#photography {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1483034695875-9b894c34cecd?auto=format&fit=crop&w=1916&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
+  background-size: cover;
+}
+
+#pets {
+  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1503256207526-0d5d80fa2f47?auto=format&fit=crop&w=933&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
   background-size: cover;
 }
 

@@ -5,3 +5,20 @@
   background-position: center top;
   border: .5px solid black;
 }
+
+
+#reformation {
+  background-image: url("/../assets/logos/reformation_header.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: .5px solid black;
+}
+
+#amour-vert {
+  background-image: url("/../assets/logos/amour-vert.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: .5px solid black;
+}

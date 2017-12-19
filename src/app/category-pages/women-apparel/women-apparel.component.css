@@ -1,3 +1,5 @@
+
+
 #everlane {
   background-image: url("https://chartio.com/images/users/everlane-casestudy.jpg");
   background-size: cover;
@@ -18,6 +20,22 @@
 #amour-vert {
   background-image: url("/../assets/logos/amour-vert.jpg");
   background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: .5px solid black;
+}
+
+#tribe-alive {
+  background-image: url("/../assets/logos/tribe-alive-logo.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: .5px solid black;
+}
+
+#pact {
+  background-image: url("/../assets/logos/pact-logo.jpg");
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   border: .5px solid black;

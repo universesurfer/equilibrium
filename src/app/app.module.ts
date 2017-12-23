@@ -24,6 +24,7 @@ import { PhotographyComponent } from './category-pages/photography/photography.c
 import { PetsComponent } from './category-pages/pets/pets.component';
 import { VintageComponent } from './category-pages/vintage/vintage.component';
 import { WomenAccessoriesComponent } from './category-pages/women-accessories/women-accessories.component';
+import { OutdoorsComponent } from './category-pages/outdoors/outdoors.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { WomenAccessoriesComponent } from './category-pages/women-accessories/wo
     PhotographyComponent,
     PetsComponent,
     VintageComponent,
-    WomenAccessoriesComponent
+    WomenAccessoriesComponent,
+    OutdoorsComponent
   ],
   imports: [
     BrowserModule,

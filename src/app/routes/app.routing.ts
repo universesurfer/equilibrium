@@ -17,6 +17,7 @@ import { DiyComponent } from '../category-pages/diy/diy.component';
 import { PhotographyComponent } from '../category-pages/photography/photography.component';
 import { PetsComponent } from '../category-pages/pets/pets.component';
 import { VintageComponent } from '../category-pages/vintage/vintage.component';
+import { OutdoorsComponent } from '../category-pages/outdoors/outdoors.component';
 
 
 
@@ -37,7 +38,8 @@ export const routes: Routes = [
   { path: 'diy', component: DiyComponent },
   { path: 'photography', component: PhotographyComponent },
   { path: 'pets', component: PetsComponent },
-  { path: 'vintage', component: VintageComponent }
+  { path: 'vintage', component: VintageComponent },
+  { path: 'outdoors', component: OutdoorsComponent }
 
 
   // {path: '**', redirectTo: ''}

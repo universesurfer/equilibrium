@@ -15,3 +15,11 @@
     from { background-position: 0px 0px; }
     to { background-position: 0px 450px; }  /*Set background-position to height of element for vertical animation*/
 }
+
+
+.login {
+  top: 2rem;
+  right: 2rem;
+  position: absolute;
+  background: none;
+}

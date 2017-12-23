@@ -12,6 +12,7 @@ const app = express();
 
 //Connect MongoDB
 // mongoose.connect("mongodb://localhost:27017/equilibrium");
+require('./config/database');
 
 
 //Get our API routes

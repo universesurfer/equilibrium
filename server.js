@@ -11,8 +11,8 @@ const logger = require("morgan");           //logs our requests to the console
 const app = express();
 
 //Connect MongoDB
-// mongoose.connect("mongodb://localhost:27017/equilibrium");
-require('./config/database');
+mongoose.connect("mongodb://localhost:27017/equilibrium");
+// require('./config/database');
 
 
 //Get our API routes

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
+import { FormsModule } from '@angular/forms';
 import { routes } from './routes/app.routing';
 
 import { AppComponent } from './app.component';
@@ -25,6 +26,8 @@ import { PetsComponent } from './category-pages/pets/pets.component';
 import { VintageComponent } from './category-pages/vintage/vintage.component';
 import { WomenAccessoriesComponent } from './category-pages/women-accessories/women-accessories.component';
 import { OutdoorsComponent } from './category-pages/outdoors/outdoors.component';
+import { LoginModalComponent } from './login-modal/login-modal.component';
+
 
 @NgModule({
   declarations: [
@@ -49,9 +52,11 @@ import { OutdoorsComponent } from './category-pages/outdoors/outdoors.component'
     PetsComponent,
     VintageComponent,
     WomenAccessoriesComponent,
-    OutdoorsComponent
+    OutdoorsComponent,
+    LoginModalComponent
   ],
   imports: [
+    FormsModule,
     BrowserModule,
     RouterModule.forRoot(routes)
   ],

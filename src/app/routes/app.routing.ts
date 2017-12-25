@@ -18,6 +18,7 @@ import { PhotographyComponent } from '../category-pages/photography/photography.
 import { PetsComponent } from '../category-pages/pets/pets.component';
 import { VintageComponent } from '../category-pages/vintage/vintage.component';
 import { OutdoorsComponent } from '../category-pages/outdoors/outdoors.component';
+import { LoginModalComponent } from '../login-modal/login-modal.component';
 
 
 
@@ -39,7 +40,8 @@ export const routes: Routes = [
   { path: 'photography', component: PhotographyComponent },
   { path: 'pets', component: PetsComponent },
   { path: 'vintage', component: VintageComponent },
-  { path: 'outdoors', component: OutdoorsComponent }
+  { path: 'outdoors', component: OutdoorsComponent },
+  { path: 'login', component: LoginModalComponent}
 
 
   // {path: '**', redirectTo: ''}

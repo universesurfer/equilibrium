@@ -27,6 +27,7 @@ import { VintageComponent } from './category-pages/vintage/vintage.component';
 import { WomenAccessoriesComponent } from './category-pages/women-accessories/women-accessories.component';
 import { OutdoorsComponent } from './category-pages/outdoors/outdoors.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
+import { SignupModalComponent } from './signup-modal/signup-modal.component';
 
 
 @NgModule({
@@ -53,7 +54,8 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
     VintageComponent,
     WomenAccessoriesComponent,
     OutdoorsComponent,
-    LoginModalComponent
+    LoginModalComponent,
+    SignupModalComponent
   ],
   imports: [
     FormsModule,

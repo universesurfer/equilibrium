@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { FormsModule } from '@angular/forms';
 import { routes } from './routes/app.routing';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { HeroComponent } from './hero/hero.component';
@@ -28,6 +29,7 @@ import { WomenAccessoriesComponent } from './category-pages/women-accessories/wo
 import { OutdoorsComponent } from './category-pages/outdoors/outdoors.component';
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { SignupModalComponent } from './signup-modal/signup-modal.component';
+import { AuthService } from './auth.service';
 
 
 @NgModule({
@@ -60,9 +62,10 @@ import { SignupModalComponent } from './signup-modal/signup-modal.component';
   imports: [
     FormsModule,
     BrowserModule,
+    HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

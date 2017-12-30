@@ -51,4 +51,38 @@ router.post('/signup', (req, res, next) => {
 });
 
 
+//LOGIN POST
+router.post('/login', (req, res) => {
+  let email;
+  let password;
+
+  if(req.body.email && req.body.password) {
+    email = req.body.email;
+    password = req.body.password;
+  }
+
+  if (email === "" || password === "") {
+    res.status(401).json({message: "Please provide both email and password"});
+    return
+  }
+
+  //Find the user in database.
+  User.findOne({ "email": email }, (err, user) => {
+    if ( !user ){
+      res.status(401).json({message: "Email doesn't exist!"});
+    } else {
+      bcrypt.compare(password, user.password, function(err, isMatch) {
+        if (!isMatch) {
+          res.status(401).json({message: "Password doesn't match.  Please try again..."});
+        } else {
+          var payload = {id: user._id};
+          var token = jwt.sign(payload, jwtOptions.secretOrKey);
+          res.json({ message: "ok", token: token, user: user });
+        }
+      });
+    }
+  });
+});
+
+
 module.exports = router;

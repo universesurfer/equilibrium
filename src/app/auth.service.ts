@@ -10,6 +10,9 @@ export class AuthService {
 
 public token: string;
 
+//404 disappears when http removed.  Brings up cors issue
+//Users seem to save to Mongo as long there's no internet connection.  Getting '400 (Bad Request) even though it saves.'
+
 BASE_URL: string = 'http://localhost:3000';
 
   constructor(
@@ -21,8 +24,8 @@ BASE_URL: string = 'http://localhost:3000';
 //This function signs up our user
 signup(user) {
   return this.http.post(`${this.BASE_URL}/signup`, user)
-    .map((response) => response.json())
     .map((response) => {
+      console.log(response, response.json())
       let token = response.json() && response.json().token;
       let user = response.json().user;
 

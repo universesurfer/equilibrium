@@ -9,6 +9,7 @@ const passport = require("passport");
 const flash = require("connect-flash");
 const logger = require("morgan");           //logs our requests to the console
 const app = express();
+const cors = require('cors');
 
 //Connect MongoDB
 mongoose.connect("mongodb://localhost:27017/equilibrium");
@@ -17,7 +18,10 @@ mongoose.connect("mongodb://localhost:27017/equilibrium");
 
 //Get our API routes
 const api = require("./server/routes/api");
+const auth = require("./server/routes/auth");
 
+app.use(cors());
+app.options('*', cors());
 
 app.use(logger('dev'));  //log every request to the console
 
@@ -42,6 +46,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 //Set our api routes
 app.use('/api', api);
+app.use('/', auth);
 
 //Catch all other routes and return the index file.
 //Catch-all route MUST come after all other API routes have been defined.
@@ -58,4 +63,4 @@ app.set('port', port);
 const server = http.createServer(app);
 
 // Listen on provided port, on all network interfaces
-server.listen(port, () => console.log('API running on localhost: ${port}'));
+server.listen(port, () => console.log(`API running on localhost: ${port}`));

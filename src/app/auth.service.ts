@@ -83,4 +83,14 @@ login(user) {
     });
 }
 
+
+logout() {
+  //clear token to remove user from local storage and log them out
+  this.token = null;
+  this.isAuth.emit(false);
+  localStorage.removeItem('token');
+  localStorage.removeItem('user');
+  this.router.navigate(['/']);
+}
+
 }

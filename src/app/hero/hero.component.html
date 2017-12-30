@@ -2,6 +2,7 @@
   <header class="login">
     <button *ngIf="!isAuth" type="button" data-toggle="modal" data-target="#login-modal" class="btn-lg btn-light" routerLink="/login">Login</button>
       <button *ngIf="!isAuth" type="button" data-toggle="modal" data-target="#signup-modal" class="btn-lg btn-light" routerLink="/signup">Signup</button>
+    <button *ngIf="isAuth" type="button" class="btn-lg btn-light" (click)="logout()">Logout</button>
   </header>
 
 

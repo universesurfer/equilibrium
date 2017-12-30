@@ -75,6 +75,7 @@ router.post('/login', (req, res) => {
         if (!isMatch) {
           res.status(401).json({message: "Password doesn't match.  Please try again..."});
         } else {
+          res.status(200).json({message: "Welcome back..."});
           var payload = {id: user._id};
           var token = jwt.sign(payload, jwtOptions.secretOrKey);
           res.json({ message: "ok", token: token, user: user });

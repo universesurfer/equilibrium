@@ -1,4 +1,6 @@
-import { Routes } from '@angular/router';
+import { Routes, CanActivate } from '@angular/router';
+
+
 import { AppComponent } from '../app.component';
 import { LandingComponent } from '../landing/landing.component';
 import { WomenApparelComponent } from '../category-pages/women-apparel/women-apparel.component';
@@ -20,7 +22,8 @@ import { VintageComponent } from '../category-pages/vintage/vintage.component';
 import { OutdoorsComponent } from '../category-pages/outdoors/outdoors.component';
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { SignupModalComponent } from '../signup-modal/signup-modal.component';
-
+import { ProfileComponent } from '../profile/profile.component';
+import { SessionService } from '../session.service';
 
 
 export const routes: Routes = [
@@ -42,8 +45,9 @@ export const routes: Routes = [
   { path: 'pets', component: PetsComponent },
   { path: 'vintage', component: VintageComponent },
   { path: 'outdoors', component: OutdoorsComponent },
-  { path: 'login', component: LoginModalComponent},
-  { path: 'signup', component: SignupModalComponent}
+  { path: 'login', component: LoginModalComponent },
+  { path: 'signup', component: SignupModalComponent },
+  { path: 'profile', component: ProfileComponent, canActivate: [SessionService] }
 
 
   // {path: '**', redirectTo: ''}

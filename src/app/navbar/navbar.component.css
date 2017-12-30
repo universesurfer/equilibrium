@@ -5,6 +5,17 @@
 .navbar {
   display: flex;
   min-height: 50px;
+  border-bottom: 1px solid black;
   align-items: center;
-  justify-content: center;
+}
+
+
+.profile-dropdown {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  border: .1px solid black;
+  background-image: url('/assets/glyphicons/shirt.png');
+  background-size: contain;
+  background-position: center;
 }

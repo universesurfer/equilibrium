@@ -30,6 +30,8 @@ import { OutdoorsComponent } from './category-pages/outdoors/outdoors.component'
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { AuthService } from './auth.service';
+import { SessionService } from './session.service';
+import { ProfileComponent } from './profile/profile.component';
 
 
 @NgModule({
@@ -57,7 +59,8 @@ import { AuthService } from './auth.service';
     WomenAccessoriesComponent,
     OutdoorsComponent,
     LoginModalComponent,
-    SignupModalComponent
+    SignupModalComponent,
+    ProfileComponent
   ],
   imports: [
     FormsModule,
@@ -65,7 +68,7 @@ import { AuthService } from './auth.service';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService],
+  providers: [AuthService, SessionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

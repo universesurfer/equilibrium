@@ -60,8 +60,8 @@ login(user) {
   return this.http.post(`${this.BASE_URL}/login`, user)
     .map((response) => {
       let token = response.json() && response.json().token;
-      let currentUser = response.json().user;
-      // let currentUser = JSON.stringify(response.json().user);
+      // let currentUser = response.json().user;
+      let currentUser = JSON.stringify(response.json().user);
 
       if(token) {
         //set token property

@@ -15,7 +15,6 @@ export class HeroComponent implements OnInit {
     private session: AuthService,
     private router: Router
   ) {
-
     //checks isAuth event emitter in login to see if it's true.  If it is, subscribe the result to our local isAuth variable
     this.session.isAuth
       .subscribe((isAuth: boolean) => this.isAuth = isAuth );

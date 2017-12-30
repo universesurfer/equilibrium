@@ -25,6 +25,19 @@ isAuthenticated() {
   return this.token != null ? true : false;
 }
 
+
+canActivate(): Observable<boolean> | Promise<boolean> | boolean {
+  if (localStorage.getItem('token')) {
+    //logged in, so return true
+    this.isAuth.emit(true);
+    return true;
+  }
+    //not logged in, so redirect to home page
+    this.router.navigate(['/']);
+    this.isAuth.emit(false);
+    return false;
+}
+
 //This function signs up our user
 signup(user) {
   return this.http.post(`${this.BASE_URL}/signup`, user)

@@ -1,4 +1,5 @@
 import { Routes, CanActivate } from '@angular/router';
+import { AuthService } from '../auth.service';
 
 
 import { AppComponent } from '../app.component';
@@ -23,7 +24,7 @@ import { OutdoorsComponent } from '../category-pages/outdoors/outdoors.component
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { SignupModalComponent } from '../signup-modal/signup-modal.component';
 import { ProfileComponent } from '../profile/profile.component';
-import { SessionService } from '../session.service';
+
 
 
 export const routes: Routes = [
@@ -47,7 +48,7 @@ export const routes: Routes = [
   { path: 'outdoors', component: OutdoorsComponent },
   { path: 'login', component: LoginModalComponent },
   { path: 'signup', component: SignupModalComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [SessionService] }
+  { path: 'profile', component: ProfileComponent, canActivate: [AuthService] }
 
 
   // {path: '**', redirectTo: ''}

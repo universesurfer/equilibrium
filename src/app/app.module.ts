@@ -30,7 +30,6 @@ import { OutdoorsComponent } from './category-pages/outdoors/outdoors.component'
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { AuthService } from './auth.service';
-import { SessionService } from './session.service';
 import { ProfileComponent } from './profile/profile.component';
 
 
@@ -68,7 +67,7 @@ import { ProfileComponent } from './profile/profile.component';
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, SessionService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

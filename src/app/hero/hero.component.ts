@@ -29,6 +29,7 @@ export class HeroComponent implements OnInit {
   }
 
   ngOnInit() {
+
   }
 
   //Call the logout function from out auth service.

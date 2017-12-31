@@ -10,6 +10,7 @@ export class AuthService {
 
 public token: string;
 isAuth: EventEmitter<any> = new EventEmitter();
+id: string;
 
 //404 disappears when http removed.  Brings up cors issue
 //Users seem to save to Mongo as long there's no internet connection.  Getting '400 (Bad Request) even though it saves.'
@@ -26,17 +27,33 @@ isAuthenticated() {
 }
 
 
-canActivate(): Observable<boolean> | Promise<boolean> | boolean {
-  if (localStorage.getItem('token')) {
-    //logged in, so return true
-    this.isAuth.emit(true);
-    return true;
-  }
-    //not logged in, so redirect to home page
-    this.router.navigate(['/']);
-    this.isAuth.emit(false);
-    return false;
+//CanActivate method for our profile page route guard.
+//This method persists user login between page refreshes.
+
+// canActivate(): Observable<boolean> | Promise<boolean> | boolean {
+//   if (localStorage.getItem('token')) {
+//     //logged in, so return true
+//     // this.isAuth.emit(true);
+//     return true;
+//   } else {
+//     //not logged in, so redirect to home page
+//     this.router.navigate(['/']);
+//     this.isAuth.emit(true);
+//     return false;
+//   }
+// }
+
+
+retrieveIdThenNavigate() {
+  this.id = localStorage.getItem('id');
+  return this.http.get(`${this.BASE_URL}/profile/${this.id}`)
+    .map((res) => res.json())
+    .catch((err) => {
+      return Observable.throw(err);
+    });
 }
+
+
 
 //This function signs up our user
 signup(user) {
@@ -67,7 +84,9 @@ signup(user) {
 
 }
 
-
+localStorageTimeout() {
+    setTimeout(function(){ localStorage.clear(); }, (60 * 60 * 1000)); // 24 hours
+}
 
 login(user) {
   return this.http.post(`${this.BASE_URL}/login`, user)
@@ -85,6 +104,7 @@ login(user) {
         //store username and jwt in local storage to keep user logged in between page refreshes
         localStorage.setItem('token', token);
         localStorage.setItem('user', currentUser);
+
 
         return true; //return true to indicate successful login
       } else {

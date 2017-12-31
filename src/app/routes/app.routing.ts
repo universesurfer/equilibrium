@@ -24,11 +24,13 @@ import { OutdoorsComponent } from '../category-pages/outdoors/outdoors.component
 import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { SignupModalComponent } from '../signup-modal/signup-modal.component';
 import { ProfileComponent } from '../profile/profile.component';
+import { CategoriesComponent } from '../categories/categories.component';
 
 
 
 export const routes: Routes = [
-  { path: '', component: LandingComponent },
+
+  { path: '', component: CategoriesComponent },
   { path: 'womens-apparel', component: WomenApparelComponent },
   { path: 'women-accessories', component: WomenAccessoriesComponent },
   { path: 'men-apparel', component: MenApparelComponent },

@@ -30,7 +30,15 @@ export class HeroComponent implements OnInit {
 
   ngOnInit() {
 
+    if (localStorage.getItem('token')) {
+      //logged in, so return true
+      // this.isAuth.emit(true);
+      return true;
+  } else {
+    return false;
   }
+
+}
 
   //Call the logout function from out auth service.
   logout() {

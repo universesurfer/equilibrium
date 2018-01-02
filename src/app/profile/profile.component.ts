@@ -19,11 +19,11 @@ export class ProfileComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    // this.activatedRoute.params.subscribe(params => {
-    //   this.getUserDetails(params['id']);
-    // });
-    //
-    // this.id = localStorage.getItem('id');
+    this.activatedRoute.params.subscribe(params => {
+      this.getUserDetails(params['id']);
+    });
+
+    this.id = localStorage.getItem('id');
 
   }
 

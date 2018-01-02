@@ -6,7 +6,7 @@ import { Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
 @Injectable()
-export class AuthService {
+export class AuthService implements CanActivate {
 
 public token: string;
 isAuth: EventEmitter<any> = new EventEmitter();
@@ -30,18 +30,18 @@ isAuthenticated() {
 //CanActivate method for our profile page route guard.
 //This method persists user login between page refreshes.
 
-// canActivate(): Observable<boolean> | Promise<boolean> | boolean {
-//   if (localStorage.getItem('token')) {
-//     //logged in, so return true
-//     // this.isAuth.emit(true);
-//     return true;
-//   } else {
-//     //not logged in, so redirect to home page
-//     this.router.navigate(['/']);
-//     this.isAuth.emit(true);
-//     return false;
-//   }
-// }
+canActivate(): Observable<boolean> | Promise<boolean> | boolean {
+  if (localStorage.getItem('token')) {
+    //logged in, so return true
+    // this.isAuth.emit(true);
+    return true;
+  } else {
+    //not logged in, so redirect to home page
+    this.router.navigate(['/']);
+    this.isAuth.emit(true);
+    return false;
+  }
+}
 
 
 retrieveIdThenNavigate() {
@@ -91,11 +91,14 @@ localStorageTimeout() {
 login(user) {
   return this.http.post(`${this.BASE_URL}/login`, user)
     .map((response) => {
+      console.log("here's the response", response);
+      console.log("here's the token", response.json());
       let token = response.json() && response.json().token;
       // let currentUser = response.json().user;
       let currentUser = JSON.stringify(response.json().user);
 
       if(token) {
+        console.log("here's the token", token);
         //set token property
         this.token = token;
 

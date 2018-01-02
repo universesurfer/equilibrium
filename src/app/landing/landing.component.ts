@@ -10,6 +10,15 @@ export class LandingComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+    if (localStorage.getItem('token')) {
+      //logged in, so return true
+      // this.isAuth.emit(true);
+      return true;
+  } else {
+    return false;
   }
+
+}
 
 }

@@ -63,7 +63,7 @@ router.post('/login', (req, res) => {
 
   if (email === "" || password === "") {
     res.status(401).json({message: "Please provide both email and password"});
-    return
+    return;
   }
 
   //Find the user in database.
@@ -73,12 +73,13 @@ router.post('/login', (req, res) => {
     } else {
       bcrypt.compare(password, user.password, function(err, isMatch) {
         if (!isMatch) {
-          res.status(401).json({message: "Password doesn't match.  Please try again..."});
+          return res.status(401).json({message: "Password doesn't match.  Please try again..."});
         } else {
-          res.status(200).json({message: "Welcome back..."});
           var payload = {id: user._id};
           var token = jwt.sign(payload, jwtOptions.secretOrKey);
-          res.json({ message: "ok", token: token, user: user });
+          res.status(200).json({message: "Welcome back...", token: token});
+          // res.json({ message: "ok", token: token, user: user });
+
         }
       });
     }

@@ -11,20 +11,36 @@ export class ProfileComponent implements OnInit {
 
   currentUser = Object;
   user: any;
-  id: string;
+  paramsId: string;
+  isAuth: boolean;
 
   constructor(
     private session: AuthService,
     private activatedRoute: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+
+    this.session.isAuth
+      .subscribe((isAuth: boolean) => this.isAuth = isAuth );
+
+      //If the localStorage id matches the id in the url parameter, display buttons and allow user to edit bio.
+      this.user = localStorage.getItem('user');
+      console.log("user id", this.user._id);
+
+      if(this.user._id === this.paramsId) {
+        this.isAuth = true;
+      } else {
+        this.isAuth = false;
+      }
+
+  }
+
+
 
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.getUserDetails(params['id']);
     });
-
-    this.id = localStorage.getItem('id');
 
   }
 

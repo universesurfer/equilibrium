@@ -5,7 +5,9 @@ const userSchema = new Schema ({
   email: String,
   firstName: String,
   lastName: String,
-  password: String
+  password: String,
+  about: String
+  // comments: { type: Schema.Types.ObjectId, ref: 'Comment' }
 
 });
 

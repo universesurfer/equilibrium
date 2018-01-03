@@ -1,5 +1,28 @@
-<p>
-  profile works!
-</p>
+<app-navbar></app-navbar>
 
+<!-- NOTE: Only show EDIT BIO and SAVE buttons if current user is on their own profile -->
+
+<div class="col-md-8 col-md-offset-2">
+  <!-- <div class="panel panel-default">
+    <div class="panel-body"> -->
+      <form>
+        <fieldset class="form-group">
+          <label for="about">About Me</label>
+          <input type="text" class="form-control" placeholder="Tell the community something about yourself." name="about">
+        </fieldset>
+
+
+          <button *ngIf="isAuth" type="button" name="button" class="btn btn-info">EDIT BIO</button>
+          <button *ngIf="isAuth" type="submit" class="btn btn-primary" ng-click="submitted=true">Save</button>
+
+      </form>
+
+    <!-- </div>
+
+  </div> -->
+
+</div>
+
+
+<!-- Basic angular-star-rating implementation to see if it works (it does) -->
 <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>

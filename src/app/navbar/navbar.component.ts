@@ -30,6 +30,7 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    //Provides the user id for goToProfile() below
     this.user = JSON.parse(localStorage.getItem("user"));
   }
 

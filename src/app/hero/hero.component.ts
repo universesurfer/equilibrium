@@ -20,8 +20,8 @@ export class HeroComponent implements OnInit {
     this.session.isAuth
       .subscribe((isAuth: boolean) => this.isAuth = isAuth );
 
-    //if token exists, authenticated
-    if (this.session.token) {
+    // if token exists, authenticated
+    if (localStorage.getItem('token')) {
       this.isAuth = true;
       localStorage.getItem('token');
       localStorage.getItem('user');
@@ -29,8 +29,6 @@ export class HeroComponent implements OnInit {
     } else {
       this.isAuth = false;
     }
-
-    this.user = JSON.parse(localStorage.getItem("user"));
 
   }
 

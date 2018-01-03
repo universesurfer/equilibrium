@@ -20,7 +20,7 @@ mongoose.connect("mongodb://localhost:27017/equilibrium");
 //Get our API routes
 const api = require("./server/routes/api");
 const auth = require("./server/routes/auth");
-const users = require("./server/routes/users");
+// const users = require("./server/routes/users");
 
 app.use(cors());
 app.options('*', cors());
@@ -57,7 +57,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 //Set our api routes
 app.use('/api', api);
-app.use('/', auth, users);
+app.use('/', auth);
 
 //Catch all other routes and return the index file.
 //Catch-all route MUST come after all other API routes have been defined.

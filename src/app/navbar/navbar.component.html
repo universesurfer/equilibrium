@@ -1,15 +1,12 @@
-<nav class="navbar navbar-light bg-faded">
-  <!-- <div class="container"> -->
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
   <a class="navbar-brand" href="#">Equilibrium</a>
-
 <!-- If the user is logged in, display a profile icon. -->
+
   <ul *ngIf="isAuth" class="nav navbar-nav ml-auto">
-      <li class="profile-dropdown">
-        <a (click)="goToProfile()"></a>
+      <li class="nav-item" id="profile-dropdown">
+        <a class="nav-link" (click)="goToProfile()"></a>
       </li>
   </ul>
-
-
 
 </nav>

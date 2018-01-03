@@ -9,6 +9,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ProfileComponent implements OnInit {
 
+  currentUser = Object;
   user: any;
   id: string;
 
@@ -28,13 +29,24 @@ export class ProfileComponent implements OnInit {
   }
 
 
-getUserDetails(id) {
-  this.session.retrieveIdThenNavigate()
-    .subscribe((response) => {
-      this.user = response.user;
-    })
-}
+// getUserDetails(id) {
+//
+//     this.activatedRoute.params.subscribe(params => {
+//       this.getUserDetails(params['id']);
+//     })
 
+  // this.session.retrieveIdThenNavigate()
+  //   .subscribe((response) => {
+  //     this.user = response.user;
+  //   })
+// }
+
+getUserDetails(id) {
+  this.session.get(id)
+  .subscribe((returnedUser) => {
+    this.currentUser = returnedUser;
+  })
+}
 
 
 

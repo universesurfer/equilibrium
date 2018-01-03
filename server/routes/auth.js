@@ -1,4 +1,5 @@
 const express = require("express");
+const session = require("express-session");
 let router = express.Router();
 let jwt = require('jsonwebtoken');
 let jwtOptions = require('../config/jwtoptions');
@@ -43,6 +44,7 @@ router.post('/signup', (req, res, next) => {
         var payload = {id: user._id};
         console.log('user', user);
         var token = jwt.sign(payload, jwtOptions.secretOrKey);
+
         res.status(200).json({ message: 'ok', token: token});
       }
     });
@@ -75,10 +77,14 @@ router.post('/login', (req, res) => {
         if (!isMatch) {
           return res.status(401).json({message: "Password doesn't match.  Please try again..."});
         } else {
+
+          req.session.user = user;  //Storing user data in the session
+
           var payload = {id: user._id};
-          var token = jwt.sign(payload, jwtOptions.secretOrKey);
-          res.status(200).json({message: "Welcome back...", token: token});
-          // res.json({ message: "ok", token: token, user: user });
+          var token = jwt.sign(payload, jwtOptions.secretOrKey, { expiresIn: "24h" });
+          return res.json({ message: "ok", token: token, user: user });
+          // res.status(200).json({message: "Welcome back...", token: token, user: user});
+
 
         }
       });

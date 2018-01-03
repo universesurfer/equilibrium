@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   isAuth: boolean;
+  user: any;
 
   constructor(
     private session: AuthService,
@@ -29,6 +30,11 @@ export class NavbarComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.user = JSON.parse(localStorage.getItem("user"));
+  }
+
+  goToProfile() {
+    this.router.navigateByUrl(`/profile/${this.user._id}`);
   }
 
 }

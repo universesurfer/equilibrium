@@ -1,5 +1,5 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Router, CanActivate } from '@angular/router';
@@ -128,5 +128,19 @@ logout() {
   localStorage.removeItem('user');
   this.router.navigate(['/']);
 }
+
+
+
+get(id) {
+  let headers = new Headers({ 'Authorization': 'JWT' + this.token });
+  let options = new RequestOptions({ headers: headers });
+  return this.http.get(`${this.BASE_URL}/profile/${id}`, options)
+    .map((res) => res.json());
+}
+
+
+
+
+
 
 }

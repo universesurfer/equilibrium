@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 export class HeroComponent implements OnInit {
 
   isAuth: boolean;
+  user: any;
 
   constructor(
     private session: AuthService,
@@ -22,21 +23,18 @@ export class HeroComponent implements OnInit {
     //if token exists, authenticated
     if (this.session.token) {
       this.isAuth = true;
+      localStorage.getItem('token');
+      localStorage.getItem('user');
     //if not, not authenticated
     } else {
       this.isAuth = false;
     }
+
+    this.user = JSON.parse(localStorage.getItem("user"));
+
   }
 
   ngOnInit() {
-
-    if (localStorage.getItem('token')) {
-      //logged in, so return true
-      // this.isAuth.emit(true);
-      return true;
-  } else {
-    return false;
-  }
 
 }
 

@@ -50,7 +50,7 @@ export const routes: Routes = [
   { path: 'outdoors', component: OutdoorsComponent },
   { path: 'login', component: LoginModalComponent },
   { path: 'signup', component: SignupModalComponent },
-  { path: 'profile', component: ProfileComponent, canActivate: [AuthService] }
+  { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthService] }
 
 
   // {path: '**', redirectTo: ''}

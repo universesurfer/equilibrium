@@ -1,5 +1,6 @@
 //Require Dependencies
 const express = require("express");
+const session = require("express-session");
 const path = require("path");
 const http = require("http");
 const bodyParser = require("body-parser");
@@ -19,6 +20,7 @@ mongoose.connect("mongodb://localhost:27017/equilibrium");
 //Get our API routes
 const api = require("./server/routes/api");
 const auth = require("./server/routes/auth");
+const users = require("./server/routes/users");
 
 app.use(cors());
 app.options('*', cors());
@@ -29,6 +31,14 @@ app.use(logger('dev'));  //log every request to the console
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+
+//Initializing Express-Session
+app.use(session({
+  secret: "ironhack",
+  resave: true,
+  saveUninitialized: true,
+  cookie: { maxAge: 24 * 60 * 60 * 1000 }
+}));
 
 app.set('view engine', 'ejs');  //setup ejs for templating
 
@@ -47,7 +57,7 @@ app.use(express.static(path.join(__dirname, 'dist')));
 
 //Set our api routes
 app.use('/api', api);
-app.use('/', auth);
+app.use('/', auth, users);
 
 //Catch all other routes and return the index file.
 //Catch-all route MUST come after all other API routes have been defined.

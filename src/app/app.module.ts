@@ -33,6 +33,8 @@ import { AuthService } from './auth.service';
 // import { SessionService } from './session.service';
 import { ProfileComponent } from './profile/profile.component';
 
+import { StarRatingModule } from 'angular-star-rating';
+
 
 @NgModule({
   declarations: [
@@ -66,6 +68,7 @@ import { ProfileComponent } from './profile/profile.component';
     FormsModule,
     BrowserModule,
     HttpModule,
+    StarRatingModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
   providers: [AuthService],

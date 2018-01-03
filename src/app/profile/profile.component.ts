@@ -40,7 +40,15 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
     this.activatedRoute.params.subscribe(params => {
       this.getUserDetails(params['id']);
+
+      //Get the url id params to check against localStorage in constructor above.
+      this.paramsId = params['id'];
+
     });
+
+
+
+
 
   }
 

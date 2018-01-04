@@ -38,15 +38,16 @@ router.put('/profile/:id', (req, res) => {
   }
 
   User.findByIdAndUpdate(req.params.id, {
-    aboutText: JSON.stringify(req.body)
-  }, (err, user) => {
+    aboutText: req.body.aboutText
+  }, (err, user, aboutText) => {
     if (err) {
       return res.send(err);
     } else {
-      // console.log("here is the aboutText req", aboutText);
+
       res.json({
-        message: 'User updated successfully',
-        user: user
+        message: "Getting the aboutText req.body " + req.body.aboutText,     //req.body returns the full user object.  req.body.aboutText should work
+        user: user,
+        aboutText: aboutText
       });
     }
   });

@@ -8,7 +8,7 @@
       <form>
         <fieldset class="form-group">
           <label for="about">About Me</label>
-          <input type="text" class="form-control" [(ngModel)]="aboutText" (ngModelChange)="inputChange($event)" placeholder="Tell the community something about yourself." name="about">
+          <input type="text" class="form-control" [(ngModel)]="user.aboutText" (ngModelChange)="inputChange($event)" placeholder="Tell the community something about yourself." name="about">
         </fieldset>
 
 
@@ -24,7 +24,7 @@
 </div>
 
 <div class="">
-  <p> here is some aboutText {{aboutText}}</p>
+  <p> here is some aboutText {{user.aboutText}}</p>
 
 </div>
 

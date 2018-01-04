@@ -46,6 +46,8 @@ export class ProfileComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.getUserDetails(params['id']);
 
+      this.user = JSON.parse(localStorage.getItem('user'));
+      console.log("here's the current user", this.user);
       console.log(this.aboutText);
       //Get the url id params to check against localStorage in constructor above.
       this.id = localStorage.getItem('id');
@@ -76,11 +78,11 @@ inputChange(event) {
     this.session.edit(this.user)
     .subscribe(result => {
       if (result) {
+        // result.user.aboutText = this.aboutText;
         console.log("inside the result in updateProfile()", result);
         // this.user.aboutText = this.aboutText;
         console.log("here's the user", this.user);
         console.log("does it have about text?", this.aboutText);
-        console.log("User updated succesfully.");
       } else {
         console.log("Something went wrong when editing profile.");
       }

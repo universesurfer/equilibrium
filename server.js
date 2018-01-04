@@ -29,7 +29,7 @@ app.use(logger('dev'));  //log every request to the console
 
 //Parsers for POST data
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 //Initializing Express-Session
@@ -56,7 +56,7 @@ app.use(flash());     //use connect-flash for flash messages stored in session
 app.use(express.static(path.join(__dirname, 'dist')));
 
 //Set our api routes
-app.use('/api', api);
+app.use('/', api);
 app.use('/', auth);
 
 //Catch all other routes and return the index file.

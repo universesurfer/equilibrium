@@ -8,12 +8,12 @@
       <form>
         <fieldset class="form-group">
           <label for="about">About Me</label>
-          <input type="text" class="form-control" placeholder="Tell the community something about yourself." name="about">
+          <input type="text" class="form-control" [(ngModel)]="aboutText" (ngModelChange)="inputChange($event)" placeholder="Tell the community something about yourself." name="about">
         </fieldset>
 
 
           <button *ngIf="isAuth" type="button" name="button" class="btn btn-info">EDIT BIO</button>
-          <button *ngIf="isAuth" type="submit" class="btn btn-primary" ng-click="submitted=true">Save</button>
+          <button *ngIf="isAuth" type="submit" class="btn btn-primary" ng-click="submitted=true" (click)="updateProfile()">Save</button>
 
       </form>
 
@@ -23,6 +23,10 @@
 
 </div>
 
+<div class="">
+  <p> here is some aboutText {{aboutText}}</p>
+
+</div>
 
 <!-- Basic angular-star-rating implementation to see if it works (it does) -->
 <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>

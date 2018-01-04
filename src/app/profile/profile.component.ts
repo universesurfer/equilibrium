@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-profile',
@@ -13,6 +14,8 @@ export class ProfileComponent implements OnInit {
   user: any;
   paramsId: string;
   isAuth: boolean;
+  aboutText: string;
+  id: string;
 
   constructor(
     private session: AuthService,
@@ -23,14 +26,16 @@ export class ProfileComponent implements OnInit {
     this.session.isAuth
       .subscribe((isAuth: boolean) => this.isAuth = isAuth );
 
-      //If the localStorage id matches the id in the url parameter, display buttons and allow user to edit bio.
-      this.user = localStorage.getItem('user');
-      console.log("user id", this.user._id);
 
-      if(this.user._id === this.paramsId) {
+      this.user = localStorage.getItem('user');
+
+//If the localStorage id matches the id in the url parameter, display buttons and allow user to edit bio.
+      if(this.id === this.paramsId) {
         this.isAuth = true;
+        console.log("id's are equal.  Is auth should be working.")
       } else {
         this.isAuth = false;
+        console.log("something is wrong with isAuth");
       }
 
   }
@@ -41,39 +46,47 @@ export class ProfileComponent implements OnInit {
     this.activatedRoute.params.subscribe(params => {
       this.getUserDetails(params['id']);
 
+      console.log(this.aboutText);
       //Get the url id params to check against localStorage in constructor above.
+      this.id = localStorage.getItem('id');
+      console.log("user id", this.id);
       this.paramsId = params['id'];
+      console.log("in params id", this.paramsId);
 
     });
+  }
 
 
+inputChange(event) {
+  this.aboutText = event;
+  console.log(this.aboutText);
+}
+
+
+
+  getUserDetails(id) {
+    this.session.get(id)
+    .subscribe((returnedUser) => {
+      this.currentUser = returnedUser;
+    });
+  }
+
+
+  updateProfile() {
+    this.session.edit(this.user)
+    .subscribe(result => {
+      if (result) {
+        console.log("inside the result in updateProfile()", result);
+        // this.user.aboutText = this.aboutText;
+        console.log("here's the user", this.user);
+        console.log("does it have about text?", this.aboutText);
+        console.log("User updated succesfully.");
+      } else {
+        console.log("Something went wrong when editing profile.");
+      }
+    });
+}
 
 
 
   }
-
-
-// getUserDetails(id) {
-//
-//     this.activatedRoute.params.subscribe(params => {
-//       this.getUserDetails(params['id']);
-//     })
-
-  // this.session.retrieveIdThenNavigate()
-  //   .subscribe((response) => {
-  //     this.user = response.user;
-  //   })
-// }
-
-getUserDetails(id) {
-  this.session.get(id)
-  .subscribe((returnedUser) => {
-    this.currentUser = returnedUser;
-  })
-}
-
-
-
-
-
-}

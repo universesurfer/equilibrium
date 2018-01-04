@@ -12,8 +12,6 @@ public token: string;
 isAuth: EventEmitter<any> = new EventEmitter();
 id: string;
 
-//404 disappears when http removed.  Brings up cors issue
-//Users seem to save to Mongo as long there's no internet connection.  Getting '400 (Bad Request) even though it saves.'
 
 BASE_URL: string = 'http://localhost:3000';
 
@@ -44,15 +42,15 @@ canActivate(): Observable<boolean> | Promise<boolean> | boolean {
 }
 
 
-retrieveIdThenNavigate() {
-  this.id = localStorage.getItem('id');
-  return this.http.get(`${this.BASE_URL}/profile/${this.id}`)
-    .map((res) => res.json())
-    .catch((err) => {
-      return Observable.throw(err);
-    });
-}
-
+// retrieveIdThenNavigate() {
+//   this.id = localStorage.getItem('id');
+//   return this.http.get(`${this.BASE_URL}/profile/${this.id}`)
+//     .map((res) => res.json())
+//     .catch((err) => {
+//       return Observable.throw(err);
+//     });
+// }
+//
 
 
 //This function signs up our user
@@ -85,7 +83,8 @@ signup(user) {
 }
 
 localStorageTimeout() {
-    setTimeout(function(){ localStorage.clear(); }, (60 * 60 * 1000)); // 24 hours
+    // setTimeout(function(){ localStorage.clear(); }, (60 * 60 * 1000));  // 24 hours
+    setTimeout(function(){ localStorage.clear(); }, (10));
 }
 
 login(user) {
@@ -107,7 +106,10 @@ login(user) {
         //store username and jwt in local storage to keep user logged in between page refreshes
         localStorage.setItem('token', token);
         localStorage.setItem('user', currentUser);
+        localStorage.setItem('id', response.json().user._id);
+        console.log("getting local storage id", response.json().user._id);
 
+        // this.localStorageTimeout();
 
         return true; //return true to indicate successful login
       } else {
@@ -130,11 +132,22 @@ logout() {
 }
 
 
+edit(user) {
+  this.id = localStorage.getItem('id');
+  return this.http.put(`${this.BASE_URL}/profile/${this.id}`, user)
+    .map((res) => res.json())
+    .catch((err) => {
+      return Observable.throw(err);
+    });
+}
+
+
 
 get(id) {
+  this.id = localStorage.getItem('id');
   let headers = new Headers({ 'Authorization': 'JWT' + this.token });
   let options = new RequestOptions({ headers: headers });
-  return this.http.get(`${this.BASE_URL}/profile/${id}`, options)
+  return this.http.get(`${this.BASE_URL}/profile/${this.id}`, options)
     .map((res) => res.json());
 }
 

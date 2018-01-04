@@ -21,7 +21,7 @@ export class LandingComponent implements OnInit {
       .subscribe((isAuth: boolean) => this.isAuth = isAuth );
 
     //if token exists, authenticated
-    if (this.session.token) {
+    if (localStorage.getItem('token')) {
       this.isAuth = true;
       localStorage.getItem('token');
       localStorage.getItem('user');

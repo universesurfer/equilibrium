@@ -1,0 +1,21 @@
+#profile-hero {
+  display: flex;
+  height: 25rem;
+  border-bottom: 1px solid black;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-picture {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  border: 1px solid black;
+  background-image: url('/assets/glyphicons/user.png');
+  background-size: contain;
+  background-position: center;
+}
+
+#about-info {
+  margin-top: 5rem;
+}

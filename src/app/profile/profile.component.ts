@@ -17,6 +17,9 @@ export class ProfileComponent implements OnInit {
   aboutText: string;
   id: string;
 
+  editClicked: boolean;
+
+
   constructor(
     private session: AuthService,
     private activatedRoute: ActivatedRoute,
@@ -58,11 +61,6 @@ export class ProfileComponent implements OnInit {
     });
   }
 
-
-inputChange(event) {
-  this.aboutText = event;
-  console.log(this.aboutText);
-}
 
 
 

@@ -20,14 +20,13 @@ BASE_URL: string = 'http://localhost:3000';
     private http: Http
   ) {}
 
+
 isAuthenticated() {
   return this.token != null ? true : false;
 }
 
-
 //CanActivate method for our profile page route guard.
 //This method persists user login between page refreshes.
-
 canActivate(): Observable<boolean> | Promise<boolean> | boolean {
   if (localStorage.getItem('token')) {
     //logged in, so return true

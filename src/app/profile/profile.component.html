@@ -2,29 +2,33 @@
 
 <!-- NOTE: Only show EDIT BIO and SAVE buttons if current user is on their own profile -->
 
-<div class="col-md-8 col-md-offset-2">
-  <!-- <div class="panel panel-default">
-    <div class="panel-body"> -->
+<div class="container-fluid">
+
+  <div class="row">
+    <section id="profile-hero">
+      <div class="profile-picture">
+        <!-- <a href="#"></a> -->
+      </div>
+    </section>
+  </div>
+
+<div class="row">
+  <section id="about-info">
+    <div class="col-md-8 col-md-offset-2">
+
       <form>
         <fieldset class="form-group">
           <label for="about">About Me</label>
-          <input type="text" class="form-control" [(ngModel)]="user.aboutText" (ngModelChange)="inputChange($event)" placeholder="Tell the community something about yourself." name="about">
+          <input type="text" class="form-control" [(ngModel)]="user.aboutText" placeholder="Tell the community something about yourself." name="about">
         </fieldset>
 
-
-          <button *ngIf="isAuth" type="button" name="button" class="btn btn-info">EDIT BIO</button>
-          <button *ngIf="isAuth" type="submit" class="btn btn-primary" ng-click="submitted=true" (click)="updateProfile()">Save</button>
-
+          <!-- <button *ngIf="isAuth" type="button" name="button" class="btn btn-info">EDIT BIO</button> -->
+          <button type="submit" class="btn btn-primary" ng-click="submitted=true" id="saveButton" (click)="updateProfile()">Save</button>
       </form>
 
-    <!-- </div>
-
-  </div> -->
-
+    </div>
+  </section>
 </div>
-
-<div class="">
-  <p> here is some aboutText {{user.aboutText}}</p>
 
 </div>
 

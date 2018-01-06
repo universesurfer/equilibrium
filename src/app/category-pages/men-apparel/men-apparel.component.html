@@ -4,21 +4,21 @@
 <div class="row">
 
   <ul class="list">
-    <li class="business-image" id="patagonia" #patagonia name="patagonia" name="company">
+    <li class="business-image" id="patagonia" #patagonia name="patagonia" (click)="navigateToCompanyPage(patagonia)">
       <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" (click)="makeRating(patagonia)" [rating]="2.63"></star-rating-comp>
     </li>
 
-    <li class="business-image" id="tentree" #tentree>
+    <li class="business-image" id="tentree" #tentree (click)="navigateToCompanyPage(tentree)">
         <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" (click)="makeRating(tentree)" [rating]="2.63"></star-rating-comp>
     </li>
 
-    <li class="business-image" id="saltura" (click)="returnId(saltura)" #saltura></li>
+    <li class="business-image" id="saltura" #saltura (click)="navigateToCompanyPage(saltura)"></li>
 
-    <li class="business-image" id="everlane" (click)="returnId(everlane)" #everlane></li>
+    <li class="business-image" id="everlane" #everlane (click)="navigateToCompanyPage(everlane)"></li>
 
-    <li class="business-image" id="nau" (click)="returnId(nau)" #nau></li>
+    <li class="business-image" id="nau" #nau (click)="navigateToCompanyPage(nau)"></li>
 
-    <li class="business-image" id="pact" (click)="returnId(pact)" #pact></li>
+    <li class="business-image" id="pact" #pact (click)="navigateToCompanyPage(pact)"></li>
 
 
   </ul>

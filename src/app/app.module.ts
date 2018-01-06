@@ -35,6 +35,7 @@ import { RatingService } from './rating.service';
 import { ProfileComponent } from './profile/profile.component';
 
 import { StarRatingModule } from 'angular-star-rating';
+import { CompanyProfileComponent } from './company-profile/company-profile.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { StarRatingModule } from 'angular-star-rating';
     OutdoorsComponent,
     LoginModalComponent,
     SignupModalComponent,
-    ProfileComponent
+    ProfileComponent,
+    CompanyProfileComponent
   ],
   imports: [
     FormsModule,

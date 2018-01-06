@@ -42,13 +42,13 @@ rating: number;
 
     };
 
+navigateToCompanyPage(company) {
+  this.companyName = company.id;
+  this.router.navigate([`/${this.category}/${this.companyName}`]);
+}
 
-// returnId(company) {
-//   this.companyName = company.id;
-//   console.log(this.companyName);
-// }
 
-
+//Returns the company id name and submits and saves company and user rating to signed in user to node
 makeRating(company) {
   this.companyName = company.id;
   console.log(this.companyName);

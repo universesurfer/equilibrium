@@ -25,6 +25,7 @@ import { LoginModalComponent } from '../login-modal/login-modal.component';
 import { SignupModalComponent } from '../signup-modal/signup-modal.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { CategoriesComponent } from '../categories/categories.component';
+import { CompanyProfileComponent } from '../company-profile/company-profile.component';
 
 
 
@@ -50,7 +51,8 @@ export const routes: Routes = [
   { path: 'outdoors', component: OutdoorsComponent },
   { path: 'login', component: LoginModalComponent },
   { path: 'signup', component: SignupModalComponent },
-  { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthService] }
+  { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthService] },
+  { path: ':category/:company', component: CompanyProfileComponent }
 
 
   // {path: '**', redirectTo: ''}

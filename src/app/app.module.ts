@@ -30,6 +30,7 @@ import { OutdoorsComponent } from './category-pages/outdoors/outdoors.component'
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { AuthService } from './auth.service';
+import { RatingService } from './rating.service';
 // import { SessionService } from './session.service';
 import { ProfileComponent } from './profile/profile.component';
 
@@ -71,7 +72,7 @@ import { StarRatingModule } from 'angular-star-rating';
     StarRatingModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService],
+  providers: [AuthService, RatingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

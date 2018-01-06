@@ -3,10 +3,13 @@ const Schema = mongoose.Schema;
 
 const companySchema = new Schema ({
 
-  name: String,
+  companyName: String,
+  userRatings: [{
+    user: { type: Schema.Types.ObjectId, ref: 'User' },
+    rating: Number
+  }],
   averageRating: Number,
   numberOfRatings: Number
-
 });
 
 

@@ -45,12 +45,22 @@ router.put('/profile/:id', (req, res) => {
     } else {
 
       res.json({
-        message: "Getting the aboutText req.body " + req.body.aboutText,     //req.body returns the full user object.  req.body.aboutText should work
+        message: "Getting the aboutText req.body " + req.body.aboutText,
         user: user,
         aboutText: aboutText
       });
     }
   });
+});
+
+
+router.put('/:category', (req, res) => {
+
+  res.json({
+    category: req.params,
+    user: req.body
+  });
+
 
 });
 

@@ -4,17 +4,21 @@
 <div class="row">
 
   <ul class="list">
-    <li class="business-image" id="patagonia"></li>
+    <li class="business-image" id="patagonia" #patagonia name="patagonia" name="company">
+      <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" (click)="makeRating(patagonia)" [rating]="2.63"></star-rating-comp>
+    </li>
 
-    <li class="business-image" id="tentree"></li>
+    <li class="business-image" id="tentree" #tentree>
+        <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" (click)="makeRating(tentree)" [rating]="2.63"></star-rating-comp>
+    </li>
 
-    <li class="business-image" id="saltura"></li>
+    <li class="business-image" id="saltura" (click)="returnId(saltura)" #saltura></li>
 
-    <li class="business-image" id="everlane"></li>
+    <li class="business-image" id="everlane" (click)="returnId(everlane)" #everlane></li>
 
-    <li class="business-image" id="nau"></li>
+    <li class="business-image" id="nau" (click)="returnId(nau)" #nau></li>
 
-    <li class="business-image" id="pact"></li>
+    <li class="business-image" id="pact" (click)="returnId(pact)" #pact></li>
 
 
   </ul>

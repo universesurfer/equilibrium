@@ -140,6 +140,14 @@ edit(user) {
     });
 }
 
+makeRating(category, user, rating) {
+  var categoryName = category;
+  return this.http.put(`${this.BASE_URL}/${category}`, user, rating)
+    .map((res) => res.json())
+    .catch((err) => {
+      return Observable.throw(err);
+    });
+}
 
 
 get(id) {

@@ -11,10 +11,19 @@
   height: 100px;
   width: 100px;
   border: 1px solid black;
-  background-image: url('/assets/glyphicons/user.png');
-  background-size: contain;
-  background-position: center;
+  /* background-size: contain;
+  background-position: center; */
+  /* background-image: url('/assets/glyphicons/user.png'); */
 }
+
+.user-avatar {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+  object-fit: contain;
+}
+
+
 
 #about-info {
   margin-top: 5rem;

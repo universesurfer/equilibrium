@@ -6,9 +6,30 @@
 
   <div class="row">
     <section id="profile-hero">
+
+      <form>
+      <fieldset class="form-group">
+
+
       <div class="profile-picture">
-        <!-- <a href="#"></a> -->
+        <div *ngIf="!user.avatar">
+          <a>
+            <img src="/assets/glyphicons/user.png" class="user-avatar" alt="">
+          </a>
+        </div>
+        <div *ngIf="user.avatar">
+          <a>
+            <img src="user.avatar" class="user-avatar">
+          </a>
+        </div>
+        <input type="file" class="form-control" name="avatar" ng2FileSelect [uploader]="uploader">
+        <button type="submit" name="button" (click)="saveAvatar()">Save Avatar</button>
       </div>
+
+      </fieldset>
+      </form>
+
+
     </section>
   </div>
 

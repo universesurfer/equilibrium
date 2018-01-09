@@ -8,6 +8,7 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const passport = require("passport");
 const flash = require("connect-flash");
+const multer = require('multer');
 const logger = require("morgan");           //logs our requests to the console
 const app = express();
 const cors = require('cors');

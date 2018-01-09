@@ -31,10 +31,10 @@ import { LoginModalComponent } from './login-modal/login-modal.component';
 import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { AuthService } from './auth.service';
 import { RatingService } from './rating.service';
-// import { SessionService } from './session.service';
 import { ProfileComponent } from './profile/profile.component';
 
 import { StarRatingModule } from 'angular-star-rating';
+import{ FileSelectDirective } from 'ng2-file-upload';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
 
 
@@ -65,7 +65,8 @@ import { CompanyProfileComponent } from './company-profile/company-profile.compo
     LoginModalComponent,
     SignupModalComponent,
     ProfileComponent,
-    CompanyProfileComponent
+    CompanyProfileComponent,
+    FileSelectDirective
   ],
   imports: [
     FormsModule,

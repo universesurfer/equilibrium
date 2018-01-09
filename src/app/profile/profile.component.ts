@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-profile',
@@ -16,8 +17,11 @@ export class ProfileComponent implements OnInit {
   isAuth: boolean;
   aboutText: string;
   id: string;
+  avatar: string = '/assets/glyphicons/user.png';
 
-  editClicked: boolean;
+  // NOTE: image uploading
+  uploader: FileUploader; //
+  BASE_URL: string = 'http://localhost:3000';
 
 
   constructor(
@@ -59,8 +63,19 @@ export class ProfileComponent implements OnInit {
       console.log("in params id", this.paramsId);
 
     });
+
+    // NOTE: image uploading
+    //Setting the url for uploader
+    // this.uploader = new FileUploader({
+    //     url:`${this.BASE_URL}/profile/${this.id}`
+    //   });
+
   }
 
+// NOTE: image uploading
+// saveAvatar() {
+//   this.uploader.uploadAll();
+// }
 
 
 

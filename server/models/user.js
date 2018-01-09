@@ -6,6 +6,7 @@ const userSchema = new Schema ({
   firstName: String,
   lastName: String,
   password: String,
+  avatar: String,
   aboutText: String,
   ratings: [{
     company: { type: Schema.Types.ObjectId, ref: "Company" },

@@ -4,12 +4,8 @@ const Schema = mongoose.Schema;
 const companySchema = new Schema ({
 
   companyName: String,
-  userRatings: [{
-    user: { type: Schema.Types.ObjectId, ref: 'User' },
-    rating: Number
-  }],
-  averageRating: Number,
-  numberOfRatings: Number
+  reviews: [ {type: Schema.Types.ObjectId, ref: 'Review'} ],
+  // NOTE: I can probably do average rating and number of rating after database call and not store it directly.  Probably should but don't know about speed yet.
 });
 
 

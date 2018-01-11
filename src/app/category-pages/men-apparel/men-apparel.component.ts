@@ -30,17 +30,21 @@ rating: number;
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
     console.log("getting current user", this.user);
+
+
+    //Retrieve all companies within this category from Mongo
+    this.getCompaniesForCategory();
   }
 
+  //Detect any star rating changes and update the rating variable
   onRatingChange = ($event: OnRatingChangeEven) => {
         console.log('onRatingUpdated $event: ', $event);
         this.onRatingChangeResult = $event;
 
         this.rating = $event.rating
-
         console.log(this.rating);
-
     };
+
 
 navigateToCompanyPage(company) {
   this.companyName = company.id;
@@ -66,8 +70,23 @@ makeRating(company) {
       console.log("Something went wrong when setting company rating.");
     }
   });
-
 }
+
+
+getCompaniesForCategory() {
+  this.session.getCompanies(this.category)
+  .subscribe(result => {
+    if (result) {
+      // result.user.aboutText = this.aboutText;
+      console.log("inside the result in getCompaniesForCategory()", result);
+
+    } else {
+      console.log("Unable to retrieve companies...");
+    }
+  });
+}
+
+
 
 
 

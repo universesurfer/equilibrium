@@ -159,6 +159,15 @@ get(id) {
 }
 
 
+getCompanies(category) {
+  return this.http.get(`${this.BASE_URL}/${category}`)
+    .map((res) => res.json())
+    .catch((err) => {
+      return Observable.throw(err);
+    });
+}
+
+
 
 
 

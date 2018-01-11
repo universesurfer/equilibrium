@@ -3,6 +3,7 @@ const session = require("express-session");
 let router = express.Router();
 
 const User = require('../models/user');
+const Company = require('../models/company');
 const mongoose = require("mongoose");
 
 
@@ -62,6 +63,26 @@ router.put('/:category', (req, res) => {
   });
 
 
+});
+
+router.get('/:category', (req, res) => {
+
+// let category = req.params.category;
+
+  Company.find({ "category": req.params.category }, (err, companies) => {
+
+
+    if (!companies) {
+      res.status(401).json({ message: "Can't find any companies in this category or they don't exist yet." });
+    } else {
+
+      return res.json({
+        message: "getting companies!",
+        companies: companies,
+        paramCheck: req.params.category
+      });
+  }
+});
 });
 
 

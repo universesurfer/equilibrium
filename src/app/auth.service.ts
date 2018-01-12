@@ -11,7 +11,8 @@ export class AuthService implements CanActivate {
 public token: string;
 isAuth: EventEmitter<any> = new EventEmitter();
 id: string;
-
+public companies: any;
+public singleCompany: any;
 
 BASE_URL: string = 'http://localhost:3000';
 
@@ -159,13 +160,23 @@ get(id) {
 }
 
 
-getCompanies(category) {
+getCompaniesForCategory(category) {
   return this.http.get(`${this.BASE_URL}/${category}`)
     .map((res) => res.json())
     .catch((err) => {
       return Observable.throw(err);
     });
 }
+
+getSingleCompany(category, company) {
+  return this.http.get(`${this.BASE_URL}/${category}/${company}`)
+    .map((res) => res.json())
+    .catch((err) => {
+      return Observable.throw(err);
+    });
+}
+
+
 
 
 

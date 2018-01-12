@@ -66,14 +66,9 @@ router.put('/:category', (req, res) => {
 });
 
 router.get('/:category', (req, res) => {
-
-// let category = req.params.category;
-
   Company.find({ "category": req.params.category }, (err, companies) => {
-
-
     if (!companies) {
-      res.status(401).json({ message: "Can't find any companies in this category or they don't exist yet." });
+      res.status(400).json({ message: "Can't find any companies in this category or they don't exist yet." });
     } else {
 
       return res.json({
@@ -84,6 +79,24 @@ router.get('/:category', (req, res) => {
   }
 });
 });
+
+router.get('/:category/:company', (req, res) => {
+
+  Company.findOne({ "companyName": req.params.company}, (err, company) => {
+    if(!company) {
+      res.status(400).json({ message: "Can't find the company you're looking for at the moment." });
+    } else {
+
+      return res.json({
+        message: "Retrieving your company",
+        company: company
+      });
+
+    }
+
+  });
+});
+
 
 
 

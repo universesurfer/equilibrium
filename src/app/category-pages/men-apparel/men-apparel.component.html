@@ -22,7 +22,15 @@
 
 
   </ul>
-  
+
+  <ul class="list" *ngFor="let company of allCompanies">
+
+    <li class="company-tile business-image">
+      {{company.companyName}}
+    </li>
+
+  </ul>
+
 </div>
 
 </div>

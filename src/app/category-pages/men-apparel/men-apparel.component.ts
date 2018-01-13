@@ -51,7 +51,6 @@ navigateToCompanyPage(company) {
   this.companyName = company.id;
   this.router.navigate([`/${this.category}/${this.companyName}`]);
 
-  this.displayCompanyInfo();
 }
 
 
@@ -87,21 +86,6 @@ getCompaniesForCategory() {
       console.log("Unable to retrieve companies...");
     }
   });
-}
-
-
-
-
-displayCompanyInfo() {
-  this.session.getSingleCompany(this.category, this.companyName)
-    .subscribe(result => {
-      if (result) {
-        this.session.singleCompany = result
-        console.log("inside the result in displayCompanyInfo()", this.session.singleCompany);
-      } else {
-        console.log("Unable to retrieve this company's information with displayCompanyInfo()");
-      }
-    });
 }
 
 

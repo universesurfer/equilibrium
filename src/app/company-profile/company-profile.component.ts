@@ -28,20 +28,27 @@ company: any;
     this.category = this.activatedRoute.snapshot.params.category;
     this.companyName = this.activatedRoute.snapshot.params.company;
 
-
+    console.log(this.params);
    }
 
   ngOnInit() {
     console.log(this.session.companies);
     this.companies = this.session.companies;
 
-    this.displayCompanyInfo();
+    // this.params.subscribe(params => {
+    //   this.displayCompanyInfo(params['category'], params['companyName']);
+    // });
+
+    this.displayCompanyInfo(this.params.category, this.params.company);
+
+
+    this.company = this.session.singleCompany; //retrieving company data from service.
 }
 
 
 
-displayCompanyInfo() {
-  this.session.getSingleCompany(this.category, this.companyName)
+displayCompanyInfo(category, companyName) {
+  this.session.getSingleCompany(category, companyName)
     .subscribe(result => {
       if (result) {
         this.company = result

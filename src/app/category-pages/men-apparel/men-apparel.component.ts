@@ -50,6 +50,8 @@ allCompanies: any;
 navigateToCompanyPage(company) {
   this.companyName = company.id;
   this.router.navigate([`/${this.category}/${this.companyName}`]);
+
+  this.displayCompanyInfo();
 }
 
 
@@ -88,9 +90,24 @@ getCompaniesForCategory() {
 }
 
 
+
+
+displayCompanyInfo() {
+  this.session.getSingleCompany(this.category, this.companyName)
+    .subscribe(result => {
+      if (result) {
+        this.session.singleCompany = result
+        console.log("inside the result in displayCompanyInfo()", this.session.singleCompany);
+      } else {
+        console.log("Unable to retrieve this company's information with displayCompanyInfo()");
+      }
+    });
+}
+
+
 getCompanyFromArray(company) {
   // this.allCompanies.forEach((company) => {
-    console.log(company);
+    // console.log(company);
     // if (company.name === this.companyName) {
     //   this.session.singleCompany = company;
     //   console.log("getting the right company", company);

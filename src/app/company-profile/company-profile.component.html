@@ -1,12 +1,11 @@
 <p>
-  company-profile works!  {{company?.companyName}}
+  <!-- company-profile works!  {{company?.companyName}} -->
 </p>
 
 
-<!-- <h1>{{ (company | async )?.categoryName }}</h1> -->
+<!-- <h1>inside singleCompany {{company.companyName}}</h1> -->
 
-<div *ngIf="company">
 
-  <h1>{{company.companyName}}</h1>
+<h1>{{company?.companyName}}</h1>
 
-</div>
+<h1>{{company.company.companyName}}</h1>

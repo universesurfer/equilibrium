@@ -16,6 +16,7 @@ export class ProfileComponent implements OnInit {
   editCheck: boolean = false;
   currentUser = Object;
   user: any;
+  image: any;
   paramsId: string;
   isAuth: boolean;
   aboutText: string;
@@ -24,9 +25,6 @@ export class ProfileComponent implements OnInit {
 
   // NOTE: image uploading
   uploader: FileUploader; //
-
-  // public uploader: FileUploader = new FileUploader( {url:`${this.BASE_URL}/profile/${this.id}`} );
-
 
 
 
@@ -81,7 +79,8 @@ export class ProfileComponent implements OnInit {
 // NOTE: image uploading
 saveAvatar() {
   this.uploader.uploadAll();
-  // console.log(this.uploader.queue.file);
+  // console.log(this.uploader.queue[0].file);
+  // this.image = this.uploader.queue[0].file;
 }
 
 

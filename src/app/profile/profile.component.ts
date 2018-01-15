@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
+import { FileUploader } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-profile',
@@ -11,6 +11,9 @@ import { FileSelectDirective, FileUploader } from 'ng2-file-upload';
 })
 export class ProfileComponent implements OnInit {
 
+  BASE_URL: string = 'http://localhost:3000';
+
+  editCheck: boolean = false;
   currentUser = Object;
   user: any;
   paramsId: string;
@@ -21,7 +24,10 @@ export class ProfileComponent implements OnInit {
 
   // NOTE: image uploading
   uploader: FileUploader; //
-  BASE_URL: string = 'http://localhost:3000';
+
+  // public uploader: FileUploader = new FileUploader( {url:`${this.BASE_URL}/profile/${this.id}`} );
+
+
 
 
   constructor(
@@ -66,24 +72,39 @@ export class ProfileComponent implements OnInit {
 
     // NOTE: image uploading
     //Setting the url for uploader
-    // this.uploader = new FileUploader({
-    //     url:`${this.BASE_URL}/profile/${this.id}`
-    //   });
+    this.uploader = new FileUploader({
+        url:`${this.BASE_URL}/profile/${this.id}`
+      });
 
   }
 
 // NOTE: image uploading
-// saveAvatar() {
-//   this.uploader.uploadAll();
+saveAvatar() {
+  this.uploader.uploadAll();
+  // console.log(this.uploader.queue.file);
+}
+
+
+// edit() {
+//   this.editCheck = true;
 // }
-
-
 
   getUserDetails(id) {
     this.session.get(id)
     .subscribe((returnedUser) => {
       this.currentUser = returnedUser;
     });
+  }
+
+  updatePicture() {
+    this.session.editPicture(this.user)
+    .subscribe(result => {
+      if (result) {
+        console.log("getting the result of updatePicture()", result);
+      } else {
+        console.log("Was not able to update picture at this time.");
+      }
+    })
   }
 
 

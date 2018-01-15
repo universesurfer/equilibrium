@@ -12,6 +12,7 @@ public token: string;
 isAuth: EventEmitter<any> = new EventEmitter();
 id: string;
 public companies: any;
+
 public singleCompany: any;
 
 BASE_URL: string = 'http://localhost:3000';
@@ -135,6 +136,15 @@ logout() {
 edit(user) {
   this.id = localStorage.getItem('id');
   return this.http.put(`${this.BASE_URL}/profile/${this.id}`, user)
+    .map((res) => res.json())
+    .catch((err) => {
+      return Observable.throw(err);
+    });
+}
+
+editPicture(user) {
+  this.id = localStorage.getItem('id');
+  return this.http.post(`${this.BASE_URL}/profile/${this.id}`, user)
     .map((res) => res.json())
     .catch((err) => {
       return Observable.throw(err);

@@ -22,8 +22,23 @@
             <img src="user.avatar" class="user-avatar">
           </a>
         </div>
-        <input type="file" class="form-control" name="avatar" ng2FileSelect [uploader]="uploader">
-        <button type="submit" name="button" (click)="saveAvatar()">Save Avatar</button>
+
+        <!-- <button type="button" name="button" (click)="edit()"></button> -->
+        <!-- <div *ngIf="editCheck"> -->
+
+          <input type="file" name="avatar" ng2FileSelect [uploader]="uploader"/>
+          <button type="button" name="button" (click)="saveAvatar()">Save Avatar</button>
+          <button type="submit" name="button" (click)="updatePicture()">Update Picture</button>
+
+          <p>Queue length: {{ uploader?.queue?.length }}</p>
+          Queue progress:
+                     <div class="progress" style="">
+                         <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+                     </div>
+
+        <!-- </div> -->
+
+
       </div>
 
       </fieldset>

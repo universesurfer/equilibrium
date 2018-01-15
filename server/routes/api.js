@@ -5,6 +5,7 @@ let router = express.Router();
 const User = require('../models/user');
 const Company = require('../models/company');
 const mongoose = require("mongoose");
+const upload = require('../config/multer');
 
 
 // let sesh;
@@ -33,6 +34,7 @@ router.get('/', (req, res) => {
 //EDIT USER PROFILE
 router.put('/profile/:id', (req, res) => {
 
+// console.log("Checking out file in route", req.file);
 
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
     return res.status(400).json({ message: 'Specified id is not valid.' });
@@ -53,6 +55,37 @@ router.put('/profile/:id', (req, res) => {
     }
   });
 });
+
+
+// NOTE: may be getting 500 error due to user in DB not yet having image property
+router.post('/profile/:id', (req, res) => {
+
+  console.log("Checking out file in route", req.file);
+
+ // upload.single('file'),
+
+
+  // let image = {
+  //   avatar: `http://localhost:3000/uploads/${req.file.filename}`
+  // };
+  //
+  // MongooseCollection.findByIdAndUpdate(id, image, (err, user)=>{
+  //   if (err) {
+  //     next(err)
+  //   } else {
+  //     console.log("response", user);
+  //     res.json(user);
+  //   }
+  // });
+
+  res.json({
+    avatar: req.file
+  });
+
+
+});
+
+
 
 
 router.put('/:category', (req, res) => {

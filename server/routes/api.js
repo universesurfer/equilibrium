@@ -61,6 +61,12 @@ router.put('/profile/:id', (req, res) => {
 // NOTE: may be getting 500 error due to user in DB not yet having image property?
 router.post('/profile/:id', upload.single('file'), (req, res) => {
 
+  var id = req.params.id;
+
+//   let image = {
+//   avatar: `http://localhost:3000/uploads/${req.file.filename}`
+// };
+
   console.log("Checking out file in route", req.file);
 
 

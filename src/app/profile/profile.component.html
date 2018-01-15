@@ -26,8 +26,9 @@
         <!-- <button type="button" name="button" (click)="edit()"></button> -->
         <!-- <div *ngIf="editCheck"> -->
 
-          <input type="file" class="form-control" name="file" ng2FileSelect [uploader]="uploader"/>
-          <button type="button"  (click)="saveAvatar()">Save Avatar</button>
+          <input type="file" name="avatar" ng2FileSelect [uploader]="uploader"/>
+          <button type="button" name="button" (click)="saveAvatar()">Save Avatar</button>
+          <button type="submit" name="button" (click)="updatePicture()">Update Picture</button>
 
           <p>Queue length: {{ uploader?.queue?.length }}</p>
           Queue progress:

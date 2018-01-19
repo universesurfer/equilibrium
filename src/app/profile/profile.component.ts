@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import { FileUploader } from 'ng2-file-upload';
+import { FileUploader, FileItem, ParsedResponseHeaders } from 'ng2-file-upload';
 
 @Component({
   selector: 'app-profile',
@@ -78,14 +78,28 @@ export class ProfileComponent implements OnInit {
         url:`${this.BASE_URL}/profile/${this.id}`
       });
 
+
+    this.uploader.onSuccessItem = (item, response) => {
+
+      this.session.get(this.paramsId)
+      .subscribe((response) => {
+      this.user = response.user;
+      console.log("in success response", this.user);
+    });
+};
+
+
   }
 
-// NOTE: image uploading
+
+
+
+//Upload new image
 saveAvatar() {
   this.uploader.uploadAll();
-  // console.log(this.uploader.queue[0].file);
-  // this.image = this.uploader.queue[0].file;
 }
+
+
 
 
 // edit() {

@@ -11,15 +11,14 @@
       <fieldset class="form-group">
 
 
-      <div class="profile-picture">
-        <div *ngIf="!user.avatar">
+        <div *ngIf="!user.image">
           <a>
-            <img src="/assets/glyphicons/user.png" class="user-avatar" alt="">
+            <img src="/assets/glyphicons/user.png" class="profile-picture" alt="">
           </a>
         </div>
-        <div *ngIf="user.avatar">
+        <div *ngIf="user.image">
           <a>
-            <img src="user.avatar" class="user-avatar">
+            <img src="/{{user.image.path}}" class="profile-picture">
           </a>
         </div>
 
@@ -27,18 +26,15 @@
         <!-- <div *ngIf="editCheck"> -->
 
           <input type="file" name="avatar" ng2FileSelect [uploader]="uploader"/>
-          <button type="button" name="button" (click)="saveAvatar()">Save Avatar</button>
+          <button type="button" name="button" (click)="saveAvatar()">Save Image</button>
 
-          <p>Queue length: {{ uploader?.queue?.length }}</p>
-          Queue progress:
+          <!-- <p>Queue length: {{ uploader?.queue?.length }}</p> -->
+          <!-- Queue progress:
                      <div class="progress" style="">
                          <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
-                     </div>
+                     </div> -->
 
         <!-- </div> -->
-
-
-      </div>
 
       </fieldset>
       </form>
@@ -68,12 +64,6 @@
 
 </div>
 
-
-<div id="user-image">
-    <img src="/{{user.image.path}}" id="user-image-style">
-</div>
-
-  {{user.image.path}}
 
 <!-- Basic angular-star-rating implementation to see if it works (it does) -->
 <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>

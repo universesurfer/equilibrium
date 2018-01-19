@@ -8,8 +8,8 @@
 
 .profile-picture {
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   border: 1px solid black;
   /* background-size: contain;
   background-position: center; */
@@ -20,7 +20,7 @@
   border-radius: 50%;
   height: 100%;
   width: 100%;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 

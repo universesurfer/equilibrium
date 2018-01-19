@@ -28,3 +28,17 @@
 #about-info {
   margin-top: 5rem;
 }
+/* /Users/rufio/Desktop/EQUILIBRIUM/server/public/uploads/1516226707431.jpg */
+
+#user-image {
+  height: 200px;
+  width: 200px;
+  border: 1px black solid;
+  /* background-image: url("/server/public/uploads/1516226707431.jpg"); */
+}
+
+#user-image-style {
+  height: 100%;
+  width: 100%;
+
+}

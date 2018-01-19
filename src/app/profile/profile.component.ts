@@ -14,9 +14,11 @@ export class ProfileComponent implements OnInit {
   BASE_URL: string = 'http://localhost:3000';
 
   editCheck: boolean = false;
+
   currentUser = Object;
   user: any;
-  image: any;
+
+
   paramsId: string;
   isAuth: boolean;
   aboutText: string;
@@ -39,6 +41,7 @@ export class ProfileComponent implements OnInit {
 
 
       this.user = localStorage.getItem('user');
+
 
 //If the localStorage id matches the id in the url parameter, display buttons and allow user to edit bio.
       if(this.id === this.paramsId) {
@@ -65,6 +68,7 @@ export class ProfileComponent implements OnInit {
       console.log("user id", this.id);
       this.paramsId = params['id'];
       console.log("in params id", this.paramsId);
+
 
     });
 

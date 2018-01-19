@@ -28,7 +28,6 @@
 
           <input type="file" name="avatar" ng2FileSelect [uploader]="uploader"/>
           <button type="button" name="button" (click)="saveAvatar()">Save Avatar</button>
-          <button type="submit" name="button" (click)="updatePicture()">Update Picture</button>
 
           <p>Queue length: {{ uploader?.queue?.length }}</p>
           Queue progress:
@@ -43,6 +42,7 @@
 
       </fieldset>
       </form>
+
 
 
     </section>
@@ -67,6 +67,13 @@
 </div>
 
 </div>
+
+
+<div id="user-image">
+    <img src="/{{user.image.path}}" id="user-image-style">
+</div>
+
+  {{user.image.path}}
 
 <!-- Basic angular-star-rating implementation to see if it works (it does) -->
 <star-rating-comp [starType]="'svg'" [rating]="2.63"></star-rating-comp>

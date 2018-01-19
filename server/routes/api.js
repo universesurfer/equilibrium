@@ -59,38 +59,33 @@ router.put('/profile/:id', (req, res) => {
 // var uploadFile = upload.fields({ name: 'file', maxCount: 1 });
 
 // NOTE: may be getting 500 error due to user in DB not yet having image property?
-router.post('/profile/:id', upload.single('file'), (req, res) => {
+router.post('/profile/:id', upload.single('file'), (req, res, next) => {
+
+    console.log("Checking out file in route", req.file);
 
   var id = req.params.id;
 
-//   let image = {
-//   avatar: `http://localhost:3000/uploads/${req.file.filename}`
-// };
-
-  console.log("Checking out file in route", req.file);
+  let image = req.file;
 
 
+  User.findByIdAndUpdate(id, {
+    image: image
+  }, (err, user, image) => {
 
+    if (err) {
+      next(err);
+    } else {
+      res.json({
+        user: "Getting the user in image update" + user,
+        file: "Here's the image file" + image
+      });
+    }
 
-  // let image = {
-  //   avatar: `http://localhost:3000/uploads/${req.file.filename}`
-  // };
-  //
-  // MongooseCollection.findByIdAndUpdate(id, image, (err, user)=>{
-  //   if (err) {
-  //     next(err)
-  //   } else {
-  //     console.log("response", user);
-  //     res.json(user);
-  //   }
-  // });
-
-  res.json({
-    avatar: req.file
   });
-
-
 });
+
+
+
 
 
 

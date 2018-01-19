@@ -53,12 +53,17 @@ app.use(passport.initialize());
 app.use(passport.session());   //persistent login sessions
 app.use(flash());     //use connect-flash for flash messages stored in session
 
+
+
 //Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
 //Set our api routes
 app.use('/', api);
 app.use('/', auth);
+
+//Allows the use of /server filepath when serving uploaded user images
+app.use('/server', express.static(path.join(__dirname, '/server')));
 
 //Catch all other routes and return the index file.
 //Catch-all route MUST come after all other API routes have been defined.

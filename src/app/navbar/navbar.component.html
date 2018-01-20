@@ -4,9 +4,21 @@
 <!-- If the user is logged in, display a profile icon. -->
 
   <ul *ngIf="isAuth" class="nav navbar-nav ml-auto">
-      <li class="nav-item" id="profile-dropdown">
-        <a class="nav-link" (click)="goToProfile()"></a>
+
+    <div *ngIf="user.image">
+      <li class="nav-item">
+        <a (click)="goToProfile()" href="">
+          <img src="/{{user.image.path}}" class="profile-dropdown" alt="">
+        </a>
       </li>
+    </div>
+
+    <div *ngIf="!user.image">
+      <li class="nav-item" >
+        <img src="/assets/glyphicons/user.png" class="profile-dropdown" alt="" (click)="goToProfile()">
+      </li>
+    </div>
+
   </ul>
 
 </nav>

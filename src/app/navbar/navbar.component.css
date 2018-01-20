@@ -11,12 +11,10 @@
 }
 
 
-#profile-dropdown {
+.profile-dropdown {
   border-radius: 50%;
   height: 50px;
   width: 50px;
-  border: .1px solid black;
-  background-image: url('/assets/glyphicons/shirt.png');
-  background-size: contain;
-  background-position: center;
+  border: 1px solid black;
+  object-fit: cover;
 }

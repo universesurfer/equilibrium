@@ -13,7 +13,8 @@ isAuth: EventEmitter<any> = new EventEmitter();
 id: string;
 public companies: any;
 
-public singleCompany: any;
+
+// public singleCompany: any;
 
 BASE_URL: string = 'http://localhost:3000';
 

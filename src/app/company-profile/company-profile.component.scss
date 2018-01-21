@@ -1,0 +1,14 @@
+.company-hero {
+    /*Linear gradient to provide white opacity to hero image*/
+    background-image: url("/assets/images/hero-placeholder.jpg");
+    background-size: contain;
+    background-repeat: repeat;
+    height: 450px;
+    -webkit-animation: slide 60s linear infinite;
+}
+
+
+.company-overview {
+  height: 200px;
+  border-bottom: black 1px solid;
+}

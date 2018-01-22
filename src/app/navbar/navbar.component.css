@@ -3,10 +3,10 @@
 }
 
 .navbar {
-  display: flex;
+  /* display: flex; */
   min-height: 50px;
   border-bottom: 1px solid black;
-  align-items: center;
+  /* align-items: center; */
   margin-bottom: 0;
 }
 

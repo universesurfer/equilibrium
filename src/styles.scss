@@ -19,11 +19,18 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 60rem;
-  height: 35rem;
+  width: 40rem;
+  height: 23rem;
   margin-top: 5rem;
   margin-right: 5rem;
 }
+
+.container-fluid {
+    padding-right:0;
+    padding-left:0;
+    margin-right:auto;
+    margin-left:auto
+ }
 
 
 /* @media only screen and (max-width: 750px) {

@@ -8,10 +8,7 @@ const userSchema = new Schema ({
   password: String,
   image: Object,
   aboutText: String,
-  ratings: [{
-    company: { type: Schema.Types.ObjectId, ref: "Company" },
-    rating: Number
-  }]
+  reviews: [ { type: Schema.Types.ObjectId, ref: "Review" } ]
   // comments: { type: Schema.Types.ObjectId, ref: 'Comment' }
 
 });

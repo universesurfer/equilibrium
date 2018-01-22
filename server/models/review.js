@@ -6,7 +6,7 @@ const reviewSchema = new Schema ({
   starRating: Number,
   subject: String,
   commentBody: String,
-  user: { type: Schema.Types.ObjectId, ref: 'User'}
+  userId: { type: Schema.Types.ObjectId, ref: 'User'}
 
 });
 

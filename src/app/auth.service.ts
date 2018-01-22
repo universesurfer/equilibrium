@@ -152,9 +152,9 @@ editPicture(user) {
     });
 }
 
-makeRating(category, user, rating) {
-  var categoryName = category;
-  return this.http.put(`${this.BASE_URL}/${category}`, user, rating)
+//Passes review object from company profile to server
+makeReview(category, company, review) {
+  return this.http.post(`${this.BASE_URL}/${category}/${company}`, review)
     .map((res) => res.json())
     .catch((err) => {
       return Observable.throw(err);

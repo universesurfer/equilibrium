@@ -22,6 +22,49 @@
   </div>
 </div>
 
+<div class="container">
+<div class="row">
+  <div class="col">
+    <div class="company-reviews">
+        <p class="text-center">Company review section</p>
+
+        <!-- User review form -->
+        <div class="" *ngIf="isAuth">
+
+          <form>
+
+              <!-- <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" formControlName="myRatingControl" (onRatingChange)="onRatingChange($event)" [rating]="2.63"></star-rating-comp>
+              <h2>{{rating}}</h2> -->
+          
+              <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" [rating]="2.63"></star-rating-comp>
+              {{rating}}
+
+
+            <fieldset class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" class="form-control" placeholder="Subject" name="subject" [(ngModel)]="review.subject">
+            </fieldset>
+
+            <fieldset>
+              <label for="review">Review</label>
+              <input type="text" class="form-control comment-body" name="commentBody" [(ngModel)]="review.commentBody">
+            </fieldset>
+
+              <!-- <button *ngIf="isAuth" type="button" name="button" class="btn btn-info">EDIT BIO</button> -->
+              <button type="submit" class="btn btn-primary" ng-click="submitted=true" (click)="submitUserReview()">Submit</button>
+          </form>
+
+
+        </div>
+
+
+
+
+    </div>
+  </div>
+</div>
+</div>
+
 
 
 

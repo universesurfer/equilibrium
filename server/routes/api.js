@@ -136,7 +136,7 @@ router.get('/:category/:company', (req, res) => {
 });
 
 
-router.post('/:category/:company', (req, res) => {
+router.post('/:category/:company', (req, res, next) => {
 
   var subject = req.body.subject;
   var commentBody = req.body.commentBody;
@@ -155,20 +155,121 @@ router.post('/:category/:company', (req, res) => {
     userId
   });
 
-  newReview.save((err, review) => {
-       if (err) {
-         return res.status(400).json({ message: err });
-       } else {
-         // res.json({
-         //   message: "Inside the response for the review post to company",
-         //   params: req.params,
-         //   requestBody: req.body
-         // });
+// NOTE: can get company by name search, don't need id
 
-         res.status(200).json({ message: 'Review saved', review });
-       }
-     });
+
+         newReview.save((err, review) => {
+           console.log("printing new review", review);
+              if (err) {
+                return res.status(400).json({ message: err });
+              } else { User.findByIdAndUpdate({_id: userId},{$push: {reviews: review.id} }, (err) => {
+                  if (err) {
+                    console.log("There was an error pushing review to user");
+                    next(err);
+                  } else {  Company.findOneAndUpdate({ "companyName": req.params.company}, {$push: {reviews: review.id}}, (err, company) => {
+                      if (err) {
+                        console.log("There was an error pushing review to company");
+                        next(err);
+                      } else {
+                        // review.companyId.push()
+                        console.log("success, and here's the company found by mongo in route", company);
+                      }
+                // res.json({
+                //   message: "Inside the response for the review post to company",
+                //   params: req.params,
+                //   requestBody: req.body
+                // });
+                // res.status(200).json({ message: 'Review saved', review });
+              });
+            }
+          });
+        }
+
+    });
+
+
 });
+//
+//
+// router.post('/', (req, res, next) => {
+//   console.log(req)
+//   var  rating = req.body.rating;
+//   var	 evaluation = req.body.evaluation;
+//   var	 subject = req.body.subject;
+//   var  customer = req.body.customer;
+//   var  helper = req.body.helper;
+//   var  booking = req.body.booking;
+//
+//   var newReview = Review({
+//     rating,
+//     evaluation,
+//     subject,
+//     booking,
+//     customer,
+//     helper
+//   });
+//
+//   console.log(newReview)
+//   newReview.save((err, review) => {
+//     if (err) {
+//       req.flash('error', 'Unable to save');
+//       res.render("auth/signup", {
+//         message: req.flash('error')
+//       });
+//     } else { User.findByIdAndUpdate({_id: customer},{$push: { reviews: review.id }}, (err) => {
+//       if (err) {
+//         console.log("GOT AN ERROR");
+//         next(err);
+//       } else {  User.findByIdAndUpdate({_id: helper},{$push: { reviews: review.id,}}, (err) => {
+//         if (err) {
+//           console.log("GOT AN ERROR");
+//           next(err);
+//         } else {  Booking.findByIdAndUpdate({_id: booking},{$push: { reviews: review.id,}}, (err) => {
+//           if (err) {
+//             console.log("GOT AN booking eror");
+//             next(err);
+//           }
+//         else {
+//           User
+//           .findOne({_id: req.body.customer})
+//           .populate("bookings")
+//           .exec((err, users) => {
+//             if (err) {
+//               next(err);
+//               return;
+//             }
+//
+//             Booking
+//             .find({customer: req.body.customer})
+//             .populate("helper")
+//             .exec((err, booking) => {
+//               if (err) {
+//                 next(err);
+//                 return;
+//               }
+//
+//               Review
+//               .findOne({_id: review.id})
+//               .populate("customer")
+//               .populate("helper")
+//               .exec((err, review) => {
+//                 if (err) {
+//                   next(err);
+//                   return;
+//                 }
+//                 res.json(review);
+//                 // res.render('dashboard/profile', {review, booking, users});
+//               });
+//             });
+//           })
+//           ;}
+//         });
+//       }
+//           });
+//         }
+//     });
+//   }
+// });
 
 
 //

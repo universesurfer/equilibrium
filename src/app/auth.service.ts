@@ -153,8 +153,8 @@ editPicture(user) {
 }
 
 //Passes review object from company profile to server
-makeReview(category, company, review) {
-  return this.http.post(`${this.BASE_URL}/${category}/${company}`, review)
+makeReview(category, companyName, review ) {
+  return this.http.post(`${this.BASE_URL}/${category}/${companyName}`, review )
     .map((res) => res.json())
     .catch((err) => {
       return Observable.throw(err);

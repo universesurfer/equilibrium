@@ -115,7 +115,7 @@ displayCompanyInfo(category, companyName) {
 //Submit the user review
 // NOTE: currently without rating until I know it works
 submitUserReview() {
-  this.session.makeReview(this.category, this.companyName, this.review)
+  this.session.makeReview(this.category, this.companyName, this.review )
   .subscribe(result => {
     if (result) {
       console.log("Review submitted from submitUserReview()", result);
@@ -123,11 +123,9 @@ submitUserReview() {
     } else {
       console.log("Unable to submit review from submitUserReview()", result);
       return false;
-    }
-  });
+  };
+});
 }
-
-
 
 
 }

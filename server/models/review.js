@@ -3,13 +3,16 @@ const Schema = mongoose.Schema;
 
 const reviewSchema = new Schema ({
 
+  companyName: String,
+  companyId: { type: Schema.Types.ObjectId, ref: 'Company'},
   starRating: Number,
   subject: String,
   commentBody: String,
-  userId: { type: Schema.Types.ObjectId, ref: 'User'}
+  createdBy: { type: Schema.Types.ObjectId, ref: 'User'},
 
 });
 
+reviewSchema.set('timestamps', true);
 
 const Review = mongoose.model("Review", reviewSchema);
 module.exports = Review;

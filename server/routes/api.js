@@ -138,10 +138,13 @@ router.get('/:category/:company', (req, res) => {
 
 router.post('/:category/:company', (req, res, next) => {
 
+  var companyName;
+  var companyId;
   var subject = req.body.subject;
   var commentBody = req.body.commentBody;
   var starRating = req.body.starRating;
-  var userId = req.body.userId;
+  var createdBy = req.body.createdBy;
+
 
   if(!subject || !commentBody || !starRating) {
     res.status(400).json({ message: "Subject, comment body, and star rating are required." });
@@ -149,20 +152,28 @@ router.post('/:category/:company', (req, res, next) => {
   }
 
   var newReview = Review({
+    companyName,
+    companyId,
     starRating,
     subject,
     commentBody,
-    userId
+    createdBy
   });
 
-// NOTE: can get company by name search, don't need id
-
+  Company.findOne({"companyName": req.params.company}, (err, company) => {
+    if (err) {
+      return res.status(400).json({ message: err });
+    } else {
+      this.companyName = company.companyName;
+      this.companyId = company.id;
+    }
+  });
 
          newReview.save((err, review) => {
-           console.log("printing new review", review);
+
               if (err) {
                 return res.status(400).json({ message: err });
-              } else { User.findByIdAndUpdate({_id: userId},{$push: {reviews: review.id} }, (err) => {
+              } else { User.findByIdAndUpdate({_id: createdBy },{$push: {reviews: review.id} }, (err) => {
                   if (err) {
                     console.log("There was an error pushing review to user");
                     next(err);
@@ -171,23 +182,46 @@ router.post('/:category/:company', (req, res, next) => {
                         console.log("There was an error pushing review to company");
                         next(err);
                       } else {
-                        // review.companyId.push()
-                        console.log("success, and here's the company found by mongo in route", company);
-                      }
-                // res.json({
-                //   message: "Inside the response for the review post to company",
-                //   params: req.params,
-                //   requestBody: req.body
-                // });
-                // res.status(200).json({ message: 'Review saved', review });
-              });
+
+                        //Sets companyId and companyName properties to review for Mongo
+                        Review.update({_id: review.id}, {$set: {companyId: this.companyId, companyName: this.companyName}}, (err, changes) => {
+                          if(err) {
+                            return res.status(400).json({message : err});
+                          } else {
+                            console.log("updating review successfully with company info", changes);
+                          }
+                        });
+
+                        console.log ("Review successfully saved");
+
+                        res.json({
+                          review: review,
+                        });
+
+
+            // NOTE: would populate be used here to display the changes immediately after submission?
+              // Review.findOne({_id: review.id})
+              // .populate("companyId", company.id)
+              // .populate("createdBy", userId)
+              // .exec((err, review) => {
+              //   if (err) {
+              //     next(err);
+              //     return;
+              //   }
+              //   res.json(review);
+              //   // res.render('dashboard/profile', {review, booking, users});
+              // });
+
             }
           });
+
         }
+      });
 
-    });
+    }
 
 
+});
 });
 //
 //

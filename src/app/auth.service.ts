@@ -14,6 +14,7 @@ id: string;
 public companies: any;
 
 
+
 // public singleCompany: any;
 
 BASE_URL: string = 'http://localhost:3000';
@@ -153,7 +154,7 @@ editPicture(user) {
 }
 
 //Passes review object from company profile to server
-makeReview(category, companyName, review ) {
+makeReview(category, companyName, review) {
   return this.http.post(`${this.BASE_URL}/${category}/${companyName}`, review )
     .map((res) => res.json())
     .catch((err) => {

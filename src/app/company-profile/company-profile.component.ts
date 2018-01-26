@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthService } from './../auth.service';
-import { AsyncPipe } from '@angular/common';
 import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/star-rating-struct";
 
 
@@ -17,7 +16,7 @@ isAuth: boolean;
 user: any;
 
 onRatingChangeResult: OnRatingChangeEven;
-rating: number; //placeholder to hold a number value in review model
+
 
 companies: any;
 
@@ -26,14 +25,24 @@ category: string;
 companyName: string;
 company: any;
 
+//Empty data type placeholders.  Values for corresponding review properties are set in onRatingChange and displayCompanyInfo() in ngOnInit
+//Avoiding async issue
+rating: number;
+companyId: string;
+
 
 //Hold review data from form to send to Mongo
 review = {
+  companyName: this.companyName,
+  companyId: this.companyId,
   starRating: this.rating, //placeholder to hold a number value
   subject: '',
   commentBody: '',
-  userId: ''
+  createdBy: ''
 };
+
+// companyName: this.companyName,  // NOTE: not getting these values in backend
+// companyId: this.companyId, //placeholder to hold a string value
 
   constructor(
     private session: AuthService,
@@ -59,6 +68,7 @@ review = {
     this.category = this.activatedRoute.snapshot.params.category;
     this.companyName = this.activatedRoute.snapshot.params.company;
 
+
    }
 
 
@@ -69,13 +79,14 @@ review = {
     console.log("getting current user", this.user);
 
     //Set the user id to the user property in review model to make sure it's available when page loads
-    this.review.userId = this.user._id;
+    this.review.createdBy = this.user._id;
 
     console.log(this.session.companies);
     this.companies = this.session.companies;
 
-    //Display the company data when page loads.
+    //Call and display the company data when page loads.
     this.displayCompanyInfo(this.params.category, this.params.company);
+
 
 }
 
@@ -97,14 +108,15 @@ onRatingChange = ($event: OnRatingChangeEven) => {
 
 
 
-
 //Retrieves relevant company information for each separate company
 displayCompanyInfo(category, companyName) {
   this.session.getSingleCompany(category, companyName)
     .subscribe(result => {
       if (result) {
-        this.company = result
+        this.company = result.company
+        this.companyId = result.company.id
         console.log("inside the result in displayCompanyInfo()", this.company);
+
       } else {
         console.log("Unable to retrieve this company's information with displayCompanyInfo()");
       }

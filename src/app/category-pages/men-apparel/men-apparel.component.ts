@@ -61,7 +61,6 @@ getCompaniesForCategory() {
   .subscribe(result => {
     if (result) {
       this.allCompanies = result.companies;
-      this.session.companies = result.companies;
       console.log("inside the result in getCompaniesForCategory()", result);
     } else {
       console.log("Unable to retrieve companies...");

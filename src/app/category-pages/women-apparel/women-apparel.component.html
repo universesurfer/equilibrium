@@ -1,23 +1,36 @@
 <app-navbar></app-navbar>
+
 <div class="container-fluid">
 
-<div class="row">
-
-  <ul class="list">
-    <li class="business-image" id="everlane"></li>
-
-    <li class="business-image" id="amour-vert"></li>
-
-    <li class="business-image" id="reformation"></li>
-
-    <li class="business-image" id="eileen-fisher"></li>
-
-    <li class="business-image" id="tribe-alive"></li>
-
-    <li class="business-image" id="pact"></li>
 
 
-  </ul>
-</div>
+  <ul class="company-list">
 
+    <div class="row company-row">
+        <li class="company-image" id="everlane" #everlane (click)="navigateToCompanyPage(everlane)"></li>
+    </div>
+
+    <div class="row company-row">
+        <li class="company-image" id="amour-vert" #amourVert (click)="navigateToCompanyPage(amourVert)"></li>
+    </div>
+
+    <div class="row company-row">
+        <li class="company-image" id="reformation" #reformation (click)="navigateToCompanyPage(reformation)"></li>
+    </div>
+
+    <div class="row company-row">
+        <li class="company-image" id="eileen-fisher" #eileenFisher (click)="navigateToCompanyPage(eileenFisher)"></li>
+    </div>
+
+    <div class="row company-row">
+        <li class="company-image" id="tribe-alive" #tribeAlive (click)="navigateToCompanyPage(tribeAlive)"></li>
+    </div>
+
+    <div class="row company-row">
+        <li class="company-image" id="pact" #pact (click)="navigateToCompanyPage(pact)"></li>
+    </div>
+
+
+
+</ul>
 </div>

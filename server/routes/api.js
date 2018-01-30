@@ -88,6 +88,18 @@ router.post('/profile/:id', upload.single('file'), (req, res, next) => {
 });
 
 
+//Get user profile
+router.get('/profile/:id', (req, res, next) => {
+
+
+      res.json({
+        user: "Getting the user profile"
+      });
+
+
+});
+
+
 
 
 
@@ -124,50 +136,7 @@ router.get('/:category', (req, res) => {
 //Retrieve all the reviews for the company and populate
 router.get('/:category/:company', (req, res, next) => {
 
- // res.json({
- //    params: req.params
- //  });
-
-//
-//   Company.find({
-//     '_id': { $in: [
-//         mongoose.Types.ObjectId('4ed3ede8844f0f351100000c'),
-//         mongoose.Types.ObjectId('4ed3f117a844e0471100000d'),
-//         mongoose.Types.ObjectId('4ed3f18132f50c491100000e')
-//     ]}
-// }, function(err, docs){
-//      console.log(docs);
-// });
-
-
-  //   Company.findOne({'companyName': req.params.companyName})
-  //     .populate("helper")
-  //     .populate("customer")
-  //     .exec((err, reviewHelper) => {
-  //       if (err) {
-  //         next(err);
-  //         return;
-  //       }
-  //
-  //
-  //       res.json({reviewHelper,reviewCustomer, users});
-  //
-  //
-  // });
-
-
-
-
-
-
-
   Company.findOne({ "companyName": req.params.company}, (err, company) => {
-
-    // var reviews;
-    //
-    // company.reviews.forEach(function(review) {
-    //   reviews[review._id] = review;
-    // });
 
     console.log("printing all reviews", company.reviews);
 
@@ -175,25 +144,7 @@ router.get('/:category/:company', (req, res, next) => {
       res.status(400).json({ message: "Can't find the company you're looking for at the moment." });
     } else {
 
-
-      // Review.findOne({'companyName': company.companyName})
-
-      // company.populate("reviews")
-      // .exec((err, companyReviews) => {
-      //   if (err) {
-      //     next(err);
-      //     return;
-      //   }
-      //
-      //   res.json({
-      //     reviews: companyReviews,
-      //     company: company
-      //   });
-
-
-        //
-          Review.find(
-            {'_id': { $in: company.reviews} },
+          Review.find({'_id': { $in: company.reviews } },
              (err, reviews) => {
              console.log("getting all reviews for company", reviews);
 
@@ -205,51 +156,17 @@ router.get('/:category/:company', (req, res, next) => {
 
         });
 
-
-
     }
 
   });
 });
 
+// NOTE: unset property from mongodb
+// db.companies.update(
+//    { $unset: { reviews: "" } }
+// )
 
-// router.get('/:id', (req, res, next) => {
-//   User
-//   .findOne({_id: req.params.id})
-//   .populate("reviews")
-//   .exec((err, users) => {
-//     if (err) {
-//       next(err);
-//       return;
-//     }
-//
-//     Review
-//     .find({customer: req.params.id})
-//     .populate("helper")
-//     .populate("customer")
-//     .exec((err, reviewCustomer) => {
-//       if (err) {
-//         next(err);
-//         return;
-//       }
-//
-//       Review
-//       .find({helper: req.params.id})
-//       .populate("helper")
-//       .populate("customer")
-//       .exec((err, reviewHelper) => {
-//         if (err) {
-//           next(err);
-//           return;
-//         }
-//
-//
-//         res.json({reviewHelper,reviewCustomer, users});
-//
-//       });
-//     });
-//   });
-// })
+
 
 
 
@@ -290,18 +207,18 @@ router.post('/:category/:company', (req, res, next) => {
 
               if (err) {
                 return res.status(400).json({ message: err });
-              } else { User.findByIdAndUpdate({_id: createdBy },{$push: {reviews: review.id} }, (err) => {
+              } else { User.findByIdAndUpdate({_id: createdBy },{$push: {reviews: review._id} }, (err) => {
                   if (err) {
                     console.log("There was an error pushing review to user");
                     next(err);
-                  } else {  Company.findOneAndUpdate({ "companyName": req.params.company}, {$push: {reviews: review.id}}, (err, company) => {
+                  } else {  Company.findOneAndUpdate({ "companyName": req.params.company}, {$push: {reviews: review._id}}, (err, company) => {
                       if (err) {
                         console.log("There was an error pushing review to company");
                         next(err);
                       } else {
 
                         //Sets companyId and companyName properties to review for Mongo
-                        Review.update({_id: review.id}, {$set: {companyId: this.companyId, companyName: this.companyName}}, (err, changes) => {
+                        Review.update({_id: review._id}, {$set: {companyId: this.companyId, companyName: this.companyName}}, (err, changes) => {
                           if(err) {
                             return res.status(400).json({message : err});
                           } else {

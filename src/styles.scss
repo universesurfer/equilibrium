@@ -8,6 +8,27 @@ body {
   font-size: 1.2em;
 }
 
+// NOTE: new company row/tile style experimentation
+.company-row {
+  width: 100%;
+  height: 11rem;
+}
+
+.company-list {
+  height: 100%;
+}
+
+.company-image {
+  width: 18rem;
+  height: 100%;  //100% of row height
+}
+
+
+
+
+
+
+///////////////
 .list {
   display: flex;
   align-items: center;

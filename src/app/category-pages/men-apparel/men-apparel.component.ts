@@ -54,25 +54,6 @@ navigateToCompanyPage(company) {
 }
 
 
-//Returns the company id name and submits and saves company and user rating to signed in user to node
-// makeRating(company) {
-//   this.companyName = company.id;
-//   console.log(this.companyName);
-//
-//   this.user.ratings.push({
-//     company: this.companyName,
-//     rating: this.rating
-//   });
-//   this.session.makeRating(this.category, this.user, this.rating)
-//   .subscribe(result => {
-//     if (result) {
-//       console.log("checking out user in makeRating()", this.user);
-//       console.log("inside the result in makeRating()", result);
-//     } else {
-//       console.log("Something went wrong when setting company rating.");
-//     }
-//   });
-// }
 
 // When the page loads, retrieve all companies within the relevant category.
 getCompaniesForCategory() {

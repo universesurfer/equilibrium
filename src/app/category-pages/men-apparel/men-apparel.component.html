@@ -1,36 +1,54 @@
 <app-navbar></app-navbar>
 <div class="container-fluid">
 
-<div class="row">
 
-  <ul class="list">
-    <li class="business-image" id="patagonia" #patagonia name="patagonia" (click)="navigateToCompanyPage(patagonia)">
-      <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" (click)="makeRating(patagonia)" [rating]="2.63"></star-rating-comp>
-    </li>
 
-    <li class="business-image" id="tentree" #tentree (click)="navigateToCompanyPage(tentree)">
-        <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" (click)="makeRating(tentree)" [rating]="2.63"></star-rating-comp>
-    </li>
+  <ul class="company-list">
 
-    <li class="business-image" id="saltura" #saltura (click)="navigateToCompanyPage(saltura)"></li>
+    <div class="row company-row">
+        <li class="company-image" id="tentree" #tentree (click)="navigateToCompanyPage(tentree)"></li>
+    </div>
 
-    <li class="business-image" id="everlane" #everlane (click)="navigateToCompanyPage(everlane)"></li>
+    <div class="row company-row">
+        <li class="company-image" id="patagonia" #patagonia (click)="navigateToCompanyPage(patagonia)"></li>
+    </div>
 
-    <li class="business-image" id="nau" #nau (click)="navigateToCompanyPage(nau)"></li>
+    <div class="row company-row">
+        <li class="company-image" id="saltura" #saltura (click)="navigateToCompanyPage(saltura)"></li>
+    </div>
 
-    <li class="business-image" id="pact" #pact (click)="navigateToCompanyPage(pact)"></li>
+    <div class="row company-row">
+        <li class="company-image" id="everlane" #everlane (click)="navigateToCompanyPage(everlane)"></li>
+    </div>
+
+    <div class="row company-row">
+        <li class="company-image" id="nau" #nau (click)="navigateToCompanyPage(nau)"></li>
+    </div>
+
+    <div class="row company-row">
+        <li class="company-image" id="pact" #pact (click)="navigateToCompanyPage(pact)"></li>
+    </div>
+
 
 
   </ul>
 
-  <ul class="list" *ngFor="let company of allCompanies">
+
+
+
+
+
+
+
+  <!-- ^^^ style experiment ^^^ -->
+
+  <!-- <ul class="list" *ngFor="let company of allCompanies">
 
     <li class="company-tile business-image">
       {{company.companyName}}
     </li>
 
-  </ul>
+  </ul> -->
 
-</div>
 
 </div>

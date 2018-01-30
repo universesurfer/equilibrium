@@ -18,31 +18,28 @@ user: any;
 onRatingChangeResult: OnRatingChangeEven;
 
 
+
 companies: any;
 
 params: any;
 category: string;
 companyName: string;
 company: any;
+allReviews: any;
 
-//Empty data type placeholders.  Values for corresponding review properties are set in onRatingChange and displayCompanyInfo() in ngOnInit
+//Empty data type placeholder.  Values for corresponding review properties are set in onRatingChange and displayCompanyInfo() in ngOnInit
 //Avoiding async issue
 rating: number;
-companyId: string;
 
 
 //Hold review data from form to send to Mongo
 review = {
-  companyName: this.companyName,
-  companyId: this.companyId,
   starRating: this.rating, //placeholder to hold a number value
   subject: '',
   commentBody: '',
   createdBy: ''
 };
 
-// companyName: this.companyName,  // NOTE: not getting these values in backend
-// companyId: this.companyId, //placeholder to hold a string value
 
   constructor(
     private session: AuthService,
@@ -68,8 +65,9 @@ review = {
     this.category = this.activatedRoute.snapshot.params.category;
     this.companyName = this.activatedRoute.snapshot.params.company;
 
-
    }
+
+
 
 
   ngOnInit() {
@@ -91,10 +89,6 @@ review = {
 }
 
 
-// starRating = new FormGroup({
-//         myRatingControl: new FormControl('')
-//     });
-
 
 //Detect any star rating changes and update the rating variable
 onRatingChange = ($event: OnRatingChangeEven) => {
@@ -114,8 +108,9 @@ displayCompanyInfo(category, companyName) {
     .subscribe(result => {
       if (result) {
         this.company = result.company
-        this.companyId = result.company.id
+
         console.log("inside the result in displayCompanyInfo()", this.company);
+        console.log("getting entire result in displayCompanyInfo()", result);
 
       } else {
         console.log("Unable to retrieve this company's information with displayCompanyInfo()");
@@ -125,7 +120,6 @@ displayCompanyInfo(category, companyName) {
 
 
 //Submit the user review
-// NOTE: currently without rating until I know it works
 submitUserReview() {
   this.session.makeReview(this.category, this.companyName, this.review )
   .subscribe(result => {
@@ -137,6 +131,22 @@ submitUserReview() {
       return false;
   };
 });
+}
+
+
+//Get all reviews for the company
+getAllReviews() {
+  this.session.getAllReviewsForCompany(this.category, this.companyName)
+    .subscribe(result => {
+      if (result) {
+        console.log("Retrieving reviews");
+        this.allReviews = result;
+        return true;
+      } else {
+        console.log("Unable to retrieve reviews.");
+        return false;
+      }
+    })
 }
 
 

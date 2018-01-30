@@ -153,6 +153,8 @@ editPicture(user) {
     });
 }
 
+
+
 //Passes review object from company profile to server
 makeReview(category, companyName, review) {
   return this.http.post(`${this.BASE_URL}/${category}/${companyName}`, review )
@@ -161,6 +163,15 @@ makeReview(category, companyName, review) {
       return Observable.throw(err);
     });
 }
+
+getAllReviewsForCompany(category, companyName) {
+  return this.http.get(`${this.BASE_URL}/${category}/${companyName}`)
+    .map((res) => res.json())
+    .catch((err) => {
+      return Observable.throw(err);
+    });
+}
+
 
 
 get(id) {

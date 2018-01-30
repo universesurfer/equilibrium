@@ -1,3 +1,14 @@
+
+
+.row {
+  border-bottom: .5px solid black;
+  border-top: .5px solid black;
+}
+
+ul {
+  list-style-type: none;
+}
+
 #patagonia {
   background-image: url("/../assets/logos/patagonia-logo.jpg");
   background-size: cover;

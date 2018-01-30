@@ -30,12 +30,12 @@ import { OutdoorsComponent } from './category-pages/outdoors/outdoors.component'
 import { LoginModalComponent } from './login-modal/login-modal.component';
 import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { AuthService } from './auth.service';
-import { RatingService } from './rating.service';
 import { ProfileComponent } from './profile/profile.component';
 
 import { StarRatingModule } from 'angular-star-rating';
 import{ FileSelectDirective } from 'ng2-file-upload';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
+
 
 
 @NgModule({
@@ -66,7 +66,7 @@ import { CompanyProfileComponent } from './company-profile/company-profile.compo
     SignupModalComponent,
     ProfileComponent,
     CompanyProfileComponent,
-    FileSelectDirective
+    FileSelectDirective,
   ],
   imports: [
     FormsModule,
@@ -75,7 +75,7 @@ import { CompanyProfileComponent } from './company-profile/company-profile.compo
     StarRatingModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
-  providers: [AuthService, RatingService],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

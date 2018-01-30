@@ -9,9 +9,12 @@ import { Router } from '@angular/router';
 })
 export class CategoriesComponent implements OnInit {
 
+// category: string;
 
 
-  constructor() {}
+  constructor(
+    private router: Router
+  ) {}
 
 
 
@@ -20,7 +23,11 @@ export class CategoriesComponent implements OnInit {
 
 
 
-
+  // navigateToCategoryPage(category) {
+  //   this.category = category.id;
+  //   this.router.navigate([`/${this.category}`]);
+  //
+  // }
 
 
 

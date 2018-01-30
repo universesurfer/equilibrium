@@ -118,22 +118,139 @@ router.get('/:category', (req, res) => {
 });
 });
 
-router.get('/:category/:company', (req, res) => {
+
+
+
+//Retrieve all the reviews for the company and populate
+router.get('/:category/:company', (req, res, next) => {
+
+ // res.json({
+ //    params: req.params
+ //  });
+
+//
+//   Company.find({
+//     '_id': { $in: [
+//         mongoose.Types.ObjectId('4ed3ede8844f0f351100000c'),
+//         mongoose.Types.ObjectId('4ed3f117a844e0471100000d'),
+//         mongoose.Types.ObjectId('4ed3f18132f50c491100000e')
+//     ]}
+// }, function(err, docs){
+//      console.log(docs);
+// });
+
+
+  //   Company.findOne({'companyName': req.params.companyName})
+  //     .populate("helper")
+  //     .populate("customer")
+  //     .exec((err, reviewHelper) => {
+  //       if (err) {
+  //         next(err);
+  //         return;
+  //       }
+  //
+  //
+  //       res.json({reviewHelper,reviewCustomer, users});
+  //
+  //
+  // });
+
+
+
+
+
+
 
   Company.findOne({ "companyName": req.params.company}, (err, company) => {
+
+    // var reviews;
+    //
+    // company.reviews.forEach(function(review) {
+    //   reviews[review._id] = review;
+    // });
+
+    console.log("printing all reviews", company.reviews);
+
     if(!company) {
       res.status(400).json({ message: "Can't find the company you're looking for at the moment." });
     } else {
 
-      return res.json({
-        message: "Retrieving your company",
-        company: company
-      });
+
+      // Review.findOne({'companyName': company.companyName})
+
+      // company.populate("reviews")
+      // .exec((err, companyReviews) => {
+      //   if (err) {
+      //     next(err);
+      //     return;
+      //   }
+      //
+      //   res.json({
+      //     reviews: companyReviews,
+      //     company: company
+      //   });
+
+
+        //
+          Review.find(
+            {'_id': { $in: company.reviews} },
+             (err, reviews) => {
+             console.log("getting all reviews for company", reviews);
+
+             res.json({
+               message: "Retrieving your company",
+               company: company,
+               reviews: reviews
+             });
+
+        });
+
+
 
     }
 
   });
 });
+
+
+// router.get('/:id', (req, res, next) => {
+//   User
+//   .findOne({_id: req.params.id})
+//   .populate("reviews")
+//   .exec((err, users) => {
+//     if (err) {
+//       next(err);
+//       return;
+//     }
+//
+//     Review
+//     .find({customer: req.params.id})
+//     .populate("helper")
+//     .populate("customer")
+//     .exec((err, reviewCustomer) => {
+//       if (err) {
+//         next(err);
+//         return;
+//       }
+//
+//       Review
+//       .find({helper: req.params.id})
+//       .populate("helper")
+//       .populate("customer")
+//       .exec((err, reviewHelper) => {
+//         if (err) {
+//           next(err);
+//           return;
+//         }
+//
+//
+//         res.json({reviewHelper,reviewCustomer, users});
+//
+//       });
+//     });
+//   });
+// })
+
 
 
 router.post('/:category/:company', (req, res, next) => {

@@ -176,7 +176,7 @@ router.get('/:category/:company', (req, res, next) => {
             res.json({
                    message: "Retrieving your company",
                    company: company,
-                   review: review,
+                   reviews: review,
                  });
 
             console.log("returning review", review);

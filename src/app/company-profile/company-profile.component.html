@@ -28,6 +28,11 @@
 <ul class="company-list" *ngFor="let review of allReviews">
 
   <div class="row review-row">
+
+      <div class="review-user-image">
+        <img src="/{{review.createdBy.image.path}}" alt="">
+      </div>
+
       <li class="company-image">Comment body:  {{review.commentBody}} </li>
   </div>
 

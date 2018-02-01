@@ -1,5 +1,10 @@
 // @import "~angular-star-rating/assets/scss/star-rating";
 
+.review-user-image {
+  height: 2rem;
+  width: 2rem;
+}
+
 .company-hero {
     /*Linear gradient to provide white opacity to hero image*/
     background-image: url("/assets/images/hero-placeholder.jpg");

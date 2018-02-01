@@ -25,21 +25,55 @@
 
 <hr>
 
-<ul class="company-list" *ngFor="let review of allReviews">
+<!-- A list of all user reviews for company -->
 
-  <div class="row review-row">
+<div class="row">
+<section id="reviews">
 
-      <div class="review-user-image">
-        <img src="/{{review.createdBy.image.path}}" alt="">
-      </div>
+    <ul class="" *ngFor="let review of allReviews">
 
-      <li class="company-image">Comment body:  {{review.commentBody}} </li>
-  </div>
+      <!-- <div class="review-row"> -->
 
-</ul>
+          <li class="review-row">
+
+            <!-- User image -->
+            <div class="review-user-image" *ngIf="review.createdBy.image">
+              <img src="/{{review.createdBy.image.path}}" alt="">
+            </div>
+
+            <div class="review-user-image" *ngIf="!review.createdBy.image">
+              <a>
+                <img src="/assets/glyphicons/user.png" alt="">
+              </a>
+            </div>
+
+            <!-- Review text -->
+            <div class="review-text-wrapper">
+              <!-- Review Subject -->
+              <div class="subject">
+                {{review.subject}}
+              </div>
+
+              <!-- Review Comment Body -->
+              <div class="comment-body">
+                Comment body:  {{review.commentBody}}
+              </div>
+            </div>
 
 
+            <!-- Star Rating -->
+            <div class="review-stars">
+              <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" [rating]="review.starRating"></star-rating-comp>
+            </div>
 
+          </li>
+
+      <!-- </div> -->
+
+    </ul>
+
+</section>
+</div>
 
 
 

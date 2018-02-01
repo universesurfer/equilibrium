@@ -144,27 +144,51 @@ router.get('/:category/:company', (req, res, next) => {
       res.status(400).json({ message: "Can't find the company you're looking for at the moment." });
     } else {
 
-          Review.find({'_id': { $in: company.reviews } },
-             (err, reviews) => {
-             console.log("getting all reviews for company", reviews);
+        //   Review.find({'_id': { $in: company.reviews } }, (err, reviews) => {
+        //
+        //     if(err) {
+        //       res.status(400).json({message: "Unable to retrieve reviews for this company..."});
+        //     } else {
+        //
+        //
+        //         res.json({
+        //           message: "Retrieving your company",
+        //           company: company,
+        //           reviews: reviews,
+        //         });
+        //
+        //
+        //      // console.log("getting all reviews for company", reviews);
+        //
+        //
+        //    }
+        //
+        // });
 
-             res.json({
-               message: "Retrieving your company",
-               company: company,
-               reviews: reviews
-             });
+        Review.find({'_id': { $in: company.reviews }})
+        .populate("createdBy")
+        .exec((err, review) => {
+          if (err) {
+            next(err);
+            return;
+          } else {
 
+            res.json({
+                   message: "Retrieving your company",
+                   company: company,
+                   review: review,
+                 });
+
+            console.log("returning review", review);
+          }
         });
 
-    }
-
-  });
+  }
+});
 });
 
-// NOTE: unset property from mongodb
-// db.companies.update(
-//    { $unset: { reviews: "" } }
-// )
+
+
 
 
 

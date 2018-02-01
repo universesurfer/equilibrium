@@ -84,6 +84,7 @@ review = {
 
     //Call and display the company data when page loads.
     this.displayCompanyInfo(this.params.category, this.params.company);
+    this.getAllReviews();
 
 
 }
@@ -139,8 +140,8 @@ getAllReviews() {
   this.session.getAllReviewsForCompany(this.category, this.companyName)
     .subscribe(result => {
       if (result) {
-        console.log("Retrieving reviews");
-        this.allReviews = result;
+        this.allReviews = result.reviews;
+        console.log("Retrieving reviews in allReviews", this.allReviews);
         return true;
       } else {
         console.log("Unable to retrieve reviews.");

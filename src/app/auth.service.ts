@@ -62,13 +62,13 @@ signup(user) {
     .map((response) => {
       console.log(response, response.json())
       let token = response.json() && response.json().token;
-      let user = response.json().user;
+      let user = JSON.stringify(response.json().user);
 
       if(token) {
         this.token = token;
         //store username and jwt in local storage to keep user logged in between page refreshes
         localStorage.setItem('token', token);
-        localStorage.setItem('user', JSON.stringify(user));
+        localStorage.setItem('user', user);
 
         this.isAuth.emit(true);
 
@@ -104,12 +104,14 @@ login(user) {
         //set token property
         this.token = token;
 
-        this.isAuth.emit(true);
-
         //store username and jwt in local storage to keep user logged in between page refreshes
         localStorage.setItem('token', token);
         localStorage.setItem('user', currentUser);
         localStorage.setItem('id', response.json().user._id);
+
+        this.isAuth.emit(true);
+
+
         console.log("getting local storage id", response.json().user._id);
 
         // this.localStorageTimeout();

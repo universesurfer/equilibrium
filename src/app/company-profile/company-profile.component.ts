@@ -77,7 +77,10 @@ review = {
     console.log("getting current user", this.user);
 
     //Set the user id to the user property in review model to make sure it's available when page loads
-    this.review.createdBy = this.user._id;
+    if (this.isAuth === true) {
+      this.review.createdBy = this.user._id;
+    }
+
 
     console.log(this.session.companies);
     this.companies = this.session.companies;

@@ -45,7 +45,7 @@ router.post('/signup', (req, res, next) => {
         console.log('user', user);
         var token = jwt.sign(payload, jwtOptions.secretOrKey);
 
-        res.status(200).json({ message: 'ok', token: token});
+        res.status(200).json({ message: 'ok', token: token, user: user});
       }
     });
 

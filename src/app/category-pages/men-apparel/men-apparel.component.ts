@@ -29,6 +29,7 @@ allCompanies: any;
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('user'));
+    // this.user = localStorage.getItem('user');
     console.log("getting current user", this.user);
 
 

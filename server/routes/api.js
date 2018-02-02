@@ -126,7 +126,7 @@ router.get('/:category', (req, res) => {
         companies: companies,
         paramCheck: req.params.category
       });
-  }
+}
 });
 });
 
@@ -176,7 +176,7 @@ router.get('/:category/:company', (req, res, next) => {
             res.json({
                    message: "Retrieving your company",
                    company: company,
-                   reviews: review,
+                   reviews: review
                  });
 
             console.log("returning review", review);

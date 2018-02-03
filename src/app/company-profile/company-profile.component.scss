@@ -39,11 +39,18 @@ ul {
 
 .company-hero {
     /*Linear gradient to provide white opacity to hero image*/
-    background-image: url("/assets/images/hero-placeholder.jpg");
-    background-size: contain;
-    background-repeat: repeat;
+    // background-image: url("{{/assets/images/hero-placeholder.jpg}}");
+    // background-size: contain;
+    // background-repeat: repeat;
     height: 450px;
-    -webkit-animation: slide 60s linear infinite;
+    // -webkit-animation: slide 60s linear infinite;
+}
+
+.company-hero img {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  object-position: center;
 }
 
 

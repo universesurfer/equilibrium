@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const companySchema = new Schema ({
 
   companyName: String,
+  logo: String,
   about: String,
   basedIn: String,
   materialOrigins: [String],
@@ -28,6 +29,6 @@ module.exports = Company;
 
 
 // db.companies.updateOne(
-//       { "companyName" : "nau" },
-//       { $set: { "category" : "men-apparel" } }
+//       { "companyName" : "tentree" },
+//       { $set: { "logo" : "https://imgur.com/bAKe4Tp" } }
 //    );

@@ -8,10 +8,10 @@ ul {
 }
 
 #everlane {
-  background-image: url("https://chartio.com/images/users/everlane-casestudy.jpg");
-  background-size: cover;
+  background-image: url("/../assets/logos/everlane-logo.png");
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: center top;
+  background-position: center;
   border: .5px solid black;
 }
 

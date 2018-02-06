@@ -121,7 +121,7 @@ router.get('/:category', (req, res) => {
       res.status(400).json({ message: "Can't find any companies in this category or they don't exist yet." });
     } else {
 
-      return res.json({
+      res.send({
         message: "getting companies!",
         companies: companies,
         paramCheck: req.params.category
@@ -129,6 +129,8 @@ router.get('/:category', (req, res) => {
 }
 });
 });
+
+// res.send({ field: something, field:something, field:something})
 
 
 

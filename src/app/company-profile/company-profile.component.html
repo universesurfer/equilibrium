@@ -37,7 +37,9 @@
 
             <!-- User image -->
             <div class="review-user-image" *ngIf="review.createdBy.image">
-              <img src="/{{review.createdBy.image.path}}" alt="">
+              <a href="/profile/{{review.createdBy._id}}">
+                <img src="/{{review.createdBy.image.path}}" alt="">
+              </a>
             </div>
 
             <div class="review-user-image" *ngIf="!review.createdBy.image">

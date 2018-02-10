@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { HeroComponent } from '../hero/hero.component';
 
 @Component({
   selector: 'app-categories',

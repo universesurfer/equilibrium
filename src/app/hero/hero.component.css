@@ -7,7 +7,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 450px;
+    height: 350px;
     -webkit-animation: slide 60s linear infinite;
 }
 

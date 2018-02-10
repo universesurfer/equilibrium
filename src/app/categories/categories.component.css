@@ -19,18 +19,17 @@
 }
 
 
-
-.tile {
+/* .tile {
   color: white;
   text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;  NOTE: Tile styling for multi-category landing
   height: 170px;
   width: 200px;
   background-color: black;
   margin: 5px 5px 5px 5px;
-}
+} */
 
 .landing-tile {
   color: white;
@@ -38,10 +37,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 500px;
+  height: 550px;
   width: 600px;
   background-color: black;
-  margin: 5px 5px 5px 5px;
+  margin: 2px;
 }
 
 .tile > div {

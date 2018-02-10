@@ -5,6 +5,7 @@ import 'rxjs/add/operator/catch';
 import { Router, CanActivate } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 
+
 @Injectable()
 export class AuthService implements CanActivate {
 
@@ -14,8 +15,6 @@ id: string;
 public companies: any;
 
 
-
-// public singleCompany: any;
 
 BASE_URL: string = 'http://localhost:3000';
 
@@ -44,16 +43,6 @@ canActivate(): Observable<boolean> | Promise<boolean> | boolean {
   }
 }
 
-
-// retrieveIdThenNavigate() {
-//   this.id = localStorage.getItem('id');
-//   return this.http.get(`${this.BASE_URL}/profile/${this.id}`)
-//     .map((res) => res.json())
-//     .catch((err) => {
-//       return Observable.throw(err);
-//     });
-// }
-//
 
 
 //This function signs up our user

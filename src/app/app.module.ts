@@ -32,8 +32,7 @@ import { SignupModalComponent } from './signup-modal/signup-modal.component';
 import { AuthService } from './auth.service';
 import { ProfileComponent } from './profile/profile.component';
 
-import { MatSnackBarModule } from '@angular/material';
-import { ToastModule } from 'ng2-toastr/ng2-toastr';
+import { ToastrModule } from 'ngx-toastr';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { StarRatingModule } from 'angular-star-rating';
 import{ FileSelectDirective } from 'ng2-file-upload';
@@ -76,12 +75,11 @@ import { FooterComponent } from './footer/footer.component';
   ],
   imports: [
     FormsModule,
-    MatSnackBarModule,
     BrowserModule,
     HttpModule,
     StarRatingModule.forRoot(),
-    ToastModule.forRoot(),    //Toastr
     BrowserAnimationsModule,  //Toastr
+    ToastrModule.forRoot(),
     RouterModule.forRoot(routes)
   ],
   providers: [AuthService],

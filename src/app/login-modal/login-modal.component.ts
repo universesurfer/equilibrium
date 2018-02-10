@@ -3,8 +3,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { ViewContainerRef } from '@angular/core';
-import { ToastsManager } from 'ng2-toastr/ng2-toastr';
-import { MatSnackBar, MatSnackBarConfig } from '@angular/material';
+import { ToastrService } from 'ngx-toastr';
+
 
 @Component({
   selector: 'app-login-modal',
@@ -24,11 +24,10 @@ export class LoginModalComponent implements OnInit {
     private session: AuthService,
     private router: Router,
     public vcr: ViewContainerRef,
-    public toastr: ToastsManager,
-    private snackbar: MatSnackBar
+    private toastr: ToastrService
   ) {
 
-      this.toastr.setRootViewContainerRef(vcr);
+      // this.toastr.setRootViewContainerRef(vcr);
 
   }
 
@@ -43,30 +42,24 @@ export class LoginModalComponent implements OnInit {
   }
 
 
-
   showSuccess() {
-    let config = new MatSnackBarConfig();
-    config.duration = 3000;
-    config.horizontalPosition = 'right';
-    config.verticalPosition = 'top';
-    this.snackbar.open("Success!", "OK", config);
+    this.toastr.success('Success!');
   }
+
 
   login() {
     this.session.login(this.user)
       .subscribe(result => {
-        if (result === true) {
           //login successful
-          // this.router.navigate(['/']);
+          this.router.navigate(['/']);
           this.showSuccess();
-
-        } else {
+      }, error => {
           //login failed
           this.showError();
-          console.log('result not ok', result)
-        }
+          // console.log('result not ok', result)
       });
-  }
+}
+
 
 
 

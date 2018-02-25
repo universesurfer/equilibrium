@@ -4,6 +4,7 @@ const Schema = mongoose.Schema;
 const companySchema = new Schema ({
 
   companyName: String,
+  website: String,
   logo: String,
   about: String,
   basedIn: String,
@@ -11,10 +12,15 @@ const companySchema = new Schema ({
   productRange: [String],
   category: String,
   reviews: [ {type: Schema.Types.ObjectId, ref: 'Review'} ],
-  socialRating: Number,
+  socialImpactRating: Number,
   environmentalRating: Number,
+  transparencyRating: Number,
+  certifications: [String],
   priceRange: Number
+
   // NOTE: I can probably do average rating and number of rating after database call and not store it directly.  Probably should but don't know about speed yet.
+  // NOTE: include 'conclusion' that provides brief overall analysis of company impact on sustainability & social impact.
+  // NOTE: Only include companies that meet highest criteria of environmental/social impact?
 });
 
 

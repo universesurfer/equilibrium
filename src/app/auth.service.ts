@@ -14,6 +14,8 @@ isAuth: EventEmitter<any> = new EventEmitter();
 id: string;
 public companies: any;
 
+publicProfileId: string;
+
 
 
 BASE_URL: string = 'http://localhost:3000';
@@ -171,6 +173,15 @@ get(id) {
   let options = new RequestOptions({ headers: headers });
   return this.http.get(`${this.BASE_URL}/profile/${this.id}`, options)
     .map((res) => res.json());
+}
+
+getPublicProfile(id) {
+  var userId = id;
+  return this.http.get(`${this.BASE_URL}/profile/${userId}`)
+    .map((res) => res.json())
+    .catch((err) => {
+      return Observable.throw(err);
+    })
 }
 
 

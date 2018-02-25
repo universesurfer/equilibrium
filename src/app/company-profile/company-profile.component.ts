@@ -122,6 +122,23 @@ displayCompanyInfo(category, companyName) {
     });
 }
 
+// getPublicProfileOfUser(id) {
+//   this.session.getPublicProfile(id) {
+//     .subscribe(result => {
+//       if (result) {
+//         console.log("getting the result of getPublicProfile()", result);
+//       } else {
+//         console.log("Was not able to retrieve public user profile.");
+//       }
+//     })
+//   }
+// }
+
+setProfileIdAndNavigate(id) {
+  this.session.publicProfileId = id;
+  this.router.navigate([`/profile/${id}`]);
+}
+
 
 //Submit the user review
 submitUserReview() {

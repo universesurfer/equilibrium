@@ -26,6 +26,7 @@ import { SignupModalComponent } from '../signup-modal/signup-modal.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { CategoriesComponent } from '../categories/categories.component';
 import { CompanyProfileComponent } from '../company-profile/company-profile.component';
+// import { PublicProfileComponent } from '../public-profile/public-profile.component';
 
 
 
@@ -52,6 +53,9 @@ export const routes: Routes = [
   { path: 'login', component: LoginModalComponent },
   { path: 'signup', component: SignupModalComponent },
   { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthService] },
+  // NOTE:  Only use AuthService for editing? Create editing route for profile?
+  // { path: 'profile/:id', component: ProfileComponent},
+  // { path: 'user/:id', component: ProfileComponent },
   { path: ':category/:company', component: CompanyProfileComponent }
 
 

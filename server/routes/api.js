@@ -33,6 +33,25 @@ router.get('/', (req, res) => {
 //   });
 // });
 
+//GET *PUBLIC* USER PROFILE
+// NOTE: Move profile routes to separate file for refactor
+
+router.get('/profile/:id', (req, res) => {
+  console.log("Getting a user from the database");
+  if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    return res.status(400).json({ message: 'Specified id is not valid' });
+  }
+
+  User.findById(req.params.id, (err, user) => {
+    if (err) {
+      return res.send(err);
+    } else {
+      res.json({ user: user });
+    }
+  });
+});
+
+
 
 //EDIT USER PROFILE
 router.put('/profile/:id', (req, res) => {
@@ -89,15 +108,16 @@ router.post('/profile/:id', upload.single('file'), (req, res, next) => {
 
 
 //Get user profile
-router.get('/profile/:id', (req, res, next) => {
-
-
-      res.json({
-        user: "Getting the user profile"
-      });
-
-
-});
+// router.get('/profile/:id', (req, res, next) => {
+//
+// // NOTE: most likely need to complete this route to successfully update user picture in real time
+//
+//       res.json({
+//         user: "Getting the user profile"
+//       });
+//
+//
+// });
 
 
 
@@ -140,32 +160,11 @@ router.get('/:category/:company', (req, res, next) => {
 
   Company.findOne({ "companyName": req.params.company}, (err, company) => {
 
-    console.log("printing all reviews", company.reviews);
+    // console.log("printing all reviews", company.reviews);
 
     if(!company) {
       res.status(400).json({ message: "Can't find the company you're looking for at the moment." });
     } else {
-
-        //   Review.find({'_id': { $in: company.reviews } }, (err, reviews) => {
-        //
-        //     if(err) {
-        //       res.status(400).json({message: "Unable to retrieve reviews for this company..."});
-        //     } else {
-        //
-        //
-        //         res.json({
-        //           message: "Retrieving your company",
-        //           company: company,
-        //           reviews: reviews,
-        //         });
-        //
-        //
-        //      // console.log("getting all reviews for company", reviews);
-        //
-        //
-        //    }
-        //
-        // });
 
         Review.find({'_id': { $in: company.reviews }})
         .populate("createdBy")

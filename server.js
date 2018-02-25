@@ -22,6 +22,7 @@ mongoose.connect("mongodb://localhost:27017/equilibrium");
 const api = require("./server/routes/api");
 const auth = require("./server/routes/auth");
 // const users = require("./server/routes/users");
+// const users = require("./server/routes/users");
 
 app.use(cors());
 app.options('*', cors());
@@ -61,6 +62,8 @@ app.use(express.static(path.join(__dirname, 'dist')));
 //Set our api routes
 app.use('/', api);
 app.use('/', auth);
+// app.use('/profile/:id', users);
+// app.use('/', users);
 
 //Allows the use of /server filepath when serving uploaded user images
 app.use('/server', express.static(path.join(__dirname, '/server')));

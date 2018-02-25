@@ -37,9 +37,11 @@
 
             <!-- User image -->
             <div class="review-user-image" *ngIf="review.createdBy.image">
-              <a href="/profile/{{review.createdBy._id}}">
+              <!-- <a href="/profile/{{review.createdBy._id}}"> -->
+              <div (click)="setProfileIdAndNavigate(review.createdBy._id)">
                 <img src="/{{review.createdBy.image.path}}" alt="">
-              </a>
+              </div>
+
             </div>
 
             <div class="review-user-image" *ngIf="!review.createdBy.image">
@@ -64,7 +66,7 @@
 
             <!-- Star Rating -->
             <div class="review-stars">
-              <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" [rating]="review.starRating"></star-rating-comp>
+              <star-rating-comp [starType]="'svg'" [hoverEnabled]="false" [rating]="review.starRating"></star-rating-comp>
             </div>
 
           </li>

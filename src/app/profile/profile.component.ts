@@ -28,8 +28,6 @@ export class ProfileComponent implements OnInit {
   //Set uploader variable as new FileUploader data type
   uploader: FileUploader; //
 
-  publicProfileId: string;
-
 
 
   constructor(
@@ -38,8 +36,8 @@ export class ProfileComponent implements OnInit {
     private router: Router
   ) {
 
-    //Set public profile id to same id set in session.
-    this.publicProfileId = this.session.publicProfileId;
+    // //Set public profile id to same id set in session.
+    // this.publicProfileId = this.session.publicProfileId;
 
     this.session.isAuth
       .subscribe((isAuth: boolean) => this.isAuth = isAuth);
@@ -62,19 +60,22 @@ export class ProfileComponent implements OnInit {
 
 
   ngOnInit() {
-    this.activatedRoute.params.subscribe(params => {
-      this.getUserDetails(params['id']);
 
-      this.user = JSON.parse(localStorage.getItem('user'));
-      console.log("here's the current user", this.user);
-      console.log(this.aboutText);
-      //Get the url id params to check against localStorage in constructor above.
-      this.id = localStorage.getItem('id');
-      console.log("user id", this.id);
-      this.paramsId = params['id'];
-      console.log("in params id", this.paramsId);
+        this.activatedRoute.params.subscribe(params => {
+          this.getUserDetails(params['id']);
 
-    });
+          this.user = JSON.parse(localStorage.getItem('user'));
+          console.log("here's the current user", this.user);
+          console.log(this.aboutText);
+          //Get the url id params to check against localStorage in constructor above.
+          this.id = localStorage.getItem('id');
+          console.log("user id", this.id);
+          this.paramsId = params['id'];
+          console.log("in params id", this.paramsId);
+
+        });
+
+
 
     //Setting the url for uploader
     this.uploader = new FileUploader({
@@ -91,8 +92,7 @@ export class ProfileComponent implements OnInit {
         });
     };
 
-    //Retrieve public profile user details
-    this.getPublicProfileOfUser();
+
   }
 
 
@@ -121,18 +121,17 @@ export class ProfileComponent implements OnInit {
       });
   }
 
-// NOTE: EVENT EMITTER NEEDED TO SEND USER ID FROM review TO METHOD TO RETRIEVE CORRECT DETAILS?
-getPublicProfileOfUser() {
-  this.session.getPublicProfile(this.publicProfileId)
-    .subscribe(result => {
-      if (result) {
-        this.user = result.user;
-        console.log("getting the result of getPublicProfile()", result);
-      } else {
-        console.log("Was not able to retrieve public user profile.");
-      }
-    })
-}
+// getPublicProfileOfUser() {
+//   this.session.getPublicProfile(this.publicProfileId)
+//     .subscribe(result => {
+//       if (result) {
+//         this.user = result.user;
+//         console.log("getting the result of getPublicProfile()", result);
+//       } else {
+//         console.log("Was not able to retrieve public user profile.");
+//       }
+//     })
+// }
 
 
   updatePicture() {

@@ -15,8 +15,8 @@ export class ProfileComponent implements OnInit {
 
   editCheck: boolean = false;
 
-  currentUser = Object;
-  user: any;
+  currentUser = Object; //holds user details from getUserDetails()
+  user: any;  //holds user data from localStorage
 
 
   paramsId: string;
@@ -114,7 +114,7 @@ export class ProfileComponent implements OnInit {
   getUserDetails(id) {
     this.session.get(id)
       .subscribe((returnedUser) => {
-        this.user = returnedUser;
+        this.currentUser = returnedUser;
         console.log("showing returnedUser in getUserDetails()", returnedUser);
         // NOTE: complete user route to successfully get and update user from this component
                   //Include in get or in PUT

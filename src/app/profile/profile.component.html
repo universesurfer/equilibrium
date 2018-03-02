@@ -12,15 +12,15 @@
       <fieldset class="form-group">
 
 
-        <!-- <div *ngIf="!user.image">
+        <div *ngIf="!user.image">
           <a>
             <img src="/assets/glyphicons/user.png" class="profile-picture" alt="">
           </a>
-        </div> -->
-        <div *ngIf="user.user.image">
-          <a>
-            <img src="/{{user.user.image.path}}" class="profile-picture">
-          </a>
+        </div>
+        <div *ngIf="user.image">
+
+            <img src="/{{user.image.path}}" class="profile-picture">
+
         </div>
 
         <!-- <button type="button" name="button" (click)="edit()"></button> -->

@@ -18,6 +18,9 @@ router.get('/', (req, res) => {
 });
 
 
+//GET *PUBLIC* USER PROFILE
+// NOTE: Move profile routes to separate file for refactor
+
 // router.get('/profile/:id', (req, res) => {
 //   console.log("Getting a user from the database");
 //   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
@@ -28,28 +31,10 @@ router.get('/', (req, res) => {
 //     if (err) {
 //       return res.send(err);
 //     } else {
-//       return res.json(user);
+//       res.json({ user: user });
 //     }
 //   });
 // });
-
-//GET *PUBLIC* USER PROFILE
-// NOTE: Move profile routes to separate file for refactor
-
-router.get('/profile/:id', (req, res) => {
-  console.log("Getting a user from the database");
-  if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
-    return res.status(400).json({ message: 'Specified id is not valid' });
-  }
-
-  User.findById(req.params.id, (err, user) => {
-    if (err) {
-      return res.send(err);
-    } else {
-      res.json({ user: user });
-    }
-  });
-});
 
 
 
@@ -120,11 +105,6 @@ router.post('/profile/:id', upload.single('file'), (req, res, next) => {
 // });
 
 
-
-
-
-
-
 router.put('/:category', (req, res) => {
 
   res.json({
@@ -151,7 +131,6 @@ router.get('/:category', (req, res) => {
 });
 
 // res.send({ field: something, field:something, field:something})
-
 
 
 

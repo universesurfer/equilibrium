@@ -12,14 +12,14 @@
       <fieldset class="form-group">
 
 
-        <div *ngIf="!user.image">
+        <!-- <div *ngIf="!user.image">
           <a>
             <img src="/assets/glyphicons/user.png" class="profile-picture" alt="">
           </a>
-        </div>
-        <div *ngIf="user.image">
+        </div> -->
+        <div *ngIf="user.user.image">
           <a>
-            <img src="/{{user.image.path}}" class="profile-picture">
+            <img src="/{{user.user.image.path}}" class="profile-picture">
           </a>
         </div>
 
@@ -28,6 +28,9 @@
 
           <input type="file" name="avatar" ng2FileSelect [uploader]="uploader"/>
           <button type="button" name="button" (click)="saveAvatar()">Save Image</button>
+          <div class="progress" style="">
+              <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
+          </div>
 
           <!-- <p>Queue length: {{ uploader?.queue?.length }}</p> -->
           <!-- Queue progress:

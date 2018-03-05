@@ -38,6 +38,7 @@ userReviews: Array<String> = [];
 
 //Review checker
 reviewExists: boolean = false;
+intersectedId: any;
 
 
 //Hold review data from form to send to Mongo
@@ -159,13 +160,14 @@ checkIfUserHasAlreadyReviewed() {
     console.log("showing all user reviews", this.userReviews);
   });
 
-this.checkForIntersection();
+this.checkForIntersection(this.reviewIds, this.userReviews);
 
 }
 
 //Checks company reviews and user reviews for matches.
-checkForIntersection () {
-  var intersection = _.intersection(this.reviewIds, this.userReviews);
+checkForIntersection (array1, array2) {
+  var intersection = _.intersection(array1, array2);
+  this.intersectedId = intersection;
 
   if (intersection != null) {
     console.log("intersection exists");

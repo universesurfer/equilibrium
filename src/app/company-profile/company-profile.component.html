@@ -60,6 +60,12 @@
             </div>
 
 
+<!-- NOTE: need to check whether printed review matches review of user -->
+            <div *ngIf="review._id == intersectedId">
+              <button type="button" name="button"> Edit </button>
+            </div>
+
+
             <!-- Star Rating -->
             <div class="review-stars">
               <star-rating-comp [starType]="'svg'" [hoverEnabled]="false" [readOnly]="true" [rating]="review.starRating"></star-rating-comp>

@@ -18,8 +18,7 @@ user: any;
 
 onRatingChangeResult: OnRatingChangeEven;
 
-
-
+editCheck: boolean = false;
 companies: any;
 
 params: any;
@@ -142,6 +141,13 @@ displayCompanyInfo(category, companyName) {
 //   }
 // }
 
+editReview() {
+  if (this.editCheck != true) {
+    this.editCheck = true;
+  }
+
+}
+
 setProfileIdAndNavigate(id) {
   this.session.publicProfileId = id;
   this.router.navigate([`/profile/${id}`]);
@@ -149,6 +155,8 @@ setProfileIdAndNavigate(id) {
 
 //Checks if user has reviewed company already.  If so, hide review form.
 checkIfUserHasAlreadyReviewed() {
+
+if(this.allReviews !== null && this.user !== null) {
 
   this.allReviews.forEach( object => {
     this.reviewIds.push(object._id);
@@ -161,6 +169,8 @@ checkIfUserHasAlreadyReviewed() {
   });
 
 this.checkForIntersection(this.reviewIds, this.userReviews);
+
+}
 
 }
 

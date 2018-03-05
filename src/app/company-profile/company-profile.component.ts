@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthService } from './../auth.service';
 import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/star-rating-struct";
+import * as _ from 'underscore';
 
 
 @Component({
@@ -30,6 +31,13 @@ allReviews: any;
 //Empty data type placeholder.  Values for corresponding review properties are set in onRatingChange and displayCompanyInfo() in ngOnInit
 //Avoiding async issue
 rating: number;
+
+//Saves id's from reviews on company page
+reviewIds: Array<String> = [];
+userReviews: Array<String> = [];
+
+//Review checker
+reviewExists: boolean = false;
 
 
 //Hold review data from form to send to Mongo
@@ -85,9 +93,8 @@ review = {
     console.log(this.session.companies);
     this.companies = this.session.companies;
 
-    //Call and display the company data when page loads.
-    this.displayCompanyInfo(this.params.category, this.params.company);
-    this.getAllReviews();
+    this.displayCompanyInfo(this.params.category, this.params.company); //Call and display the company data when page loads.
+    this.getAllReviews(); //Retrieve reviews and block new review if user has reviewed.
 
 
 }
@@ -139,6 +146,38 @@ setProfileIdAndNavigate(id) {
   this.router.navigate([`/profile/${id}`]);
 }
 
+//Checks if user has reviewed company already.  If so, hide review form.
+checkIfUserHasAlreadyReviewed() {
+
+  this.allReviews.forEach( object => {
+    this.reviewIds.push(object._id);
+    console.log(this.reviewIds);
+  });
+
+  this.user.reviews.forEach( review => {
+    this.userReviews.push(review);
+    console.log("showing all user reviews", this.userReviews);
+  });
+
+this.checkForIntersection();
+
+}
+
+//Checks company reviews and user reviews for matches.
+checkForIntersection () {
+  var intersection = _.intersection(this.reviewIds, this.userReviews);
+
+  if (intersection != null) {
+    console.log("intersection exists");
+    this.reviewExists = true;
+    console.log(this.reviewExists);
+    return true;
+  } else {
+    console.log("intersection doesn't exist");
+    return false;
+  }
+}
+
 
 //Submit the user review
 submitUserReview() {
@@ -161,7 +200,9 @@ getAllReviews() {
     .subscribe(result => {
       if (result) {
         this.allReviews = result.reviews;
+        this.checkIfUserHasAlreadyReviewed();
         console.log("Retrieving reviews in allReviews", this.allReviews);
+        // this.checkIfUserHasAlreadyReviewed();
         return true;
       } else {
         console.log("Unable to retrieve reviews.");

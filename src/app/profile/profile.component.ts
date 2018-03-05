@@ -103,6 +103,12 @@ export class ProfileComponent implements OnInit {
   }
 
 
+
+
+
+
+
+
   // edit() {
   //   this.editCheck = true;
   // }

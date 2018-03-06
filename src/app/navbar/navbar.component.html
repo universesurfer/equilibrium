@@ -16,7 +16,7 @@
 
     <div *ngIf="!user.image">
       <li class="nav-item">
-        <img src="/assets/glyphicons/user.png" class="profile-dropdown" alt="" (click)="goToProfile()">
+        <img [src]="imagePreviewUrl" class="profile-dropdown" alt="" (click)="goToProfile()">
       </li>
     </div>
 

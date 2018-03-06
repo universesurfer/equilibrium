@@ -11,6 +11,7 @@ export class NavbarComponent implements OnInit {
 
   isAuth: boolean;
   user: any;
+  imagePreviewUrl: any;
 
 
   constructor(
@@ -35,6 +36,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
     //Provides the user id for goToProfile() below
     this.user = JSON.parse(localStorage.getItem("user"));
+    this.imagePreviewUrl = this.session.imagePreviewUrl;
 
   }
 

@@ -31,7 +31,7 @@ router.get('/profile/:id', (req, res) => {
     if (err) {
       return res.send(err);
     } else {
-      res.json({ user: user });
+      res.json({ user });
     }
   });
 });

@@ -12,21 +12,22 @@
       <fieldset class="form-group">
 
 
-        <div *ngIf="!user.image">
+        <div *ngIf="!currentUser.user.image">
           <a>
-            <img src="/assets/glyphicons/user.png" class="profile-picture" alt="">
+            <img [src]="imagePreviewUrl" class="profile-picture" alt="">
           </a>
         </div>
-        <div *ngIf="user.image">
+      
+        <div *ngIf="currentUser.user.image">
 
-            <img src="/{{user.image.path}}" class="profile-picture">
+            <img src="/{{currentUser.user.image.path}}" class="profile-picture">
 
         </div>
 
         <!-- <button type="button" name="button" (click)="edit()"></button> -->
         <!-- <div *ngIf="editCheck"> -->
 
-          <input type="file" name="avatar" ng2FileSelect [uploader]="uploader"/>
+          <input type="file" name="avatar" ng2FileSelect [uploader]="uploader" (change)="readUrl($event)"/>
           <button type="button" name="button" (click)="saveAvatar()">Save Image</button>
           <div class="progress" style="">
               <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>

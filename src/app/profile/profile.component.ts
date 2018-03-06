@@ -28,6 +28,9 @@ export class ProfileComponent implements OnInit {
   //Set uploader variable as new FileUploader data type
   uploader: FileUploader; //
 
+  //Holds avatar.  Displays user image preview on page before multer upload.
+  imagePreviewUrl: any = "/assets/glyphicons/user.png";
+
 
 
   constructor(
@@ -103,6 +106,19 @@ export class ProfileComponent implements OnInit {
   }
 
 
+  //Reads the user image to immediately display a preview of the file.
+  readUrl(event:any) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+
+      reader.onload = (event:any) => {
+        this.imagePreviewUrl = event.target.result;
+        this.session.imagePreviewUrl = event.target.result;
+      }
+
+      reader.readAsDataURL(event.target.files[0]);
+    }
+  }
 
 
 

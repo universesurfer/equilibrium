@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { AuthService } from './../auth.service';
-import {OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent} from "angular-star-rating/star-rating-struct";
+import { OnClickEvent, OnRatingChangeEven, OnHoverRatingChangeEvent } from "angular-star-rating/star-rating-struct";
 import * as _ from 'underscore';
 
 
@@ -13,40 +13,40 @@ import * as _ from 'underscore';
 export class CompanyProfileComponent implements OnInit {
 
 
-isAuth: boolean;
-user: any;
+  isAuth: boolean;
+  user: any;
 
-onRatingChangeResult: OnRatingChangeEven;
+  onRatingChangeResult: OnRatingChangeEven;
 
-editCheck: boolean = false;
-companies: any;
+  editCheck: boolean = false;
+  companies: any;
 
-params: any;
-category: string;
-companyName: string;
-company: any;
-allReviews: any;
+  params: any;
+  category: string;
+  companyName: string;
+  company: any;
+  allReviews: any;
 
-//Empty data type placeholder.  Values for corresponding review properties are set in onRatingChange and displayCompanyInfo() in ngOnInit
-//Avoiding async issue
-rating: number;
+  //Empty data type placeholder.  Values for corresponding review properties are set in onRatingChange and displayCompanyInfo() in ngOnInit
+  //Avoiding async issue
+  rating: number;
 
-//Saves id's from reviews on company page
-reviewIds: Array<String> = [];
-userReviews: Array<String> = [];
+  //Saves id's from reviews on company page
+  reviewIds: Array<String> = [];
+  userReviews: Array<String> = [];
 
-//Review checker
-reviewExists: boolean = false;
-intersectedId: any;
+  //Review checker
+  reviewExists: boolean = false;
+  intersectedId: any;
 
 
-//Hold review data from form to send to Mongo
-review = {
-  starRating: this.rating, //placeholder to hold a number value
-  subject: '',
-  commentBody: '',
-  createdBy: ''
-};
+  //Hold review data from form to send to Mongo
+  review = {
+    starRating: this.rating, //placeholder to hold a number value
+    subject: '',
+    commentBody: '',
+    createdBy: ''
+  };
 
 
   constructor(
@@ -57,12 +57,12 @@ review = {
 
     //User Authorization check
     this.session.isAuth
-      .subscribe((isAuth: boolean) => this.isAuth = isAuth );
+      .subscribe((isAuth: boolean) => this.isAuth = isAuth);
 
     //if token exists, authenticated
     if (localStorage.getItem('token')) {
       this.isAuth = true;
-    //if not, not authenticated
+      //if not, not authenticated
     } else {
       this.isAuth = false;
     }
@@ -73,7 +73,7 @@ review = {
     this.category = this.activatedRoute.snapshot.params.category;
     this.companyName = this.activatedRoute.snapshot.params.company;
 
-   }
+  }
 
 
 
@@ -97,131 +97,132 @@ review = {
     this.getAllReviews(); //Retrieve reviews and block new review if user has reviewed.
 
 
-}
+  }
 
 
 
-//Detect any star rating changes and update the rating variable
-onRatingChange = ($event: OnRatingChangeEven) => {
-      console.log('onRatingUpdated $event: ', $event);
-      // this.onRatingChangeResult = $event;
+  //Detect any star rating changes and update the rating variable
+  onRatingChange = ($event: OnRatingChangeEven) => {
+    console.log('onRatingUpdated $event: ', $event);
+    // this.onRatingChangeResult = $event;
 
 
-      //Save any star rating changes to review object
-      this.review.starRating = $event.rating;
+    //Save any star rating changes to review object
+    this.review.starRating = $event.rating;
   };
 
 
 
-//Retrieves relevant company information for each separate company
-displayCompanyInfo(category, companyName) {
-  this.session.getSingleCompany(category, companyName)
-    .subscribe(result => {
-      if (result) {
-        this.company = result.company
+  //Retrieves relevant company information for each separate company
+  displayCompanyInfo(category, companyName) {
+    this.session.getSingleCompany(category, companyName)
+      .subscribe(result => {
+        if (result) {
+          this.company = result.company
 
-        console.log("inside the result in displayCompanyInfo()", this.company);
-        console.log("getting entire result in displayCompanyInfo()", result);
+          console.log("inside the result in displayCompanyInfo()", this.company);
+          console.log("getting entire result in displayCompanyInfo()", result);
 
-      } else {
-        console.log("Unable to retrieve this company's information with displayCompanyInfo()");
-      }
-    });
-}
-
-// getPublicProfileOfUser(id) {
-//   this.session.getPublicProfile(id) {
-//     .subscribe(result => {
-//       if (result) {
-//         console.log("getting the result of getPublicProfile()", result);
-//       } else {
-//         console.log("Was not able to retrieve public user profile.");
-//       }
-//     })
-//   }
-// }
-
-editReview() {
-  if (this.editCheck != true) {
-    this.editCheck = true;
+        } else {
+          console.log("Unable to retrieve this company's information with displayCompanyInfo()");
+        }
+      });
   }
 
-}
+  // getPublicProfileOfUser(id) {
+  //   this.session.getPublicProfile(id) {
+  //     .subscribe(result => {
+  //       if (result) {
+  //         console.log("getting the result of getPublicProfile()", result);
+  //       } else {
+  //         console.log("Was not able to retrieve public user profile.");
+  //       }
+  //     })
+  //   }
+  // }
 
-setProfileIdAndNavigate(id) {
-  this.session.publicProfileId = id;
-  this.router.navigate([`/profile/${id}`]);
-}
+  editReview() {
+    if (this.editCheck != true) {
+      this.editCheck = true;
+    }
 
-//Checks if user has reviewed company already.  If so, hide review form.
-checkIfUserHasAlreadyReviewed() {
-
-if(this.allReviews !== null && this.user !== null) {
-
-  this.allReviews.forEach( object => {
-    this.reviewIds.push(object._id);
-    console.log(this.reviewIds);
-  });
-
-  this.user.reviews.forEach( review => {
-    this.userReviews.push(review);
-    console.log("showing all user reviews", this.userReviews);
-  });
-
-this.checkForIntersection(this.reviewIds, this.userReviews);
-
-}
-
-}
-
-//Checks company reviews and user reviews for matches.
-checkForIntersection (array1, array2) {
-  var intersection = _.intersection(array1, array2);
-  this.intersectedId = intersection;
-
-  if (intersection != null) {
-    console.log("intersection exists");
-    this.reviewExists = true;
-    console.log(this.reviewExists);
-    return true;
-  } else {
-    console.log("intersection doesn't exist");
-    return false;
   }
-}
+
+  setProfileIdAndNavigate(id) {
+    this.session.publicProfileId = id;
+    this.router.navigate([`/profile/${id}`]);
+  }
+
+  //Checks if user has reviewed company already.  If so, hide review form.
+  checkIfUserHasAlreadyReviewed() {
+
+    if (this.allReviews !== null && this.user !== null) {
+
+      this.allReviews.forEach(object => {
+        this.reviewIds.push(object._id);
+        console.log(this.reviewIds);
+      });
+
+      this.user.reviews.forEach(review => {
+        this.userReviews.push(review);
+        console.log("showing all user reviews", this.userReviews);
+      });
+
+      this.checkForIntersection(this.reviewIds, this.userReviews);
+
+    }
+
+  }
+
+  //Checks company reviews and user reviews for matches.
+  checkForIntersection(array1, array2) {
+    var intersection = _.intersection(array1, array2);
 
 
-//Submit the user review
-submitUserReview() {
-  this.session.makeReview(this.category, this.companyName, this.review )
-  .subscribe(result => {
-    if (result) {
-      console.log("Review submitted from submitUserReview()", result);
+    if (intersection.length != 0) {
+      console.log("intersection exists");
+      this.intersectedId = intersection;
+      this.reviewExists = true;
+      console.log(this.reviewExists);
       return true;
     } else {
-      console.log("Unable to submit review from submitUserReview()", result);
+      console.log("intersection doesn't exist");
       return false;
-  };
-});
-}
+    }
+  }
 
 
-//Get all reviews for the company
-getAllReviews() {
-  this.session.getAllReviewsForCompany(this.category, this.companyName)
-    .subscribe(result => {
-      if (result) {
-        this.allReviews = result.reviews;
-        this.checkIfUserHasAlreadyReviewed();
-        console.log("Retrieving reviews in allReviews", this.allReviews);
-        // this.checkIfUserHasAlreadyReviewed();
-        return true;
-      } else {
-        console.log("Unable to retrieve reviews.");
-        return false;
-      }
-    })
-}
+  //Submit the user review
+  submitUserReview() {
+    this.session.makeReview(this.category, this.companyName, this.review)
+      .subscribe(result => {
+        if (result) {
+          console.log("Review submitted from submitUserReview()", result);
+          return true;
+        } else {
+          console.log("Unable to submit review from submitUserReview()", result);
+          return false;
+        };
+      });
+  }
+
+
+  //Get all reviews for the company
+  getAllReviews() {
+    this.session.getAllReviewsForCompany(this.category, this.companyName)
+      .subscribe(result => {
+        if (result) {
+          this.allReviews = result.reviews;
+          this.checkIfUserHasAlreadyReviewed();
+          console.log("Retrieving reviews in allReviews", this.allReviews);
+          // this.checkIfUserHasAlreadyReviewed();
+          return true;
+        } else {
+          console.log("Unable to retrieve reviews.");
+          return false;
+        }
+      })
+  }
 
 
 }

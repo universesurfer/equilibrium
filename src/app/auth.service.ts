@@ -159,6 +159,21 @@ makeReview(category, companyName, review) {
     });
 }
 
+deleteReview(category, companyName, review) {
+
+// var deletedReviewId = review;
+//
+//   const options = new RequestOptions({
+//     body: deletedReviewId
+// });
+
+  return this.http.delete(`${this.BASE_URL}/${category}/${companyName}/${review}`)
+    .map((res) => res.json())
+    .catch((err) => {
+      return Observable.throw(err);
+    });
+}
+
 getAllReviewsForCompany(category, companyName) {
   return this.http.get(`${this.BASE_URL}/${category}/${companyName}`)
     .map((res) => res.json())

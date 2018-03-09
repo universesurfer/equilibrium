@@ -25,7 +25,8 @@ export class CompanyProfileComponent implements OnInit {
   category: string;
   companyName: string;
   company: any;
-  allReviews: any;
+  allReviews: any
+  deletedReviewId: any;
 
   //Empty data type placeholder.  Values for corresponding review properties are set in onRatingChange and displayCompanyInfo() in ngOnInit
   //Avoiding async issue
@@ -141,6 +142,10 @@ export class CompanyProfileComponent implements OnInit {
   //   }
   // }
 
+  setDeletedReviewId(id) {
+    this.deletedReviewId = id;
+  }
+
   editReview() {
     if (this.editCheck != true) {
       this.editCheck = true;
@@ -205,6 +210,19 @@ export class CompanyProfileComponent implements OnInit {
         };
       });
   }
+
+  deleteReview() {
+    this.session.deleteReview(this.category, this.companyName, this.deletedReviewId)
+      .subscribe(result => {
+        if (result) {
+          console.log("Inside deleteReview() function in company profile component", result);
+          return true;
+        } else {
+          console.log("Unable to see deleteReview() value in companyProfile", result);
+          return false;
+        }
+      });
+  };
 
 
   //Get all reviews for the company

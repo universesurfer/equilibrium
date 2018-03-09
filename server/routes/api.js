@@ -130,9 +130,55 @@ router.get('/:category', (req, res) => {
 });
 });
 
-// res.send({ field: something, field:something, field:something})
 
+//Delete a reviews
+router.delete('/:category/:company/:reviewId', (req, res, next) => {
 
+  var review = req.params.reviewId;
+  var params = req.params;
+  // var body = req.body;
+
+  console.log("inside route seeing if body exists", req.body);
+
+  Company.findOne({ 'companyName': req.params.company}, (err, company) => {
+    if(!company) {
+      res.status(400).json({ message: "Cannot find the company you're looking for."});
+    } else {
+
+      Review.remove({ _id: req.params.reviewId}, (err) => {
+        if (err) {
+          res.status(400).json({ message: "Cannot delete review id in collection."});
+        }
+        // else {
+        //   res.status(200).json({ message: "Review successfully deleted."});
+        // }
+      });
+
+      // NOTE: Must also delete from user and company.
+
+      res.json({
+        company: company,
+        companyReviews: company.reviews,
+        review: req.params.reviewId
+      });
+    }
+  });
+});
+
+// Model.remove({ _id: id}, function(err){});
+
+// User.findByIdAndUpdate(req.params.id, {
+//   aboutText: req.body.aboutText
+// }, (err, user, aboutText) => {
+//   if (err) {
+//     return res.send(err);
+//   } else {
+//
+//     res.json({
+//       message: "Getting the aboutText req.body " + req.body.aboutText,
+//       user: user,
+//       aboutText: aboutText
+//     });
 
 //Retrieve all the reviews for the company and populate
 router.get('/:category/:company', (req, res, next) => {

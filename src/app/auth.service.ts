@@ -159,7 +159,7 @@ makeReview(category, companyName, review) {
     });
 }
 
-deleteReview(category, companyName, review) {
+deleteReview(category, companyName, review, user) {
 
 // var deletedReviewId = review;
 //
@@ -167,7 +167,7 @@ deleteReview(category, companyName, review) {
 //     body: deletedReviewId
 // });
 
-  return this.http.delete(`${this.BASE_URL}/${category}/${companyName}/${review}`)
+  return this.http.delete(`${this.BASE_URL}/${category}/${companyName}/${review}/${user}`)
     .map((res) => res.json())
     .catch((err) => {
       return Observable.throw(err);

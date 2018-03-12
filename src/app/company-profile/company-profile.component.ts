@@ -212,7 +212,7 @@ export class CompanyProfileComponent implements OnInit {
   }
 
   deleteReview() {
-    this.session.deleteReview(this.category, this.companyName, this.deletedReviewId)
+    this.session.deleteReview(this.category, this.companyName, this.deletedReviewId, this.user._id)
       .subscribe(result => {
         if (result) {
           console.log("Inside deleteReview() function in company profile component", result);

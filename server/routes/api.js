@@ -132,11 +132,10 @@ router.get('/:category', (req, res) => {
 
 
 //Delete a reviews
-router.delete('/:category/:company/:reviewId', (req, res, next) => {
+router.delete('/:category/:company/:reviewId/:userId', (req, res, next) => {
 
   var review = req.params.reviewId;
-  var params = req.params;
-  // var body = req.body;
+  var user = req.params.userId;
 
   console.log("inside route seeing if body exists", req.body);
 
@@ -145,23 +144,94 @@ router.delete('/:category/:company/:reviewId', (req, res, next) => {
       res.status(400).json({ message: "Cannot find the company you're looking for."});
     } else {
 
-      Review.remove({ _id: req.params.reviewId}, (err) => {
-        if (err) {
-          res.status(400).json({ message: "Cannot delete review id in collection."});
-        }
-        // else {
-        //   res.status(200).json({ message: "Review successfully deleted."});
-        // }
-      });
-
       // NOTE: Must also delete from user and company.
 
       res.json({
         company: company,
         companyReviews: company.reviews,
-        review: req.params.reviewId
+        review: req.params.reviewId,
+        user: req.params.userId
       });
     }
+
+      Review.remove({ _id: req.params.reviewId}, (err) => {
+        if (err) {
+          res.status(400).json({ message: "Cannot delete review id in collection."});
+        }
+        else {
+          Company.update({ "companyName": req.params.company}, {$pull: { reviews: req.params.reviewId } }, (err, changes) => {
+            if (err) {
+              return res.status(400).json({message: err});
+            } else {
+              console.log("Removing review successfully from company reviews", changes);
+            }
+          });
+          // res.status(200).json({ message: "Review successfully deleted."});
+        }
+      });
+
+      // Company.update({ "companyName": req.params.company}, {$pull: { reviews: {_id: req.params.reviewId } } }, (err, changes) => {
+      //   if (err) {
+      //     return res.status(400).json({message: err});
+      //   } else {
+      //     console.log("Removing review successfully from company reviews", changes);
+      //   }
+      // });
+
+      // NOTE:  newReview.save((err, review) => {
+          //
+          // if (err) {
+          //     return res.status(400).json({ message: err });
+          //   } else { User.findByIdAndUpdate({_id: createdBy },{$push: {reviews: review._id} }, (err) => {
+          //       if (err) {
+          //         console.log("There was an error pushing review to user");
+          //         next(err);
+          //       } else {  Company.findOneAndUpdate({ "companyName": req.params.company}, {$push: {reviews: review._id}}, (err, company) => {
+          //           if (err) {
+          //             console.log("There was an error pushing review to company");
+          //             next(err);
+          //           } else {
+          //
+          //             //Sets companyId and companyName properties to review for Mongo
+          //             Review.update({_id: review._id}, {$set: {companyId: this.companyId, companyName: this.companyName}}, (err, changes) => {
+          //               if(err) {
+          //                 return res.status(400).json({message : err});
+          //               } else {
+          //                 console.log("updating review successfully with company info", changes);
+          //               }
+          //             });
+          //
+          //             console.log ("Review successfully saved");
+          //
+          //             res.json({
+          //               review: review,
+          //             });
+
+
+      // Review.update({_id: review._id}, {$set: {companyId: this.companyId, companyName: this.companyName}}, (err, changes) => {
+      //   if(err) {
+      //     return res.status(400).json({message : err});
+      //   } else {
+
+
+          // userAccounts.update(
+          //       { userId: usr.userId },
+          //       { $pull: { connections : { _id : connId } } },
+          //       { safe: true },
+          //       function removeConnectionsCB(err, obj) {
+          //           ...
+          //       });
+      //
+      // Company.findOneAndUpdate({ "companyName": req.params.company}, {$push: {reviews: review._id}}, (err, company) => {
+      //     if (err) {
+      //       console.log("There was an error pushing review to company");
+      //       next(err);
+      //     } else {
+
+
+
+
+
   });
 });
 

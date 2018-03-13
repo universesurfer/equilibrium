@@ -49,6 +49,9 @@ export class CompanyProfileComponent implements OnInit {
     createdBy: ''
   };
 
+  newReview: any;
+  localStoragePicture: any;
+
 
   constructor(
     private session: AuthService,
@@ -84,6 +87,7 @@ export class CompanyProfileComponent implements OnInit {
     //Get current user
     this.user = JSON.parse(localStorage.getItem('user'));
     console.log("getting current user", this.user);
+    this.localStoragePicture = localStorage.getItem('picture');
 
     //Set the user id to the user property in review model to make sure it's available when page loads
     if (this.isAuth === true) {
@@ -150,6 +154,10 @@ export class CompanyProfileComponent implements OnInit {
     this.allReviews = this.allReviews.filter(review => review._id !== id);
 }
 
+  addReviewToDom() {
+    this.allReviews.push(this.newReview);
+  }
+
   editReview() {
     if (this.editCheck != true) {
       this.editCheck = true;
@@ -207,6 +215,9 @@ export class CompanyProfileComponent implements OnInit {
       .subscribe(result => {
         if (result) {
           console.log("Review submitted from submitUserReview()", result);
+          this.newReview = result.review;
+          console.log("showing newReview", this.newReview);
+          this.addReviewToDom();
           return true;
         } else {
           console.log("Unable to submit review from submitUserReview()", result);

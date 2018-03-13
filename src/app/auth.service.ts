@@ -97,10 +97,13 @@ login(user) {
         //set token property
         this.token = token;
 
+
         //store username and jwt in local storage to keep user logged in between page refreshes
         localStorage.setItem('token', token);
         localStorage.setItem('user', currentUser);
         localStorage.setItem('id', response.json().user._id);
+        localStorage.setItem('picture', response.json().user.image.path);
+
 
         this.isAuth.emit(true);
 

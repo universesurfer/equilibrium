@@ -38,9 +38,15 @@
                 <img src="/{{review.createdBy.image.path}}" alt="">
             </div>
 
-            <div class="review-user-image" *ngIf="!review.createdBy.image">
+            <div class="review-user-image" *ngIf="!review.createdBy.image && !localStoragePicture">
               <a>
                 <img src="/assets/glyphicons/user.png" alt="">
+              </a>
+            </div>
+
+            <div class="review-user-image" *ngIf="localStoragePicture && !review.createdBy.image">
+              <a>
+                <img src="{{localStoragePicture}}" alt="">
               </a>
             </div>
 
@@ -63,7 +69,7 @@
             </div>
 
             <!-- Edit and Delete Buttons -->
-            <div *ngIf="review._id == intersectedId">
+            <div *ngIf="review._id == intersectedId || newReview">
               <button type="button" name="button" class="btn btn-info"(click)="editReview()"> Edit </button>
               <button type="button" name="button" class="btn btn-danger" (click)="setDeletedReviewId(review._id); deleteReview(); removeItem(review._id)"> Delete </button>
             </div>

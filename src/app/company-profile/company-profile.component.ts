@@ -146,6 +146,10 @@ export class CompanyProfileComponent implements OnInit {
     this.deletedReviewId = id;
   }
 
+  removeItem(id) {
+    this.allReviews = this.allReviews.filter(review => review._id !== id);
+}
+
   editReview() {
     if (this.editCheck != true) {
       this.editCheck = true;

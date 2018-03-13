@@ -131,28 +131,8 @@ router.get('/:category', (req, res) => {
 });
 
 
-//Delete a reviews
+//Delete the user's review on company profile page from all collections.
 router.delete('/:category/:company/:reviewId/:userId', (req, res, next) => {
-
-  var review = req.params.reviewId;
-  var user = req.params.userId;
-
-  console.log("inside route seeing if body exists", req.body);
-
-  Company.findOne({ 'companyName': req.params.company}, (err, company) => {
-    if(!company) {
-      res.status(400).json({ message: "Cannot find the company you're looking for."});
-    } else {
-
-      // NOTE: Must also delete from user and company.
-
-      res.json({
-        company: company,
-        companyReviews: company.reviews,
-        review: req.params.reviewId,
-        user: req.params.userId
-      });
-    }
 
       Review.remove({ _id: req.params.reviewId}, (err) => {
         if (err) {
@@ -163,92 +143,20 @@ router.delete('/:category/:company/:reviewId/:userId', (req, res, next) => {
             if (err) {
               return res.status(400).json({message: err});
             } else {
-              console.log("Removing review successfully from company reviews", changes);
+              User.update({ "_id": req.params.userId}, {$pull: { reviews: req.params.reviewId } }, (err, changes) => {
+                if (err) {
+                  return res.status(400).json({message: err});
+                } else {
+                  console.log("Removing review successfully from user and company review arrays", changes);
+                }
+              });
             }
           });
-          // res.status(200).json({ message: "Review successfully deleted."});
         }
       });
-
-      // Company.update({ "companyName": req.params.company}, {$pull: { reviews: {_id: req.params.reviewId } } }, (err, changes) => {
-      //   if (err) {
-      //     return res.status(400).json({message: err});
-      //   } else {
-      //     console.log("Removing review successfully from company reviews", changes);
-      //   }
-      // });
-
-      // NOTE:  newReview.save((err, review) => {
-          //
-          // if (err) {
-          //     return res.status(400).json({ message: err });
-          //   } else { User.findByIdAndUpdate({_id: createdBy },{$push: {reviews: review._id} }, (err) => {
-          //       if (err) {
-          //         console.log("There was an error pushing review to user");
-          //         next(err);
-          //       } else {  Company.findOneAndUpdate({ "companyName": req.params.company}, {$push: {reviews: review._id}}, (err, company) => {
-          //           if (err) {
-          //             console.log("There was an error pushing review to company");
-          //             next(err);
-          //           } else {
-          //
-          //             //Sets companyId and companyName properties to review for Mongo
-          //             Review.update({_id: review._id}, {$set: {companyId: this.companyId, companyName: this.companyName}}, (err, changes) => {
-          //               if(err) {
-          //                 return res.status(400).json({message : err});
-          //               } else {
-          //                 console.log("updating review successfully with company info", changes);
-          //               }
-          //             });
-          //
-          //             console.log ("Review successfully saved");
-          //
-          //             res.json({
-          //               review: review,
-          //             });
-
-
-      // Review.update({_id: review._id}, {$set: {companyId: this.companyId, companyName: this.companyName}}, (err, changes) => {
-      //   if(err) {
-      //     return res.status(400).json({message : err});
-      //   } else {
-
-
-          // userAccounts.update(
-          //       { userId: usr.userId },
-          //       { $pull: { connections : { _id : connId } } },
-          //       { safe: true },
-          //       function removeConnectionsCB(err, obj) {
-          //           ...
-          //       });
-      //
-      // Company.findOneAndUpdate({ "companyName": req.params.company}, {$push: {reviews: review._id}}, (err, company) => {
-      //     if (err) {
-      //       console.log("There was an error pushing review to company");
-      //       next(err);
-      //     } else {
-
-
-
-
-
-  });
 });
 
-// Model.remove({ _id: id}, function(err){});
 
-// User.findByIdAndUpdate(req.params.id, {
-//   aboutText: req.body.aboutText
-// }, (err, user, aboutText) => {
-//   if (err) {
-//     return res.send(err);
-//   } else {
-//
-//     res.json({
-//       message: "Getting the aboutText req.body " + req.body.aboutText,
-//       user: user,
-//       aboutText: aboutText
-//     });
 
 //Retrieve all the reviews for the company and populate
 router.get('/:category/:company', (req, res, next) => {
@@ -282,12 +190,6 @@ router.get('/:category/:company', (req, res, next) => {
   }
 });
 });
-
-
-
-
-
-
 
 
 router.post('/:category/:company', (req, res, next) => {
@@ -352,158 +254,14 @@ router.post('/:category/:company', (req, res, next) => {
                           review: review,
                         });
 
-
-            // NOTE: would populate be used here to display the changes immediately after submission?
-              // Review.findOne({_id: review.id})
-              // .populate("companyId", company.id)
-              // .populate("createdBy", userId)
-              // .exec((err, review) => {
-              //   if (err) {
-              //     next(err);
-              //     return;
-              //   }
-              //   res.json(review);
-              //   // res.render('dashboard/profile', {review, booking, users});
-              // });
-
             }
           });
-
         }
       });
 
     }
-
-
 });
 });
-//
-//
-// router.post('/', (req, res, next) => {
-//   console.log(req)
-//   var  rating = req.body.rating;
-//   var	 evaluation = req.body.evaluation;
-//   var	 subject = req.body.subject;
-//   var  customer = req.body.customer;
-//   var  helper = req.body.helper;
-//   var  booking = req.body.booking;
-//
-//   var newReview = Review({
-//     rating,
-//     evaluation,
-//     subject,
-//     booking,
-//     customer,
-//     helper
-//   });
-//
-//   console.log(newReview)
-//   newReview.save((err, review) => {
-//     if (err) {
-//       req.flash('error', 'Unable to save');
-//       res.render("auth/signup", {
-//         message: req.flash('error')
-//       });
-//     } else { User.findByIdAndUpdate({_id: customer},{$push: { reviews: review.id }}, (err) => {
-//       if (err) {
-//         console.log("GOT AN ERROR");
-//         next(err);
-//       } else {  User.findByIdAndUpdate({_id: helper},{$push: { reviews: review.id,}}, (err) => {
-//         if (err) {
-//           console.log("GOT AN ERROR");
-//           next(err);
-//         } else {  Booking.findByIdAndUpdate({_id: booking},{$push: { reviews: review.id,}}, (err) => {
-//           if (err) {
-//             console.log("GOT AN booking eror");
-//             next(err);
-//           }
-//         else {
-//           User
-//           .findOne({_id: req.body.customer})
-//           .populate("bookings")
-//           .exec((err, users) => {
-//             if (err) {
-//               next(err);
-//               return;
-//             }
-//
-//             Booking
-//             .find({customer: req.body.customer})
-//             .populate("helper")
-//             .exec((err, booking) => {
-//               if (err) {
-//                 next(err);
-//                 return;
-//               }
-//
-//               Review
-//               .findOne({_id: review.id})
-//               .populate("customer")
-//               .populate("helper")
-//               .exec((err, review) => {
-//                 if (err) {
-//                   next(err);
-//                   return;
-//                 }
-//                 res.json(review);
-//                 // res.render('dashboard/profile', {review, booking, users});
-//               });
-//             });
-//           })
-//           ;}
-//         });
-//       }
-//           });
-//         }
-//     });
-//   }
-// });
-
-
-//
-// router.post('/signup', (req, res, next) => {
-//   var email = req.body.email;
-//   var password = req.body.password;
-//
-//   if (!email || !password) {
-//     res.status(400).json({message: "Both email and password are required"});
-//     return;
-//   }
-//
-//   User.findOne({ email }, "email", (err, user) => {
-//     if (user !== null) {
-//       res.status(400).json({ message: 'Email exists already' });
-//       return;
-//     }
-//
-//     var salt = bcrypt.genSaltSync(bcryptSalt);
-//     var hashPass = bcrypt.hashSync(password, salt);
-//
-//     var newUser = User({
-//       email,
-//       password: hashPass
-//     });
-//
-//     newUser.save((err, user) => {
-//       if (err) {
-//         res.status(400).json({ message: err });
-//       } else {
-//         var payload = {id: user._id};
-//         console.log('user', user);
-//         var token = jwt.sign(payload, jwtOptions.secretOrKey);
-//
-//         res.status(200).json({ message: 'ok', token: token});
-//       }
-//     });
-//
-//   });
-// });
-//
-//
-
-
-
-
 
 
 

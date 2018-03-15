@@ -18,6 +18,7 @@ router.get('/', (req, res) => {
 });
 
 
+
 //GET *PUBLIC* USER PROFILE
 // NOTE: Move profile routes to separate file for refactor
 

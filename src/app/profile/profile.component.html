@@ -12,13 +12,13 @@
       <fieldset class="form-group">
 
 
-        <div *ngIf="!currentUser.user.image">
+        <div *ngIf="!currentUser.image">
           <a>
             <img [src]="imagePreviewUrl" class="profile-picture" alt="">
           </a>
         </div>
 
-        <div *ngIf="currentUser.user.image">
+        <div *ngIf="currentUser.image">
 
             <img src="/{{currentUser.user.image.path}}" class="profile-picture">
 
@@ -59,7 +59,7 @@
       <form>
         <fieldset class="form-group">
           <label for="about">About Me</label>
-          <input type="text" class="form-control" [(ngModel)]="user.aboutText" placeholder="Tell the community something about yourself." name="about">
+          <input type="text" class="form-control" [(ngModel)]="currentUser.aboutText" placeholder="Tell the community something about yourself." name="about">
         </fieldset>
 
           <!-- <button *ngIf="isAuth" type="button" name="button" class="btn btn-info">EDIT BIO</button> -->

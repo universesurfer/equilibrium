@@ -12,10 +12,13 @@ const companySchema = new Schema ({
   productRange: [String],
   category: String,
   reviews: [ {type: Schema.Types.ObjectId, ref: 'Review'} ],
-  socialImpactRating: Number,
-  environmentalRating: Number,
-  transparencyRating: Number,
-  certifications: [String],
+  // socialImpactRating: Number,
+  // environmentalRating: Number,
+  // transparencyRating: Number,
+  certifications: {
+    bCorp: Boolean
+  },
+  // bCorp: Boolean,
   priceRange: Number
 
   // NOTE: I can probably do average rating and number of rating after database call and not store it directly.  Probably should but don't know about speed yet.

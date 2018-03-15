@@ -94,23 +94,25 @@ login(user) {
 
       if(token) {
         console.log("here's the token", token);
-        //set token property
+        //Set token property
         this.token = token;
 
 
-        //store username and jwt in local storage to keep user logged in between page refreshes
+        //Store username and jwt in local storage to keep user logged in between page refreshes
         localStorage.setItem('token', token);
         localStorage.setItem('user', currentUser);
         localStorage.setItem('id', response.json().user._id);
-        localStorage.setItem('picture', response.json().user.image.path);
+
+        //Provides user's picture to display on submitted review.  Wrap it conditionally in case pic doesn't exist yet.
+        if (response.json().user.image.path != null) {
+          localStorage.setItem('picture', response.json().user.image.path);
+        }
 
 
         this.isAuth.emit(true);
 
 
         console.log("getting local storage id", response.json().user._id);
-
-        // this.localStorageTimeout();
 
         return true; //return true to indicate successful login
       } else {

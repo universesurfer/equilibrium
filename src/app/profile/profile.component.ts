@@ -65,6 +65,7 @@ export class ProfileComponent implements OnInit {
   ngOnInit() {
 
         this.activatedRoute.params.subscribe(params => {
+
           this.getUserDetails(params['id']);
 
           this.user = JSON.parse(localStorage.getItem('user'));
@@ -87,15 +88,15 @@ export class ProfileComponent implements OnInit {
 
 
     this.uploader.onSuccessItem = (item, response) => {
-
-      this.session.get(this.paramsId)
+      this.session.get(this.id)
         .subscribe((response) => {
           this.user = response.user;
+          console.log("showing the response in onSuccessItem", response);
           console.log("in success response, showing the item", item );
         });
     };
 
-
+    
   }
 
 
@@ -131,8 +132,6 @@ export class ProfileComponent implements OnInit {
 
 
 
-// NOTE: Set up the get user route in users.js
-
   getUserDetails(id) {
     this.session.get(id)
       .subscribe((returnedUser) => {
@@ -142,18 +141,6 @@ export class ProfileComponent implements OnInit {
                   //Include in get or in PUT
       });
   }
-
-// getPublicProfileOfUser() {
-//   this.session.getPublicProfile(this.publicProfileId)
-//     .subscribe(result => {
-//       if (result) {
-//         this.user = result.user;
-//         console.log("getting the result of getPublicProfile()", result);
-//       } else {
-//         console.log("Was not able to retrieve public user profile.");
-//       }
-//     })
-// }
 
 
   updatePicture() {

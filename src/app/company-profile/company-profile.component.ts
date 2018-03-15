@@ -19,7 +19,7 @@ export class CompanyProfileComponent implements OnInit {
   onRatingChangeResult: OnRatingChangeEven;
 
   editCheck: boolean = false;
-  companies: any;
+  // companies: any;
 
   params: any;
   category: string;
@@ -84,9 +84,8 @@ export class CompanyProfileComponent implements OnInit {
 
   ngOnInit() {
 
-    //Get current user
+    //Get current user info and picture
     this.user = JSON.parse(localStorage.getItem('user'));
-    console.log("getting current user", this.user);
     this.localStoragePicture = localStorage.getItem('picture');
 
     //Set the user id to the user property in review model to make sure it's available when page loads
@@ -94,16 +93,17 @@ export class CompanyProfileComponent implements OnInit {
       this.review.createdBy = this.user._id;
     }
 
+    //Get the companies
+    // this.companies = this.session.companies;
 
-    console.log(this.session.companies);
-    this.companies = this.session.companies;
+    //Call and display the company data when page loads.
+    this.displayCompanyInfo(this.params.category, this.params.company);
 
-    this.displayCompanyInfo(this.params.category, this.params.company); //Call and display the company data when page loads.
-    this.getAllReviews(); //Retrieve reviews and block new review if user has reviewed.
+    //Retrieve reviews and block new review if user has reviewed.
+    this.getAllReviews();
 
 
   }
-
 
 
   //Detect any star rating changes and update the rating variable
@@ -118,7 +118,7 @@ export class CompanyProfileComponent implements OnInit {
 
 
 
-  //Retrieves relevant company information for each separate company
+  //Retrieve relevant company information for each separate company
   displayCompanyInfo(category, companyName) {
     this.session.getSingleCompany(category, companyName)
       .subscribe(result => {
@@ -134,41 +134,30 @@ export class CompanyProfileComponent implements OnInit {
       });
   }
 
-  // getPublicProfileOfUser(id) {
-  //   this.session.getPublicProfile(id) {
-  //     .subscribe(result => {
-  //       if (result) {
-  //         console.log("getting the result of getPublicProfile()", result);
-  //       } else {
-  //         console.log("Was not able to retrieve public user profile.");
-  //       }
-  //     })
-  //   }
-  // }
 
+  //Grab id of user deleted review.
   setDeletedReviewId(id) {
     this.deletedReviewId = id;
   }
 
+  //Remove the delete review from allReviews array and from dom.
   removeItem(id) {
     this.allReviews = this.allReviews.filter(review => review._id !== id);
 }
 
+  //Immediately show new review on dom.  Called in submitUserReview() below.
   addReviewToDom() {
     this.allReviews.push(this.newReview);
   }
 
+  //Edit the existing review.
   editReview() {
     if (this.editCheck != true) {
       this.editCheck = true;
     }
-
   }
 
-  setProfileIdAndNavigate(id) {
-    this.session.publicProfileId = id;
-    this.router.navigate([`/profile/${id}`]);
-  }
+
 
   //Checks if user has reviewed company already.  If so, hide review form.
   checkIfUserHasAlreadyReviewed() {
@@ -188,13 +177,12 @@ export class CompanyProfileComponent implements OnInit {
       this.checkForIntersection(this.reviewIds, this.userReviews);
 
     }
-
   }
 
-  //Checks company reviews and user reviews for matches.
+
+  //Checks company reviews and user reviews for matches.  If there is a match, don't show review form.
   checkForIntersection(array1, array2) {
     var intersection = _.intersection(array1, array2);
-
 
     if (intersection.length != 0) {
       console.log("intersection exists");
@@ -209,7 +197,7 @@ export class CompanyProfileComponent implements OnInit {
   }
 
 
-  //Submit the user review
+  //Submit and save the user review to Mongo.
   submitUserReview() {
     this.session.makeReview(this.category, this.companyName, this.review)
       .subscribe(result => {
@@ -226,6 +214,7 @@ export class CompanyProfileComponent implements OnInit {
       });
   }
 
+  //Delete the review from Mongo.
   deleteReview() {
     this.session.deleteReview(this.category, this.companyName, this.deletedReviewId, this.user._id)
       .subscribe(result => {

@@ -32,7 +32,6 @@ allCompanies: any;
     // this.user = localStorage.getItem('user');
     console.log("getting current user", this.user);
 
-
     //Retrieve all companies within this category from Mongo
     this.getCompaniesForCategory();
   }
@@ -49,9 +48,8 @@ allCompanies: any;
 
 
 navigateToCompanyPage(company) {
-  this.companyName = company.id;
+  this.companyName = company;
   this.router.navigate([`/${this.category}/${this.companyName}`]);
-
 }
 
 

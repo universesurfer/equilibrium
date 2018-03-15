@@ -197,11 +197,22 @@ export class CompanyProfileComponent implements OnInit {
   }
 
 
+  hideReviewForm() {
+        var reviewForm = document.getElementById("review-form");
+        reviewForm.style.display = "none";
+  }
+
+  showReviewForm() {
+        var reviewForm = document.getElementById("review-form");
+        reviewForm.style.display = "block";
+  }
+
   //Submit and save the user review to Mongo.
   submitUserReview() {
     this.session.makeReview(this.category, this.companyName, this.review)
       .subscribe(result => {
         if (result) {
+
           console.log("Review submitted from submitUserReview()", result);
           this.newReview = result.review;
           console.log("showing newReview", this.newReview);

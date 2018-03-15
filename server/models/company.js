@@ -39,5 +39,5 @@ module.exports = Company;
 
 // db.companies.updateOne(
 //       { "companyName" : "tentree" },
-//       { $set: { "logo" : "https://imgur.com/bAKe4Tp" } }
+//       { $set: { "certifications" : { "bCorp": true } } }
 //    );

@@ -88,6 +88,7 @@ login(user) {
     .map((response) => {
       console.log("here's the response", response);
       console.log("here's the token", response.json());
+
       let token = response.json() && response.json().token;
       // let currentUser = response.json().user;
       let currentUser = JSON.stringify(response.json().user);
@@ -131,6 +132,8 @@ logout() {
   this.isAuth.emit(false);
   localStorage.removeItem('token');
   localStorage.removeItem('user');
+  localStorage.removeItem('picture');
+  localStorage.removeItem('id');
   this.router.navigate(['/']);
 }
 

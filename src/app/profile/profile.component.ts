@@ -21,7 +21,7 @@ export class ProfileComponent implements OnInit {
 
   paramsId: string;
   isAuth: boolean;
-  // aboutText: string;
+  aboutText: string;
   id: string;
   avatar: string = '/assets/glyphicons/user.png';
 
@@ -70,6 +70,7 @@ export class ProfileComponent implements OnInit {
 
           this.user = JSON.parse(localStorage.getItem('user'));
           console.log("here's the current user", this.user);
+          console.log(this.aboutText);
           //Get the url id params to check against localStorage in constructor above.
           this.id = localStorage.getItem('id');
           console.log("user id", this.id);
@@ -135,7 +136,7 @@ export class ProfileComponent implements OnInit {
     this.session.get(id)
       .subscribe((returnedUser) => {
         this.currentUser = returnedUser.user;
-        console.log("showing returnedUser in getUserDetails()", returnedUser);
+        console.log("showing returnedUser in getUserDetails()", returnedUser.user);
         // NOTE: complete user route to successfully get and update user from this component
                   //Include in get or in PUT
       });
@@ -162,7 +163,7 @@ export class ProfileComponent implements OnInit {
           console.log("inside the result in updateProfile()", result);
           // this.user.aboutText = this.aboutText;
           console.log("here's the user", this.user);
-          // console.log("does it have about text?", this.aboutText);
+          console.log("does it have about text?", this.aboutText);
         } else {
           console.log("Something went wrong when editing profile.");
         }

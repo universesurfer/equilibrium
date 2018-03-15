@@ -3,7 +3,7 @@
 
 
 
-  <ul class="company-list">
+  <!-- <ul class="company-list">
 
     <div class="row company-row">
         <li class="company-image" id="tentree" #tentree (click)="navigateToCompanyPage(tentree)"></li>
@@ -31,7 +31,53 @@
 
 
 
+  </ul> -->
+
+
+  <ul *ngFor="let company of allCompanies">
+
+    <li class="row company-row">
+      <div (click)="navigateToCompanyPage(company.companyName)">
+        <img src="{{company.logo}}" alt="" class="company-image">
+      </div>
+
+      <div class="certification-logo" *ngIf="company.certifications && company.certifications.bCorp == true">
+        <img src="/../assets/logos/B-Corp-Logo.png" alt="" >
+      </div>
+
+
+    </li>
+
+    <!-- <div class="row company-row">
+        <li class="company-image" id="tentree" #tentree (click)="navigateToCompanyPage(tentree)"></li>
+    </div>
+
+
+
+    <div class="row company-row">
+        <li class="company-image" id="patagonia" #patagonia (click)="navigateToCompanyPage(patagonia)"></li>
+    </div>
+
+    <div class="row company-row">
+        <li class="company-image" id="saltura" #saltura (click)="navigateToCompanyPage(saltura)"></li>
+    </div>
+
+    <div class="row company-row">
+        <li class="company-image" id="everlane" #everlane (click)="navigateToCompanyPage(everlane)"></li>
+    </div>
+
+    <div class="row company-row">
+        <li class="company-image" id="nau" #nau (click)="navigateToCompanyPage(nau)"></li>
+    </div>
+
+    <div class="row company-row">
+        <li class="company-image" id="pact" #pact (click)="navigateToCompanyPage(pact)"></li>
+    </div> -->
+
+
+
   </ul>
+
 
 
 

@@ -71,7 +71,7 @@
           <!-- Edit and Delete Buttons -->
           <div *ngIf="review._id == intersectedId || newReview">
             <button type="button" name="button" class="btn btn-info" (click)="editReview()"> Edit </button>
-            <button type="button" name="button" class="btn btn-danger" (click)="setDeletedReviewId(review._id); deleteReview(); removeItem(review._id)"> Delete </button>
+            <button type="button" name="button" class="btn btn-danger" (click)="setDeletedReviewId(review._id); deleteReview(); removeItem(review._id); showReviewForm()"> Delete </button>
           </div>
 
 
@@ -107,7 +107,7 @@
     </section>
   </div>
 
-  <div class="container" *ngIf="isAuth && !reviewExists || isAuth && allReviews.length == 0">
+  <div class="container" id="review-form" *ngIf="isAuth && !reviewExists || isAuth && allReviews.length >= 0">
     <div class="row">
       <div class="col">
         <div class="company-reviews">
@@ -139,7 +139,7 @@
               </fieldset>
 
               <!-- <button *ngIf="isAuth" type="button" name="button" class="btn btn-info">EDIT BIO</button> -->
-              <button type="submit" class="btn btn-primary" ng-click="submitted=true" (click)="submitUserReview()">Submit</button>
+              <button type="submit" class="btn btn-primary" ng-click="submitted=true" (click)="submitUserReview(); hideReviewForm()">Submit</button>
             </form>
 
 

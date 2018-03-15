@@ -1,5 +1,4 @@
 
-
 .row {
   border-bottom: .5px solid black;
   border-top: .5px solid black;
@@ -16,6 +15,43 @@ ul {
   background-position: center;
   border: .5px solid black;
 }
+
+.company-image {
+  object-fit: contain;
+  object-position: center;
+  border: .5px solid black;
+  /* max-height: 100%; */
+  height: 10rem;
+  width: 15rem;
+}
+
+.company-image img {
+  max-height: 100%;
+  max-width: 100%;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.company-row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+  height: 10rem;
+}
+
+.certification-logo {
+  object-fit: contain;
+  height: 50%;
+  width: 8rem;
+}
+
+.certification-logo img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+
 
 #tentree {
   background-image: url("/../assets/logos/tentree-logo.jpg");

@@ -13,14 +13,14 @@
 
 
         <div *ngIf="!currentUser.image">
-          <a>
+
             <img [src]="imagePreviewUrl" class="profile-picture" alt="">
-          </a>
+
         </div>
 
         <div *ngIf="currentUser.image">
 
-            <img src="/{{currentUser.user.image.path}}" class="profile-picture">
+            <img src="/{{currentUser.image.path}}" class="profile-picture">
 
         </div>
 

@@ -15,6 +15,8 @@ export class CompanyProfileComponent implements OnInit {
 
   isAuth: boolean;
   user: any;
+  currentUser: any;
+  id: string;
 
   onRatingChangeResult: OnRatingChangeEven;
 
@@ -87,6 +89,13 @@ export class CompanyProfileComponent implements OnInit {
     //Get current user info and picture
     this.user = JSON.parse(localStorage.getItem('user'));
     this.localStoragePicture = localStorage.getItem('picture');
+    this.id = localStorage.getItem('id');
+
+    //Get logged in user details from Mongo.
+    this.getUserDetails(this.id);
+
+
+    console.log("showing user in company profile", this.user)
 
     //Set the user id to the user property in review model to make sure it's available when page loads
     if (this.isAuth === true) {
@@ -158,6 +167,16 @@ export class CompanyProfileComponent implements OnInit {
   }
 
 
+  getUserDetails(id) {
+    this.session.get(id)
+      .subscribe((returnedUser) => {
+        this.currentUser = returnedUser.user;
+        console.log("showing returnedUser in getUserDetails()in company profile component", returnedUser.user);
+        // NOTE: complete user route to successfully get and update user from this component
+                  //Include in get or in PUT
+      });
+  }
+
 
   //Checks if user has reviewed company already.  If so, hide review form.
   checkIfUserHasAlreadyReviewed() {
@@ -169,7 +188,7 @@ export class CompanyProfileComponent implements OnInit {
         console.log(this.reviewIds);
       });
 
-      this.user.reviews.forEach(review => {
+      this.currentUser.reviews.forEach(review => {
         this.userReviews.push(review);
         console.log("showing all user reviews", this.userReviews);
       });

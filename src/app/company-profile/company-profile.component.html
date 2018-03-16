@@ -70,14 +70,15 @@
 
           <!-- Edit and Delete Buttons -->
           <div *ngIf="review._id == intersectedId || newReview">
-            <button type="button" name="button" class="btn btn-info" (click)="editReview()"> Edit </button>
+            <!-- <button type="button" name="button" class="btn btn-info" (click)="editReview()"> Edit </button> -->
             <button type="button" name="button" class="btn btn-danger" (click)="setDeletedReviewId(review._id); deleteReview(); removeItem(review._id); showReviewForm()"> Delete </button>
           </div>
 
 
 
-          <!-- NOTE: EDIT REVIEW FORM.  Will need to hide row data when edit is clicked and display form in its place. -->
-          <form *ngIf="editCheck && review._id == intersectedId">
+<!-- EDIT FORM -->
+
+          <!-- <form *ngIf="editCheck && review._id == intersectedId">
 
             <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" [rating]="review.starRating"></star-rating-comp>
             {{rating}}
@@ -91,13 +92,13 @@
             <fieldset>
               <label for="review">Review</label>
               <input type="text" class="form-control comment-body" name="commentBody" [(ngModel)]="review.commentBody">
-            </fieldset>
+            </fieldset> -->
 
             <!-- NOTE: Replace submitUserReview() with an editUserReview() function -->
-            <button type="submit" class="btn btn-primary" ng-click="submitted=true" (click)="submitUserReview()">Submit</button>
-          </form>
+            <!-- <button type="submit" class="btn btn-primary" ng-click="submitted=true" (click)="submitUserReview()">Submit</button>
+          </form> -->
 
-
+<!--  -->
 
 
         </li>

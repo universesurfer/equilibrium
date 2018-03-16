@@ -117,7 +117,7 @@ router.put('/:category', (req, res) => {
 });
 
 router.get('/:category', (req, res) => {
-  Company.find({ "category": req.params.category }, (err, companies) => {
+  Company.find({ category: {$in: req.params.category } }, (err, companies) => {
     if (!companies) {
       res.status(400).json({ message: "Can't find any companies in this category or they don't exist yet." });
     } else {

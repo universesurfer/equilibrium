@@ -38,6 +38,11 @@ module.exports = Company;
 
 
 // db.companies.updateOne(
-//       { "companyName" : "tentree" },
-//       { $set: { "certifications" : { "bCorp": true } } }
+//       { "companyName" : "everlane" },
+//       { $set: {"category": ["women-apparel", "men-apparel"]} }
 //    );
+
+ // db.companies.updateOne(
+ //       { "companyName" : "nau" },
+ //       { $set: {"logo": "https://i.imgur.com/1CFtY48.jpg"} }
+ //    );

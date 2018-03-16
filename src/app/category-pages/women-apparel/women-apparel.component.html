@@ -1,9 +1,8 @@
 <app-navbar></app-navbar>
-
 <div class="container-fluid">
 
 
-
+<!--
   <ul class="company-list">
 
     <div class="row company-row">
@@ -32,5 +31,31 @@
 
 
 
-</ul>
+</ul> -->
+
+
+<div class="container-fluid">
+
+
+
+  <ul *ngFor="let company of allCompanies">
+
+    <li class="row company-row">
+
+      <div (click)="navigateToCompanyPage(company.companyName)">
+        <img src="{{company.logo}}" alt="" class="company-image">
+      </div>
+
+      <div class="certification-logo" *ngIf="company.certifications && company.certifications.bCorp == true">
+        <img src="/../assets/logos/B-Corp-Logo.png" alt="" >
+      </div>
+
+    </li>
+
+  </ul>
+
+
+
+</div>
+
 </div>

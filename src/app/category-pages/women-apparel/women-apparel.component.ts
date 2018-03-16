@@ -27,7 +27,7 @@ export class WomenApparelComponent implements OnInit {
 
 
   navigateToCompanyPage(company) {
-    this.companyName = company.id;
+    this.companyName = company;
     this.router.navigate([`/${this.category}/${this.companyName}`]);
 
   }

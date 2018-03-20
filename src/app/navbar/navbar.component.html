@@ -4,21 +4,39 @@
 <!-- If the user is logged in, display a profile icon. -->
 
 
-  <ul *ngIf="isAuth" class="navbar-nav mr-auto">
+  <ul *ngIf="isAuth" class="navbar-nav ml-auto">
+
+  <div class="nav-image-wrapper">
+    <div class="dropdown">
+
+
 
     <div *ngIf="user.image">
-      <li class="nav-item">
-        <a (click)="goToProfile()">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="/{{user.image.path}}" class="profile-dropdown" alt="">
         </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="goToProfile()">Profile</a>
+          <a class="dropdown-item" href="#">Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+
       </li>
     </div>
 
     <div *ngIf="!user.image">
-      <li class="nav-item">
+      <li class="nav-item dropdown">
         <img [src]="imagePreviewUrl" class="profile-dropdown" alt="" (click)="goToProfile()">
       </li>
     </div>
+
+    <!-- <div class="dropdown-arrow"></div> -->
+
+    </div>
+  </div>
 
   </ul>
 

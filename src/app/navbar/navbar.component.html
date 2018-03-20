@@ -17,11 +17,11 @@
           <img src="/{{user.image.path}}" class="profile-dropdown" alt="">
         </a>
 
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" (click)="goToProfile()">Profile</a>
           <a class="dropdown-item" href="#">Settings</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <a class="dropdown-item" (click)="logout()">Log out</a>
         </div>
 
       </li>
@@ -29,7 +29,17 @@
 
     <div *ngIf="!user.image">
       <li class="nav-item dropdown">
-        <img [src]="imagePreviewUrl" class="profile-dropdown" alt="" (click)="goToProfile()">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <img [src]="imagePreviewUrl" class="profile-dropdown" alt="">
+        </a>
+
+        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" (click)="goToProfile()">Profile</a>
+          <a class="dropdown-item" href="#">Settings</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="logout()">Log out</a>
+        </div>
+
       </li>
     </div>
 

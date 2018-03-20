@@ -40,6 +40,10 @@ export class NavbarComponent implements OnInit {
 
   }
 
+  logout() {
+    this.session.logout();
+  }
+
 
   getUserDetails(id) {
     this.session.get(id)

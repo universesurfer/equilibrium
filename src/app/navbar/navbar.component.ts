@@ -59,4 +59,8 @@ export class NavbarComponent implements OnInit {
     this.router.navigateByUrl(`/profile/${this.user._id}`);
   }
 
+  goToSettings() {
+    this.router.navigateByUrl('/settings');
+  }
+
 }

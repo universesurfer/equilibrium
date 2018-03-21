@@ -1,3 +1,8 @@
+
+
+// TODO: Implement CanActivate
+
+
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -39,9 +44,6 @@ export class ProfileComponent implements OnInit {
     private router: Router
   ) {
 
-    // //Set public profile id to same id set in session.
-    // this.publicProfileId = this.session.publicProfileId;
-
     this.session.isAuth
       .subscribe((isAuth: boolean) => this.isAuth = isAuth);
 
@@ -57,7 +59,6 @@ export class ProfileComponent implements OnInit {
       this.isAuth = false;
       console.log("something is wrong with isAuth");
     }
-
   }
 
 

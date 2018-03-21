@@ -37,7 +37,7 @@ isAuthenticated() {
 canActivate(): Observable<boolean> | Promise<boolean> | boolean {
   if (localStorage.getItem('token')) {
     //logged in, so return true
-    // this.isAuth.emit(true);
+    this.isAuth.emit(true);
     return true;
   } else {
     //not logged in, so redirect to home page

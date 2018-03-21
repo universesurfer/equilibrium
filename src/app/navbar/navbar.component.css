@@ -25,10 +25,3 @@
   border: 1px solid black;
   object-fit: cover;
 }
-
-.dropdown-arrow {
-  background-image: url("/../assets/icons/dropdownArrow.png");
-  background-size: contain;
-  height: 25%;
-  width: 20px;
-}

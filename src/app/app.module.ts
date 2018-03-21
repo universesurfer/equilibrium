@@ -38,6 +38,7 @@ import { StarRatingModule } from 'angular-star-rating';
 import{ FileSelectDirective } from 'ng2-file-upload';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
 import { FooterComponent } from './footer/footer.component';
+import { SettingsComponent } from './settings/settings.component';
 
 
 
@@ -70,7 +71,8 @@ import { FooterComponent } from './footer/footer.component';
     ProfileComponent,
     CompanyProfileComponent,
     FileSelectDirective,
-    FooterComponent
+    FooterComponent,
+    SettingsComponent
 
   ],
   imports: [

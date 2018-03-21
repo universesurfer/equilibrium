@@ -26,6 +26,7 @@ import { SignupModalComponent } from '../signup-modal/signup-modal.component';
 import { ProfileComponent } from '../profile/profile.component';
 import { CategoriesComponent } from '../categories/categories.component';
 import { CompanyProfileComponent } from '../company-profile/company-profile.component';
+import { SettingsComponent } from '../settings/settings.component';
 // import { PublicProfileComponent } from '../public-profile/public-profile.component';
 
 
@@ -53,7 +54,8 @@ export const routes: Routes = [
   { path: 'login', component: LoginModalComponent },
   { path: 'signup', component: SignupModalComponent },
   { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthService] },
-  { path: ':category/:company', component: CompanyProfileComponent }
+  { path: ':category/:company', component: CompanyProfileComponent },
+  { path: 'settings', component: SettingsComponent, canActivate: [AuthService] }
 
 
   // {path: '**', redirectTo: ''}

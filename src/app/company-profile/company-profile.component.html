@@ -24,6 +24,9 @@
 
   <!-- A list of all user reviews for company -->
 
+
+
+<!--- REVIEWS ------------------->
   <div class="row">
     <section id="reviews">
 
@@ -108,7 +111,7 @@
     </section>
   </div>
 
-  <div class="container" id="review-form" *ngIf="isAuth && !reviewExists || isAuth && allReviews.length >= 0">
+  <div class="container" id="review-form" *ngIf="isAuth && !reviewExists || isAuth && allReviews.length >= 0 && !reviewExists">
     <div class="row">
       <div class="col">
         <div class="company-reviews">

@@ -1,8 +1,16 @@
-<p>
-  settings works!
-</p>
-
+<app-navbar></app-navbar>
 
 <div *ngIf="isAuth">
 
+  isAuth works
+
 </div>
+
+
+<div *ngIf="!isAuth">
+
+  isAuth doesn't work
+
+</div>
+
+<!-- NOTE: isAuth may not work if application is refreshed without a new login afterwords. -->

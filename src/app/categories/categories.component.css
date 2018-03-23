@@ -14,8 +14,8 @@
   justify-content: center;
   /* flex-wrap: wrap; */    /* NOTE: for multi-category landing */
   flex-direction: row;
-  /* width: 65%; */
   overflow: hidden;
+  padding: 20rem 0 20rem 0;
 }
 
 

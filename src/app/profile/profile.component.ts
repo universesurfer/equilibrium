@@ -57,6 +57,7 @@ export class ProfileComponent implements OnInit {
       console.log("id's are equal.  Is auth should be working.")
     } else {
       this.isAuth = false;
+      this.router.navigate(['/']);
       console.log("something is wrong with isAuth");
     }
   }
@@ -157,14 +158,14 @@ export class ProfileComponent implements OnInit {
 
 
   updateProfile() {
-    this.session.edit(this.user)
+    this.session.edit(this.currentUser)
       .subscribe(result => {
         if (result) {
           // result.user.aboutText = this.aboutText;
           console.log("inside the result in updateProfile()", result);
           // this.user.aboutText = this.aboutText;
-          console.log("here's the user", this.user);
-          console.log("does it have about text?", this.aboutText);
+          console.log("here's the user", this.currentUser);
+          // console.log("does it have about text?", this.currentUser.aboutText);
         } else {
           console.log("Something went wrong when editing profile.");
         }

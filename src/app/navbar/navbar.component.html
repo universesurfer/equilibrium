@@ -1,51 +1,66 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
   <a class="navbar-brand" href="#">Equilibrium</a>
-<!-- If the user is logged in, display a profile icon. -->
+  <!-- If the user is logged in, display a profile icon. -->
 
+
+  <!-- <button *ngIf="!isAuth" type="button" data-toggle="modal" data-target="#login-modal" class="btn-lg btn-light" routerLink="/login">Login</button>
+  <button *ngIf="!isAuth" type="button" data-toggle="modal" data-target="#signup-modal" class="btn-lg btn-light" routerLink="/signup">Signup</button> -->
+
+  <div class="collapse navbar-collapse" id="navbarNavDropdown" *ngIf="!isAuth">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/login">Login</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/signup">Signup</a>
+      </li>
+    </ul>
+  </div>
 
   <ul *ngIf="isAuth" class="navbar-nav ml-auto">
 
-  <div class="nav-image-wrapper">
-    <div class="dropdown">
+    <div class="nav-image-wrapper">
+      <div class="dropdown">
 
 
 
-    <div *ngIf="user.image">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div *ngIf="user.image">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="/{{user.image.path}}" class="profile-dropdown" alt="">
         </a>
 
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" (click)="goToProfile()">Profile</a>
-          <a class="dropdown-item" (click)="goToSettings()">Settings</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" (click)="logout()">Log out</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" (click)="goToProfile()">Profile</a>
+              <a class="dropdown-item" (click)="goToSettings()">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="logout()">Log out</a>
+            </div>
+
+          </li>
         </div>
 
-      </li>
-    </div>
-
-    <div *ngIf="!user.image">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        <div *ngIf="!user.image">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img [src]="imagePreviewUrl" class="profile-dropdown" alt="">
         </a>
 
-        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" (click)="goToProfile()">Profile</a>
-          <a class="dropdown-item" (click)="goToSettings()">Settings</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" (click)="logout()">Log out</a>
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" (click)="goToProfile()">Profile</a>
+              <a class="dropdown-item" (click)="goToSettings()">Settings</a>
+              <div class="dropdown-divider"></div>
+              <a class="dropdown-item" (click)="logout()">Log out</a>
+            </div>
+
+          </li>
         </div>
 
-      </li>
-    </div>
 
-
+      </div>
     </div>
-  </div>
 
   </ul>
 

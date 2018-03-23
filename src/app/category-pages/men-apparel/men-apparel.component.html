@@ -1,7 +1,16 @@
 <app-navbar></app-navbar>
+
 <div class="container-fluid">
 
 
+  <div class="category-hero row">
+
+  </div>
+
+</div>
+
+
+<div class="container-fluid company-list-wrapper">
 
   <ul *ngFor="let company of allCompanies">
 
@@ -12,15 +21,16 @@
       </div>
 
       <div class="certification-logo" *ngIf="company.certifications && company.certifications.bCorp == true">
-        <img src="/../assets/logos/B-Corp-Logo.png" alt="" >
+        <img src="/../assets/logos/B-Corp-Logo.png" alt="">
       </div>
 
     </li>
 
   </ul>
 
-
-
 </div>
+
+
+
 
 <app-footer></app-footer>

@@ -1,13 +1,15 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
   <a class="navbar-brand" href="#">Equilibrium</a>
-  <!-- If the user is logged in, display a profile icon. -->
+
+<!-- Collapse links into button when screen shrinks -->
+  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+   <span class="navbar-toggler-icon"></span>
+ </button>
 
 
-  <!-- <button *ngIf="!isAuth" type="button" data-toggle="modal" data-target="#login-modal" class="btn-lg btn-light" routerLink="/login">Login</button>
-  <button *ngIf="!isAuth" type="button" data-toggle="modal" data-target="#signup-modal" class="btn-lg btn-light" routerLink="/signup">Signup</button> -->
-
-  <div class="collapse navbar-collapse" id="navbarNavDropdown" *ngIf="!isAuth">
+  <!-- If the user is not logged in, display auth links. -->
+  <div class="collapse navbar-collapse" id="navbarSupportedContent" *ngIf="!isAuth">
     <ul class="navbar-nav ml-auto">
       <li class="nav-item">
         <a class="nav-link" routerLink="/login">Login</a>
@@ -19,12 +21,11 @@
     </ul>
   </div>
 
+  <!-- If the user is logged in, display a profile ico and dropdown. -->
   <ul *ngIf="isAuth" class="navbar-nav ml-auto">
 
     <div class="nav-image-wrapper">
       <div class="dropdown">
-
-
 
         <div *ngIf="user.image">
           <li class="nav-item dropdown">

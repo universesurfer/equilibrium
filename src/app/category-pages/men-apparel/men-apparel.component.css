@@ -4,6 +4,20 @@
   border-top: .5px solid black;
 }
 
+.company-list-wrapper {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
+
+.category-hero {
+  height: 12rem;
+  /* background-image: url("https://images.unsplash.com/photo-1485373650022-3ed53f62b8f3?ixlib=rb-0.3.5&s=eb0ca51a3e84e1ad6461972535c89dda&auto=format&fit=crop&w=934&q=80"); */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 ul {
   list-style-type: none;
 }

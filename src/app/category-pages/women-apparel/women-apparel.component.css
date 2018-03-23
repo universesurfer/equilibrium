@@ -3,6 +3,15 @@
   border-top: .5px solid black;
 }
 
+.category-hero {
+  height: 10rem;
+}
+
+.company-list-wrapper {
+  margin-left: 5rem;
+  margin-right: 5rem;
+}
+
 ul {
   list-style-type: none;
 }

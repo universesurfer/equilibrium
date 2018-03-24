@@ -46,7 +46,7 @@ export class CompanyProfileComponent implements OnInit {
   //Hold review data from form to send to Mongo
   review = {
     starRating: this.rating, //placeholder to hold a number value
-    subject: '',
+    // subject: '',
     commentBody: '',
     createdBy: ''
   };

@@ -9,20 +9,16 @@
     <!-- <div class="col-md-4 offset-md-4"> -->
     <section id="profile-hero" class="col">
 
-      <form>
+      <form id="picture-upload-section">
       <fieldset class="form-group">
 
 
         <div *ngIf="!currentUser.image">
-
             <img [src]="imagePreviewUrl" class="profile-picture" alt="">
-
         </div>
 
         <div *ngIf="currentUser.image">
-
             <img src="/{{currentUser.image.path}}" class="profile-picture">
-
         </div>
 
         <!-- <button type="button" name="button" (click)="edit()"></button> -->
@@ -34,29 +30,19 @@
               <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
           </div>
 
-          <!-- <p>Queue length: {{ uploader?.queue?.length }}</p> -->
-          <!-- Queue progress:
-                     <div class="progress" style="">
-                         <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
-                     </div> -->
-
-        <!-- </div> -->
-
       </fieldset>
       </form>
 
 
 
     </section>
-  <!-- </div> -->
-  <!-- </div> -->
 </div>
 
 <hr>
 
 <div class="row">
-  <section id="about-info" class="col">
-    <div class="col-md-6 offset-md-3">
+  <section id="about-info">
+    <div class="about-form">
 
       <form>
         <fieldset class="form-group">

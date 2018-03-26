@@ -197,13 +197,13 @@ router.post('/:category/:company', (req, res, next) => {
 
   var companyName;
   var companyId;
-  var subject = req.body.subject;
+  // var subject = req.body.subject;
   var commentBody = req.body.commentBody;
   var starRating = req.body.starRating;
   var createdBy = req.body.createdBy;
 
 
-  if(!subject || !commentBody || !starRating) {
+  if(!commentBody || !starRating) {
     res.status(400).json({ message: "Subject, comment body, and star rating are required." });
     return;
   }
@@ -212,7 +212,7 @@ router.post('/:category/:company', (req, res, next) => {
     companyName,
     companyId,
     starRating,
-    subject,
+    // subject,
     commentBody,
     createdBy
   });

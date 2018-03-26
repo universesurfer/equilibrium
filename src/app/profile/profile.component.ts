@@ -1,8 +1,4 @@
 
-
-// TODO: Implement CanActivate
-
-
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
@@ -124,14 +120,9 @@ export class ProfileComponent implements OnInit {
   }
 
 
-
-
-
-
   // edit() {
   //   this.editCheck = true;
   // }
-
 
 
   getUserDetails(id) {

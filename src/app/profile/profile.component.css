@@ -1,10 +1,15 @@
 #profile-hero {
   display: flex;
-  height: 25rem;
+  height: 15rem;
   justify-content: center;
   align-items: center;
 }
 
+#picture-upload-section {
+  display: flex;
+  flex-direction: column;
+  width: 15rem;
+}
 
 .profile-picture {
   border-radius: 50%;
@@ -22,7 +27,14 @@
 
 
 #about-info {
-  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  padding: 15rem 0 15rem 0;
+}
+
+.about-form {
+  width: 50%;
 }
 /* /Users/rufio/Desktop/EQUILIBRIUM/server/public/uploads/1516226707431.jpg */
 

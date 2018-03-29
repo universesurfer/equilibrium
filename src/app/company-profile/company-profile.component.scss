@@ -51,7 +51,9 @@
 
 // Review section id
 #reviews {
-  height: 30rem;
+  // height: 30rem;
+  display: block;
+  overflow: auto;
   width: 100%;
   margin-left: 3rem;
   margin-right: 3rem;

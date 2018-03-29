@@ -62,6 +62,7 @@ signup(user) {
         //store username and jwt in local storage to keep user logged in between page refreshes
         localStorage.setItem('token', token);
         localStorage.setItem('user', user);
+        localStorage.setItem('id', response.json().user._id);
 
         this.isAuth.emit(true);
 

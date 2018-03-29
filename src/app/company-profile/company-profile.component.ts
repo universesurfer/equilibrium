@@ -91,9 +91,9 @@ export class CompanyProfileComponent implements OnInit {
     this.localStoragePicture = localStorage.getItem('picture');
     this.id = localStorage.getItem('id');
 
+
     //Get logged in user details from Mongo.
     this.getUserDetails(this.id);
-
 
     console.log("showing user in company profile", this.user)
 
@@ -242,6 +242,10 @@ export class CompanyProfileComponent implements OnInit {
           return false;
         };
       });
+  }
+
+  editUserReview() {
+    console.log("Clicking editUserReview()");
   }
 
   //Delete the review from Mongo.

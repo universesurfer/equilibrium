@@ -46,10 +46,16 @@ export class CompanyProfileComponent implements OnInit {
   //Hold review data from form to send to Mongo
   review = {
     starRating: this.rating, //placeholder to hold a number value
-    // subject: '',
     commentBody: '',
     createdBy: ''
   };
+
+  editedReview = {
+    starRating: this.rating,
+    commentBody: '',
+    createdBy: ''
+  }
+
 
   newReview: any;
   localStoragePicture: any;
@@ -97,9 +103,10 @@ export class CompanyProfileComponent implements OnInit {
 
     console.log("showing user in company profile", this.user)
 
-    //Set the user id to the user property in review model to make sure it's available when page loads
+    //Set the user id to the user property in review model to make sure it's available when page loads and saves to review.
     if (this.isAuth === true) {
       this.review.createdBy = this.user._id;
+      // this.editedReview.createdBy = this.user._id;
     }
 
     //Get the companies
@@ -123,6 +130,7 @@ export class CompanyProfileComponent implements OnInit {
 
     //Save any star rating changes to review object
     this.review.starRating = $event.rating;
+    // this.editedReview.starRating = $event.rating;
   };
 
 
@@ -166,6 +174,10 @@ export class CompanyProfileComponent implements OnInit {
     }
   }
 
+  //Binds the edited comment to review
+  editComment(val: string) {
+    this.review.commentBody = val;
+  }
 
   getUserDetails(id) {
     this.session.get(id)
@@ -245,7 +257,17 @@ export class CompanyProfileComponent implements OnInit {
   }
 
   editUserReview() {
-    console.log("Clicking editUserReview()");
+    console.log("showing review in component", this.review);
+    this.session.editReview(this.category, this.companyName, this.review)
+      .subscribe(result => {
+        if (result) {
+          console.log("Edited review submitted from editUserReview()", result);
+          return true;
+        } else {
+          console.log("Unable to edit review from editUserReview()", result);
+          return false;
+        }
+      });
   }
 
   //Delete the review from Mongo.

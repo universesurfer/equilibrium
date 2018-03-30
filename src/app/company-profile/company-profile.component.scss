@@ -6,8 +6,8 @@
   align-items: center;
   // justify-content: space-around;
   width: 80%;
-  height: 5rem;
-  overflow: hidden;
+  height: auto;
+  // overflow: auto;
 }
 
 .review-card-wrapper {
@@ -51,7 +51,7 @@
 
 // Review section id
 #reviews {
-  // height: 30rem;
+  height: 50rem;
   display: block;
   overflow: auto;
   width: 100%;

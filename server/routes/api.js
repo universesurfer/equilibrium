@@ -212,7 +212,6 @@ router.post('/:category/:company', (req, res, next) => {
     companyName,
     companyId,
     starRating,
-    // subject,
     commentBody,
     createdBy
   });
@@ -262,6 +261,33 @@ router.post('/:category/:company', (req, res, next) => {
 
     }
 });
+});
+
+
+//Edits the User Review
+router.put('/:category/:company', (req, res, next) => {
+
+  var companyName;
+  var companyId;
+  var commentBody = req.body.commentBody;
+  var starRating = req.body.starRating;
+  var createdBy = req.body.createdBy;
+
+
+  var editedReview = Review({
+    companyName,
+    companyId,
+    starRating,
+    commentBody,
+    createdBy
+  });
+
+  res.json({
+    body: req.body,
+    message: "Showing the edited review",
+    editedReview: editedReview
+  });
+
 });
 
 

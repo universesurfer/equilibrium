@@ -90,15 +90,14 @@
 
                   <fieldset>
                     <div class="review-text-section">
-                      <label for="review">Review</label>
-                      <input type="text" class="form-control comment-body" name="commentBody" [(ngModel)]="review.commentBody">
+                      <label for="review">Review</label>                                    <!-- NOTE: ngModel is receiving the 'review' from array, and trying to save to review in component, hence the error. -->
+                      <textarea name="commentBody" class="form-control comment-body" rows="4" cols="50" [ngModel]="review.commentBody" (ngModelChange)="editComment($event)"></textarea>
                     </div>
                   </fieldset>
 
 
                   <button type="submit" class="btn btn-primary" ng-click="submitted=true" (click)="editUserReview()">Submit</button>
                 </form>
-
               </div>
             </div>
 

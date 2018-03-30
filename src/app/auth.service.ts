@@ -168,6 +168,16 @@ makeReview(category, companyName, review) {
     });
 }
 
+//Edit User Review on Company Profile Page
+editReview(category, companyName, review) {
+  return this.http.put(`${this.BASE_URL}/${category}/${companyName}`, review)
+  .map((res) => res.json())
+  .catch((err) => {
+    return Observable.throw(err);
+  });
+}
+
+
 deleteReview(category, companyName, review, user) {
 
 // var deletedReviewId = review;

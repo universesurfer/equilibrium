@@ -272,21 +272,51 @@ router.put('/:category/:company', (req, res, next) => {
   var commentBody = req.body.commentBody;
   var starRating = req.body.starRating;
   var createdBy = req.body.createdBy;
+  var originalId = req.body.originalId;
 
 
-  var editedReview = Review({
+
+  if(!commentBody || !starRating) {
+    res.status(400).json({ message: "Comment body and star rating are required." });
+    return;
+  }
+
+
+  var review = Review({
     companyName,
     companyId,
     starRating,
     commentBody,
-    createdBy
+    createdBy,
+    originalId
   });
 
-  res.json({
-    body: req.body,
-    message: "Showing the edited review",
-    editedReview: editedReview
+  // Company.findOne({"companyName": req.params.company}, (err, company) => {
+  //   if (err) {
+  //     return res.status(400).json({ message: err });
+  //   } else {
+  //     this.companyName = company.companyName;
+  //     this.companyId = company.id;
+  //   }
+  // });
+
+  Review.update({_id: req.body.originalId}, {$set: {commentBody: req.body.commentBody }}, (err, changes) => {
+    if (err) {
+      res.status(400).json({message: err});
+    } else {
+      console.log("successfully updating review", changes);
+
+      res.json({
+        body: req.body,
+        message: "Showing the edited review",
+        params: req.params
+      });
+    }
   });
+
+  // Model.findByIdAndUpdate(id, { $set: { name: 'jason bourne' }}, options, callback)
+
+
 
 });
 

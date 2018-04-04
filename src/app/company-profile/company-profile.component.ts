@@ -34,6 +34,8 @@ export class CompanyProfileComponent implements OnInit {
   //Avoiding async issue
   rating: number;
 
+  // currentReviewId: string;
+
   //Saves id's from reviews on company page
   reviewIds: Array<String> = [];
   userReviews: Array<String> = [];
@@ -47,17 +49,18 @@ export class CompanyProfileComponent implements OnInit {
   review = {
     starRating: this.rating, //placeholder to hold a number value
     commentBody: '',
-    createdBy: ''
+    createdBy: '',
+    originalId: ''
   };
 
-  editedReview = {
-    starRating: this.rating,
-    commentBody: '',
-    createdBy: ''
-  }
+  // editedReview = {
+  //   starRating: this.rating,
+  //   commentBody: '',
+  //   createdBy: ''
+  // }
 
 
-  newReview: any;
+  newReview: any; //Holds the new review to immediately display to DOM
   localStoragePicture: any;
 
 
@@ -102,7 +105,6 @@ export class CompanyProfileComponent implements OnInit {
     this.getUserDetails(this.id);
 
     console.log("showing user in company profile", this.user)
-
     //Set the user id to the user property in review model to make sure it's available when page loads and saves to review.
     if (this.isAuth === true) {
       this.review.createdBy = this.user._id;
@@ -126,7 +128,6 @@ export class CompanyProfileComponent implements OnInit {
   onRatingChange = ($event: OnRatingChangeEven) => {
     console.log('onRatingUpdated $event: ', $event);
     // this.onRatingChangeResult = $event;
-
 
     //Save any star rating changes to review object
     this.review.starRating = $event.rating;
@@ -174,7 +175,7 @@ export class CompanyProfileComponent implements OnInit {
     }
   }
 
-  //Binds the edited comment to review
+  //Binds the edited comment to review with an event listener
   editComment(val: string) {
     this.review.commentBody = val;
   }
@@ -256,12 +257,14 @@ export class CompanyProfileComponent implements OnInit {
       });
   }
 
-  editUserReview() {
+  editUserReview(thisReviewId) {
+    this.review.originalId = thisReviewId;
     console.log("showing review in component", this.review);
     this.session.editReview(this.category, this.companyName, this.review)
       .subscribe(result => {
         if (result) {
           console.log("Edited review submitted from editUserReview()", result);
+          this.editCheck = false;
           return true;
         } else {
           console.log("Unable to edit review from editUserReview()", result);

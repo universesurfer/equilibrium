@@ -300,7 +300,7 @@ router.put('/:category/:company', (req, res, next) => {
   //   }
   // });
 
-  Review.update({_id: req.body.originalId}, {$set: {commentBody: req.body.commentBody }}, (err, changes) => {
+  Review.update({_id: req.body.originalId}, {$set: {commentBody: req.body.commentBody, starRating: req.body.starRating }}, (err, changes) => {
     if (err) {
       res.status(400).json({message: err});
     } else {

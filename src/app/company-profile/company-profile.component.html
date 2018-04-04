@@ -12,10 +12,13 @@
   </div>
 
   <div class="row">
-    <div class="col">
+    <div class="col-md-8 offset-md-2" id="company-info-box">
       <div class="company-overview">
         <p class="text-center">{{companyName}}</p>
+        <h5>Average Rating</h5>
+        <star-rating-comp [starType]="'svg'" [hoverEnabled]="false" [readOnly]="true" [rating]="averageRating"></star-rating-comp>
       </div>
+
     </div>
   </div>
 
@@ -160,7 +163,7 @@
                   <!-- User review form -->
                   <form>
 
-                    <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" [rating]="2.63"></star-rating-comp>
+                    <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" [rating]="5.0"></star-rating-comp>
                     {{rating}}
 
                     <fieldset>

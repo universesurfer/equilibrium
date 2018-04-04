@@ -1,4 +1,12 @@
-// @import "~angular-star-rating/assets/scss/star-rating";
+@import "~angular-star-rating/assets/scss/star-rating";
+
+#company-info-box {
+  margin-top: -2rem;
+  background-color: white;
+  border: 1px solid black;
+  height: 5rem;
+  color: white;
+}
 
 .review-card {
   display: flex;
@@ -72,6 +80,7 @@ ul {
 }
 
 .company-hero {
+  background-color: black;
   height: 450px;
   text-align: center;
   border-bottom: 1px solid black;
@@ -85,10 +94,10 @@ ul {
 }
 
 
-.company-overview {
-  height: 200px;
-  border-bottom: black 1px solid;
-}
+// .company-overview {
+//   // height: 200px;
+//   // border-bottom: black 1px solid;
+// }
 
 .company-overview p {
   text-transform: capitalize;

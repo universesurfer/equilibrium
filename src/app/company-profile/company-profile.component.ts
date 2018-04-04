@@ -33,6 +33,7 @@ export class CompanyProfileComponent implements OnInit {
   //Empty data type placeholder.  Values for corresponding review properties are set in onRatingChange and displayCompanyInfo() in ngOnInit
   //Avoiding async issue
   rating: number;
+  averageRating: number;
 
   // currentReviewId: string;
 
@@ -119,6 +120,7 @@ export class CompanyProfileComponent implements OnInit {
 
     //Retrieve reviews and block new review if user has reviewed.
     this.getAllReviews();
+
 
 
   }
@@ -211,6 +213,19 @@ export class CompanyProfileComponent implements OnInit {
     }
   }
 
+  //Returns the average rating for company from all reviews.
+  getAverageCompanyRating() {
+    var sumOfRatings;
+    var ratingArray = [];
+
+    this.allReviews.forEach(object => {
+      ratingArray.push(object.starRating);
+      sumOfRatings = ratingArray.reduce((a, b) => a + b, 0); //Returns sum of all ratings
+
+      this.averageRating = sumOfRatings / ratingArray.length;
+    });
+  }
+
 
   //Checks company reviews and user reviews for matches.  If there is a match, don't show review form.
   checkForIntersection(array1, array2) {
@@ -295,6 +310,7 @@ export class CompanyProfileComponent implements OnInit {
         if (result) {
           this.allReviews = result.reviews;
           this.checkIfUserHasAlreadyReviewed();
+          this.getAverageCompanyRating();
           console.log("Retrieving reviews in allReviews", this.allReviews);
           // this.checkIfUserHasAlreadyReviewed();
           return true;

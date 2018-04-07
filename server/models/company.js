@@ -43,6 +43,6 @@ module.exports = Company;
 //    );
 
  // db.companies.updateOne(
- //       { "companyName" : "nau" },
- //       { $set: {"logo": "https://i.imgur.com/1CFtY48.jpg"} }
+ //       { "companyName" : "reformation" },
+ //       { $set: {"logo": "https://i.imgur.com/6jInGC0.jpg"} }
  //    );

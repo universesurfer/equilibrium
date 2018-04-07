@@ -1,12 +1,8 @@
 <app-navbar></app-navbar>
 
+<!-- Hero Image -->
 <div class="container-fluid">
-
-
-  <div class="category-hero row">
-
-  </div>
-
+  <div class="category-hero row"></div>
 </div>
 
 
@@ -14,15 +10,17 @@
 
   <ul *ngFor="let company of allCompanies">
 
-    <li class="row company-row">
+    <!-- <li class="row company-row"> -->
 
-      <div (click)="navigateToCompanyPage(company.companyName)">
+    <li>
+
+      <div class="tile" (click)="navigateToCompanyPage(company.companyName)">
         <img src="{{company.logo}}" alt="" class="company-image">
       </div>
 
-      <div class="certification-logo" *ngIf="company.certifications && company.certifications.bCorp == true">
+      <!-- <div class="certification-logo" *ngIf="company.certifications && company.certifications.bCorp == true">
         <img src="/../assets/logos/B-Corp-Logo.png" alt="">
-      </div>
+      </div> -->
 
     </li>
 

@@ -1,11 +1,36 @@
 @import "~angular-star-rating/assets/scss/star-rating";
 
 #company-info-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: -2rem;
   background-color: white;
   border: 1px solid black;
   height: 5rem;
-  color: white;
+  color: black;
+}
+
+.company-overview {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  width: 7rem;
+  // height: 200px;
+  // border-bottom: black 1px solid;
+}
+
+.company-overview p {
+  text-transform: capitalize;
+  font-size: .9rem;
+}
+
+
+.edit-delete-buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
 }
 
 .review-card {
@@ -55,9 +80,7 @@
 }
 
 
-
-
-// Review section id
+// Review Section
 #reviews {
   height: 50rem;
   display: block;
@@ -94,14 +117,6 @@ ul {
 }
 
 
-// .company-overview {
-//   // height: 200px;
-//   // border-bottom: black 1px solid;
-// }
-
-.company-overview p {
-  text-transform: capitalize;
-}
 
 // .company-reviews {
 //   height: auto;

@@ -18,7 +18,7 @@ export class CompanyProfileComponent implements OnInit {
   currentUser: any;
   id: string;
 
-  onRatingChangeResult: OnRatingChangeEven;
+  onRatingChangeResult: OnRatingChangeEven; //Detects star rating changes
 
   editCheck: boolean = false;
   // companies: any;
@@ -53,13 +53,6 @@ export class CompanyProfileComponent implements OnInit {
     createdBy: '',
     originalId: ''
   };
-
-  // editedReview = {
-  //   starRating: this.rating,
-  //   commentBody: '',
-  //   createdBy: ''
-  // }
-
 
   newReview: any; //Holds the new review to immediately display to DOM
   localStoragePicture: any;
@@ -187,8 +180,6 @@ export class CompanyProfileComponent implements OnInit {
       .subscribe((returnedUser) => {
         this.currentUser = returnedUser.user;
         console.log("showing returnedUser in getUserDetails()in company profile component", returnedUser.user);
-        // NOTE: complete user route to successfully get and update user from this component
-                  //Include in get or in PUT
       });
   }
 

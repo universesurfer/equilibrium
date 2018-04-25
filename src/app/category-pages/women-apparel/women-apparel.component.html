@@ -5,42 +5,21 @@
   <div class="category-hero row"></div>
 </div>
 
-
-
-<!--
-  <ul class="company-list">
-
-    <div class="row company-row">
-        <li class="company-image" id="everlane" #everlane (click)="navigateToCompanyPage(everlane)"></li>
-    </div>
-
-    <div class="row company-row">
-        <li class="company-image" id="amour-vert" #amourVert (click)="navigateToCompanyPage(amourVert)"></li>
-    </div>
-
-    <div class="row company-row">
-        <li class="company-image" id="reformation" #reformation (click)="navigateToCompanyPage(reformation)"></li>
-    </div>
-
-    <div class="row company-row">
-        <li class="company-image" id="eileen-fisher" #eileenFisher (click)="navigateToCompanyPage(eileenFisher)"></li>
-    </div>
-
-    <div class="row company-row">
-        <li class="company-image" id="tribe-alive" #tribeAlive (click)="navigateToCompanyPage(tribeAlive)"></li>
-    </div>
-
-    <div class="row company-row">
-        <li class="company-image" id="pact" #pact (click)="navigateToCompanyPage(pact)"></li>
-    </div>
-
-
-
-</ul> -->
+<div class="certification-filter">
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary">
+    <input type="checkbox" name="options" id="option1" autocomplete="off"> Fair Trade Certified
+  </label>
+  <label class="btn btn-secondary">
+    <input type="checkbox" name="options" id="option2" autocomplete="off"> Vegan
+  </label>
+  <label class="btn btn-secondary">
+    <input type="checkbox" name="options" id="option3" autocomplete="off"> B-Certified
+  </label>
+</div>
+</div>
 
 <div class="container-fluid company-list-wrapper">
-
-
 
   <ul *ngFor="let company of allCompanies">
 
@@ -57,13 +36,6 @@
       </div> -->
 
     </li>
-
   </ul>
 
-
-
 </div>
-
-
-
-<app-footer></app-footer>

@@ -24,11 +24,12 @@
         <!-- <button type="button" name="button" (click)="edit()"></button> -->
         <!-- <div *ngIf="editCheck"> -->
 
-          <input type="file" name="avatar" ng2FileSelect [uploader]="uploader" (change)="readUrl($event)"/>
-          <button type="button" name="button" (click)="saveAvatar()">Save Image</button>
           <div class="progress" style="">
               <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
           </div>
+          <input type="file" name="avatar" ng2FileSelect [uploader]="uploader" (change)="readUrl($event)"/>
+          <button type="button" name="button" (click)="saveAvatar()">Save Image</button>
+
 
       </fieldset>
       </form>
@@ -40,7 +41,7 @@
 
 <hr>
 
-<div class="row">
+<!-- <div class="row">
   <section id="about-info">
     <div class="about-form">
 
@@ -50,15 +51,12 @@
           <input type="text" class="form-control" [(ngModel)]="currentUser.aboutText" placeholder="Tell the community something about yourself." name="about">
         </fieldset>
 
-          <!-- <button *ngIf="isAuth" type="button" name="button" class="btn btn-info">EDIT BIO</button> -->
+          <button *ngIf="isAuth" type="button" name="button" class="btn btn-info">EDIT BIO</button>
           <button type="submit" class="btn btn-primary" ng-click="submitted=true" id="saveButton" (click)="updateProfile()">Save</button>
       </form>
 
     </div>
   </section>
-</div>
+</div> -->
 
 </div>
-
-
-<app-footer></app-footer>

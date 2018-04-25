@@ -16,7 +16,9 @@ const companySchema = new Schema ({
   // environmentalRating: Number,
   // transparencyRating: Number,
   certifications: {
-    bCorp: Boolean
+    bCorp: Boolean,
+    fairTrade: Boolean,
+    childLaborFree: Boolean
   },
   // bCorp: Boolean,
   priceRange: Number
@@ -38,11 +40,25 @@ module.exports = Company;
 
 
 // db.companies.updateOne(
-//       { "companyName" : "everlane" },
-//       { $set: {"category": ["women-apparel", "men-apparel"]} }
+//       { "companyName" : "nau" },
+//       { $set: {"logo": "https://i.imgur.com/SY7cXH6.jpg", category: ["men-apparel", "women-apparel"]} }
 //    );
-
+ //
  // db.companies.updateOne(
- //       { "companyName" : "reformation" },
- //       { $set: {"logo": "https://i.imgur.com/6jInGC0.jpg"} }
+ //       { "companyName" : "people-tree" },
+ //       { $set: {"logo": "https://i.imgur.com/jGePgRf.jpg"} }
  //    );
+
+    // db.companies.insert(
+    //     { companyName: "encircled", reviews : [], logo: "https://i.imgur.com/kci7ovg.png", category: ["men-apparel", "women-apparel"] }
+    // );
+    //
+    // db.companies.deleteOne( { "_id" : ObjectId("5ace6b6f59938fb2e18c7609") } );
+
+    // "_id" : ObjectId("5a5545a8f57a1e6f1ff342e6"),
+    // 	"companyName" : "tribe-alive",
+    // 	"reviews" : [
+    // 		ObjectId("5acbfe06499ef421860ab432")
+    // 	],
+    // 	"logo" : "https://i.imgur.com/HwXvnyW.png",
+    // 	"category" : "women-apparel"

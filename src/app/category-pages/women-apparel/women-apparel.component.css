@@ -4,11 +4,28 @@
 }
 
 .category-hero {
-  height: 15rem;
-  background-image: url("https://images.unsplash.com/photo-1511854289476-81c95d2a62c6?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=7cfb66bd321d2f55c56eeeba267ad960&auto=format&fit=crop&w=1950&q=80");
+  height: 40rem;
+  background-image: url("/../assets/images/women-apparel-hero.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
+}
+
+.certification-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  border-bottom: 1px solid black;
+}
+
+.filter-button {
+  border: 1px solid black;
+}
+
+.filter-button:hover {
+  /* background-color: black;
+  color: white; */
 }
 
 /* .tile {
@@ -48,7 +65,7 @@ ul {
 
 #amour-vert {
   background-image: url("/../assets/logos/amour-vert.jpg");
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
   border: .5px solid black;

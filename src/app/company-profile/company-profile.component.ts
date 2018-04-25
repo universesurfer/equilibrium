@@ -21,21 +21,18 @@ export class CompanyProfileComponent implements OnInit {
   onRatingChangeResult: OnRatingChangeEven; //Detects star rating changes
 
   editCheck: boolean = false;
-  // companies: any;
 
   params: any;
   category: string;
   companyName: string;
   company: any;
   allReviews: any
-  deletedReviewId: any;
+  deletedReviewId: any; //Holds deleted review id for delete request
 
   //Empty data type placeholder.  Values for corresponding review properties are set in onRatingChange and displayCompanyInfo() in ngOnInit
   //Avoiding async issue
   rating: number;
   averageRating: number;
-
-  // currentReviewId: string;
 
   //Saves id's from reviews on company page
   reviewIds: Array<String> = [];
@@ -43,7 +40,7 @@ export class CompanyProfileComponent implements OnInit {
 
   //Review checker
   reviewExists: boolean = false;
-  intersectedId: any;
+  intersectedId: any; //Holds any review saved to both company and current user
 
 
   //Hold review data from form to send to Mongo
@@ -55,7 +52,7 @@ export class CompanyProfileComponent implements OnInit {
   };
 
   newReview: any; //Holds the new review to immediately display to DOM
-  localStoragePicture: any;
+  localStoragePicture: any; //Temporary display of new image
 
 
   constructor(
@@ -75,7 +72,6 @@ export class CompanyProfileComponent implements OnInit {
     } else {
       this.isAuth = false;
     }
-
 
     //Set global variables with params for use in displayCompanyInfo() method below
     this.params = this.activatedRoute.snapshot.params;
@@ -98,24 +94,19 @@ export class CompanyProfileComponent implements OnInit {
     //Get logged in user details from Mongo.
     this.getUserDetails(this.id);
 
-    console.log("showing user in company profile", this.user)
+    // console.log("showing user in company profile", this.user)
+
     //Set the user id to the user property in review model to make sure it's available when page loads and saves to review.
     if (this.isAuth === true) {
       this.review.createdBy = this.user._id;
       // this.editedReview.createdBy = this.user._id;
     }
 
-    //Get the companies
-    // this.companies = this.session.companies;
-
     //Call and display the company data when page loads.
     this.displayCompanyInfo(this.params.category, this.params.company);
 
     //Retrieve reviews and block new review if user has reviewed.
     this.getAllReviews();
-
-
-
   }
 
 
@@ -137,7 +128,6 @@ export class CompanyProfileComponent implements OnInit {
       .subscribe(result => {
         if (result) {
           this.company = result.company
-
           console.log("inside the result in displayCompanyInfo()", this.company);
           console.log("getting entire result in displayCompanyInfo()", result);
 
@@ -156,7 +146,7 @@ export class CompanyProfileComponent implements OnInit {
   //Remove the delete review from allReviews array and from dom.
   removeItem(id) {
     this.allReviews = this.allReviews.filter(review => review._id !== id);
-}
+  }
 
   //Immediately show new review on dom.  Called in submitUserReview() below.
   addReviewToDom() {
@@ -236,13 +226,13 @@ export class CompanyProfileComponent implements OnInit {
 
 
   hideReviewForm() {
-        var reviewForm = document.getElementById("review-form");
-        reviewForm.style.display = "none";
+    var reviewForm = document.getElementById("review-form");
+    reviewForm.style.display = "none";
   }
 
   showReviewForm() {
-        var reviewForm = document.getElementById("review-form");
-        reviewForm.style.display = "block";
+    var reviewForm = document.getElementById("review-form");
+    reviewForm.style.display = "block";
   }
 
   //Submit and save the user review to Mongo.

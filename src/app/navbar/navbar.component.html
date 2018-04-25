@@ -1,9 +1,11 @@
 <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
 
-  <a class="navbar-brand" href="#">Equilibrium</a>
+  <a href="#">
+  <img class="navbar-brand" src="/assets/logos/ethos-logo.png" alt="logo">
+  </a>
 
 <!-- Collapse links into button when screen shrinks -->
-  <button class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+  <button *ngIf="!isAuth" class="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
    <span class="navbar-toggler-icon"></span>
  </button>
 

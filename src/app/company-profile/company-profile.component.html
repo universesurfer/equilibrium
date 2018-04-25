@@ -18,7 +18,6 @@
         <star-rating-comp [starType]="'svg'" [hoverEnabled]="false" [readOnly]="true" [rating]="averageRating"></star-rating-comp>
         <p>{{allReviews.length}} reviews</p>
       </div>
-
     </div>
   </div>
 
@@ -36,7 +35,7 @@
         <!-- REVIEW CARDS -->
         <ul class="review-card-wrapper" *ngFor="let review of allReviews">
 
-          <li class="review-card">
+          <li class="review-card-container">
 
             <div class="review-card" *ngIf="review._id == intersectedId">
 
@@ -59,7 +58,7 @@
                 </div>
               </div>
 
-              <div id="review-text-section" class="col-md-8" *ngIf="editCheck == false">
+              <div id="review-text-section" class="col-md-10" *ngIf="editCheck == false">
 
                 <!-- Star Rating -->
                 <div class="review-stars">
@@ -190,4 +189,4 @@
 
 </div>
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->

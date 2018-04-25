@@ -18,17 +18,8 @@ export class CategoriesComponent implements OnInit {
   ) {}
 
 
-
-
   ngOnInit() {}
 
-
-
-  // navigateToCategoryPage(category) {
-  //   this.category = category.id;
-  //   this.router.navigate([`/${this.category}`]);
-  //
-  // }
 
 
 

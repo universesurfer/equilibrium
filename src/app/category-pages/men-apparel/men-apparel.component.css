@@ -11,11 +11,19 @@
 
 
 .category-hero {
-  height: 15rem;
-  background-image: url("/../assets/images/men-fashion.jpg");
+  height: 40rem;
+  background-image: url("/../assets/images/men-apparel-hero.jpg");
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
+}
+
+.certification-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+  border-bottom: 1px solid black;
 }
 
 ul {

@@ -1,6 +1,3 @@
-/* You can add global styles to this file, and also import other style files */
-
-// @import "~@angular/material/prebuilt-themes/indigo-pink.css"; //Angular Material - Snackbar Theme
 @import "~angular-star-rating/assets/scss/star-rating";
 @import "~ngx-toastr/toastr";
 
@@ -11,22 +8,24 @@ body {
   font-size: 1.2em;
 }
 
-// NOTE: new company row/tile style experimentation
-// .company-row {
-//   width: 100%;
-//   height: 100%;
-// }
+// Login/Signup
+.auth-form {
+  display: flex;
+  justify-content: center;
+  height: 500px;
+  padding: 5rem;
+}
 
-// .company-list {
-//   // height: 100%;
-//   width: 100%;
-//   height: 11rem;
-// }
+.panel {
+  border: 1px solid black;
+  padding: 4rem 3.5rem;
+}
 
-// .company-image {
-//   width: 18rem;
-//   height: 100%;  //100% of row height
-// }
+.panel-body {
+  width: 100%;
+}
+
+// -----------------------
 
 .tile {
   height: 250px;
@@ -57,7 +56,7 @@ body {
 .company-image {
   object-fit: contain;
   object-position: center;
-  border: 1px solid black;
+  border: 1.5px solid black;
   height: 100%;
   width: 100%;
 }

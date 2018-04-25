@@ -89,6 +89,7 @@ export class ProfileComponent implements OnInit {
       this.session.get(this.id)
         .subscribe((response) => {
           this.user = response.user;
+          this.session.showSuccess();
           console.log("showing the response in onSuccessItem", response);
           console.log("in success response, showing the item", item );
         });

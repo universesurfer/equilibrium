@@ -3,7 +3,6 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
 import { ViewContainerRef } from '@angular/core';
-import { ToastrService } from 'ngx-toastr';
 
 
 @Component({
@@ -19,31 +18,14 @@ export class LoginModalComponent implements OnInit {
     password: ''
   };
 
-
   constructor(
     private session: AuthService,
     private router: Router,
-    public vcr: ViewContainerRef,
-    private toastr: ToastrService
-  ) {
-
-      // this.toastr.setRootViewContainerRef(vcr);
-
-  }
+    public vcr: ViewContainerRef
+  ) {}
 
 
   ngOnInit() {
-  }
-
-
-
-  showError() {
-    this.toastr.error('Username and/or password incorrect.');
-  }
-
-
-  showSuccess() {
-    this.toastr.success('Success!');
   }
 
 
@@ -52,11 +34,10 @@ export class LoginModalComponent implements OnInit {
       .subscribe(result => {
           //login successful
           this.router.navigate(['/']);
-          this.showSuccess();
+          this.session.showSuccess();
       }, error => {
           //login failed
-          this.showError();
-          // console.log('result not ok', result)
+          this.session.showError();
       });
 }
 

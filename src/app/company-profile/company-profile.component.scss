@@ -16,6 +16,7 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
+
   width: 7rem;
   // height: 200px;
   // border-bottom: black 1px solid;
@@ -33,14 +34,22 @@
   justify-content: flex-end;
 }
 
-.review-card {
+.review-card-container {
   display: flex;
   // flex-direction: row;
   align-items: center;
   // justify-content: space-around;
-  width: 80%;
+  width: 100%;
   height: auto;
+  border-bottom: .5px solid black;
+  padding: 1rem;
   // overflow: auto;
+}
+
+.review-card {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
 }
 
 .review-card-wrapper {
@@ -82,12 +91,12 @@
 
 // Review Section
 #reviews {
-  height: 50rem;
+  height: 25rem;
   display: block;
+  // align-items: left;
   overflow: auto;
   width: 100%;
-  margin-left: 3rem;
-  margin-right: 3rem;
+  margin: 3rem;
 }
 
 
@@ -95,7 +104,7 @@
 .review-text-wrapper {
   width: 100%;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 ul {
@@ -103,7 +112,7 @@ ul {
 }
 
 .company-hero {
-  background-color: black;
+  background-color: white;
   height: 450px;
   text-align: center;
   border-bottom: 1px solid black;

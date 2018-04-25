@@ -49,13 +49,12 @@
 
 .landing-tile {
   color: white;
-  text-align: center;
+  /* text-align: center;
   display: flex;
   align-items: center;
-  justify-content: center;
-  height: 400px;
-  width: 300px;
-  background-color: black;
+  justify-content: center; */
+  height: 575px;
+  width: 475px;
 }
 
 .tile > div {
@@ -72,10 +71,75 @@ a {
 }
 
 
+#man-1 {
+  background-image: url("/assets/images/landing-man.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#man-2 {
+  background-image: url("/assets/images/landing-man_2.jpg");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+}
+
+#woman-1 {
+  background-image: url("/assets/images/landing-woman.jpg");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+#woman-2 {
+  background-image: url("/assets/images/landing-woman_2.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+
+.landing-tile img {
+    position:absolute;
+    height: 100%;
+    width: 100%;
+    -webkit-animation-name: fade;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 15s;
+    animation-name: fade;
+    animation-iteration-count: infinite;
+    animation-duration: 15s;
+}
+
+@-webkit-keyframes fade {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+}
+@keyframes fade {
+    0% {opacity: 0;}
+    20% {opacity: 1;}
+    33% {opacity: 1;}
+    53% {opacity: 0;}
+    100% {opacity: 0;}
+}
+
+#f1 {
+    /* -webkit-animation-delay: -4s; */
+    /* object-fit: contain; */
+}
+
+#f2 {
+    -webkit-animation-delay: -8s;
+    /* object-fit: contain; */
+}
+
+
 /*CATEGORIES*/
 #women-apparel {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1952&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
-  background-size: cover;
+  /* background-image: url("https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1952&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"); */
+  /* background-size: cover; */
 }
 
 #women-accessories {
@@ -84,8 +148,8 @@ a {
 }
 
 #men-apparel {
-  background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/photo-1434510423563-c7e99bbc5bbd?auto=format&fit=crop&w=934&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
-  background-size: cover;
+  /* background-image: url("https://images.unsplash.com/photo-1434510423563-c7e99bbc5bbd?auto=format&fit=crop&w=934&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D"); */
+  /* background-size: cover; */
   margin-right: 0;
 }
 

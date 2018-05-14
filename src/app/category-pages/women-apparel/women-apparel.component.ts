@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../../auth.service';
+import { Pipe, PipeTransform } from '@angular/core';
 
 @Component({
   selector: 'app-women-apparel',
@@ -12,6 +13,9 @@ export class WomenApparelComponent implements OnInit {
   allCompanies: any;
   companyName: string;
   category: string = 'women-apparel';
+  filteredCompanyList: any;
+
+  filterOption: any;
 
   constructor(
     private session: AuthService,
@@ -24,6 +28,22 @@ export class WomenApparelComponent implements OnInit {
   }
 
 
+  // filterBy(category) {
+  //   this.filteredCompanyList = this.allCompanies.filter(company => company.bestFor === category);
+  //   console.log("showing filtered company", this.filteredCompanyList);
+  // }
+
+//Change the Filter Pipe Argument Depending on Filter Option Selected By User
+  filterChanged(option) {
+    this.filterOption = option;
+    // this.filteredCompanyList = this.allCompanies.filter(company => company.bestFor.option === option);
+    console.log("showing filter option", option);
+  }
+
+  // filterChanged(selectedValue:string){
+  //    console.log('value is ',selectedValue);
+  // this.booksByStoreID = this.books.filter(
+  //         book => book.store_id === this.store.id);
 
 
   navigateToCompanyPage(company) {

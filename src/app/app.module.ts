@@ -39,6 +39,7 @@ import{ FileSelectDirective } from 'ng2-file-upload';
 import { CompanyProfileComponent } from './company-profile/company-profile.component';
 import { FooterComponent } from './footer/footer.component';
 import { SettingsComponent } from './settings/settings.component';
+import { FilterOptionPipe } from './filter-option.pipe';
 
 
 
@@ -73,7 +74,8 @@ import { SettingsComponent } from './settings/settings.component';
     CompanyProfileComponent,
     FileSelectDirective,
     FooterComponent,
-    SettingsComponent
+    SettingsComponent,
+    FilterOptionPipe
 
   ],
   imports: [

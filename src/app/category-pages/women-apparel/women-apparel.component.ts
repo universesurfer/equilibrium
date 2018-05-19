@@ -13,9 +13,9 @@ export class WomenApparelComponent implements OnInit {
   allCompanies: any;
   companyName: string;
   category: string = 'women-apparel';
-  filteredCompanyList: any;
 
-  filterOption: any;
+  //Holds selected filter choice for use in pipe
+  filterOption: string;
 
   constructor(
     private session: AuthService,
@@ -34,11 +34,11 @@ export class WomenApparelComponent implements OnInit {
   // }
 
 //Change the Filter Pipe Argument Depending on Filter Option Selected By User
-  filterChanged(option) {
-    this.filterOption = option;
-    // this.filteredCompanyList = this.allCompanies.filter(company => company.bestFor.option === option);
-    console.log("showing filter option", option);
-  }
+  // filterChanged(option) {
+  //   this.filterOption = option;
+  //   // this.filteredCompanyList = this.allCompanies.filter(company => company.bestFor.option === option);
+  //   console.log("showing filter option", option);
+  // }
 
   // filterChanged(selectedValue:string){
   //    console.log('value is ',selectedValue);

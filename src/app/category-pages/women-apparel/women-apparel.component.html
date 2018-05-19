@@ -18,8 +18,10 @@
   </label>
 </div> -->
 
+<!-- (change)="filterChanged($event.target.value) -->
+
 <label for="filters">Filter by:</label>
-<select class="custom-select" name="filters" id="filters" (change)="filterChanged($event.target.value)">
+<select class="custom-select" name="filters" id="filters" [(ngModel)]="filterOption">
   <option value="all">All</option>
   <option value="casual" #casual>Casual</option>
   <option value="formal" #formal>Formal</option>
@@ -43,11 +45,13 @@ activewear: Boolean, -->
 
 <div class="container-fluid company-list-wrapper">
 
-  <ul *ngFor="let company of allCompanies">
+  <ul *ngFor="let company of allCompanies | filterList: filterOption">
 
     <!-- <li class="row company-row"> -->
 
-    <li *ngIf="company.bestFor.hasOwnProperty(filterOption)">
+    <!-- <li *ngIf="company.bestFor.hasOwnProperty(filterOption)"> -->
+    <li>
+
 
       <div class="tile" (click)="navigateToCompanyPage(company.companyName)">
         <img src="{{company.logo}}" alt="" class="company-image">

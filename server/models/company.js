@@ -18,19 +18,33 @@ const companySchema = new Schema ({
   certifications: {
     bCorp: Boolean,
     fairTrade: Boolean,
-    childLaborFree: Boolean
+    vegan: Boolean,
+    organicCotton: Boolean
   },
-  // bCorp: Boolean,
+  bestFor: {
+    plusSize: Boolean,
+    petite: Boolean,
+    formalwear: Boolean,
+    casual: Boolean,
+    summerwear: Boolean,
+    outdoors: Boolean,
+    activewear: Boolean,
+  },
   priceRange: Number
 
-  // NOTE: I can probably do average rating and number of rating after database call and not store it directly.  Probably should but don't know about speed yet.
-  // NOTE: include 'conclusion' that provides brief overall analysis of company impact on sustainability & social impact.
-  // NOTE: Only include companies that meet highest criteria of environmental/social impact?
 });
-
 
 const Company = mongoose.model("Company", companySchema);
 module.exports = Company;
+
+
+
+
+
+
+
+
+
 
 // db.products.insertMany( [
 //       { item: "card", qty: 15 },
@@ -45,8 +59,11 @@ module.exports = Company;
 //    );
  //
  // db.companies.updateOne(
- //       { "companyName" : "people-tree" },
- //       { $set: {"logo": "https://i.imgur.com/jGePgRf.jpg"} }
+ //       { "companyName" : "tentree" },
+ //       { $set: {"bestFor": {
+ //         "outdoors": true,
+ //         "casual": true
+ //       }} }
  //    );
 
     // db.companies.insert(

@@ -29,6 +29,7 @@ const companySchema = new Schema ({
     summerwear: Boolean,
     outdoors: Boolean,
     activewear: Boolean,
+    winterwear: Boolean
   },
   priceRange: Number
 
@@ -43,7 +44,7 @@ module.exports = Company;
 
 
 
-
+// tentree, patagonia, everlane, nau, pact, amour-vert, reformation, eileen-fisher, tribe-alive, people-tree, united-by-blue, thought, hopemade, encircled
 
 
 // db.products.insertMany( [
@@ -59,10 +60,11 @@ module.exports = Company;
 //    );
  //
  // db.companies.updateOne(
- //       { "companyName" : "tentree" },
+ //       { "companyName" : "people-tree" },
  //       { $set: {"bestFor": {
- //         "outdoors": true,
- //         "casual": true
+ //         "casual": true,
+ //         "summerwear": true,
+ //         "activewear": true,
  //       }} }
  //    );
 

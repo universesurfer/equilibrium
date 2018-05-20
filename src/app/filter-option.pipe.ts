@@ -1,4 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import * as _ from 'underscore';
+// import * as __ from 'lodash';
 
 @Pipe({
   name: 'filterList'
@@ -8,27 +10,34 @@ export class FilterOptionPipe implements PipeTransform {
   transform(companies: any[], filter?: string): any {
 
     switch(filter) {
+      
       case 'casual':
-        //return code;
-        break;
+      let casual = companies.filter( item => item.bestFor.casual === true);
+      return casual
+
       case 'formal':
-        //return code;
-        break;
+        let formal = companies.filter( item => item.bestFor.formalwear === true);
+        return formal
+
       case 'summerwear':
-        //return code;
-        break;
+        let summerwear = companies.filter( item => item.bestFor.summerwear === true);
+        return summerwear
+
       case 'outdoors':
-        //return code;
-        break;
+        let outdoors = companies.filter( item => item.bestFor.outdoors === true);
+        return outdoors
+
       case 'activewear':
-        //return code;
-        break;
+        let activewear = companies.filter( item => item.bestFor.activewear === true);
+        return activewear
+
       case 'petite':
-        //return code;
-        break;
+        let petite = companies.filter( item => item.bestFor.petite === true);
+        return petite
+
       case 'plussize':
-        //return code;
-        break;
+        let plussize = companies.filter( item => item.bestFor.plusSize === true);
+        return plussize
 
       default:
         return companies;

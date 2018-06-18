@@ -2,27 +2,31 @@
 
 <!-- Hero Image -->
 <div class="container-fluid">
-  <div class="category-hero row"></div>
+  <div class="category-hero row">
+    <div id="men-apparel-header">Men's Apparel</div>
+  </div>
 </div>
 
 <div class="certification-filter">
-<div class="btn-group btn-group-toggle" data-toggle="buttons">
-  <label class="btn btn-secondary">
-    <input type="checkbox" name="options" id="option1" autocomplete="off"> Fair Trade Certified
-  </label>
-  <label class="btn btn-secondary">
-    <input type="checkbox" name="options" id="option2" autocomplete="off"> Vegan
-  </label>
-  <label class="btn btn-secondary">
-    <input type="checkbox" name="options" id="option3" autocomplete="off"> B-Certified
-  </label>
-</div>
+
+<label for="filters">Filter by Category:</label>
+<select class="custom-select" name="filters" id="filters" [(ngModel)]="filterOption">
+  <option value="all" selected>All</option>
+  <option value="casual">Casual</option>
+  <option value="formal">Formal</option>
+  <option value="summerwear">Summerwear</option>
+  <option value="outdoors">Outdoors</option>
+  <option value="activewear">Activewear</option>
+  <option value="petite">Petite</option>
+  <option value="plussize">Plus Size</option>
+
+</select>
 </div>
 
 
 <div class="container-fluid company-list-wrapper">
 
-  <ul *ngFor="let company of allCompanies">
+  <ul *ngFor="let company of allCompanies | filterList: filterOption">
 
     <!-- <li class="row company-row"> -->
 

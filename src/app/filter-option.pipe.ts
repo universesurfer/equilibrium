@@ -10,7 +10,7 @@ export class FilterOptionPipe implements PipeTransform {
   transform(companies: any[], filter?: string): any {
 
     switch(filter) {
-      
+
       case 'casual':
       let casual = companies.filter( item => item.bestFor.casual === true);
       return casual
@@ -42,20 +42,6 @@ export class FilterOptionPipe implements PipeTransform {
       default:
         return companies;
     }
-
-  //   if(!values) {
-  //     console.log("no values");
-  //   } else {
-  //
-  //     let filteredList = companies.filter((item) => item.bestFor)
-  //
-  //     return filteredList
-  //
-  //   }
-  //
-  //
-  //
-  // }
 
 }
 }

@@ -18,10 +18,20 @@
   background-repeat: no-repeat;
 }
 
+#men-apparel-header {
+  position: absolute;
+  font-family: 'Philosopher', cursive;
+  top: 70px;
+  right: 80px;
+  color: white;
+  font-size: 4rem;
+}
+
 .certification-filter {
   display: flex;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+  flex-direction: row;
   height: 80px;
   border-bottom: 1px solid black;
 }
@@ -30,90 +40,10 @@ ul {
   list-style-type: none;
 }
 
-#patagonia {
-  background-image: url("/../assets/logos/patagonia-logo.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: .5px solid black;
-}
-
-/* .company-image {
-  object-fit: contain;
-  object-position: center;
-  border: .5px solid black;
-  height: 10rem;
-  width: 15rem;
-}
-
-.company-image img {
-  max-height: 100%;
-  max-width: 100%;
-  margin-right: 10px;
-  margin-left: 10px;
-}
-
-.company-row {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  width: 100%;
-  height: 10rem;
-}
-
-.certification-logo {
-  object-fit: contain;
-  height: 50%;
-  width: 8rem;
-}
-
-.certification-logo img {
-  max-height: 100%;
-  max-width: 100%;
-} */
-
-
-#tentree {
-  background-image: url("/../assets/logos/tentree-logo.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: .5px solid black;
-}
-
-
-#saltura {
-  background-image: url("/../assets/logos/saltura-clothing.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: .5px solid black;
-}
-
-#everlane {
-  background-image: url("/../assets/logos/everlane-logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: .5px solid black;
-}
-
-#nau {
-  background-image: url("/../assets/logos/nau-logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: .5px solid black;
-}
-
-#pact {
-  background-image: url("/../assets/logos/pact-logo.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: .5px solid black;
-}
-
 .company-tile {
   border: .5px solid black;
+}
+
+.custom-select {
+  margin: 0 3px 0 3px;
 }

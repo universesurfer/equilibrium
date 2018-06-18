@@ -2,7 +2,9 @@
 
 <!-- Hero Image -->
 <div class="container-fluid">
-  <div class="category-hero row"></div>
+  <div class="category-hero row">
+    <div id="women-apparel-header">Women's Apparel</div>
+  </div>
 </div>
 
 <div class="certification-filter">
@@ -20,7 +22,7 @@
 
 <!-- (change)="filterChanged($event.target.value) -->
 
-<label for="filters">Filter by:</label>
+<label for="filters">Filter by Category:</label>
 <select class="custom-select" name="filters" id="filters" [(ngModel)]="filterOption">
   <option value="all">All</option>
   <option value="casual" #casual>Casual</option>

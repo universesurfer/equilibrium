@@ -19,7 +19,13 @@
         <h3>{{company?.companyName}}</h3>
       </div> -->
 
-      <div id="about">
+      <div id="about" *ngIf="company?.about">
+
+        {{company?.about}}
+
+      </div>
+
+      <div id="about" *ngIf="!company?.about">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
         dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
@@ -50,10 +56,10 @@
 
 
   <!--- REVIEWS ------------------->
-  <div class="container">
+  <div class="container-fluid" id="review-wrapper">
 
     <div class="row">
-      <section id="reviews" class="col-md-10 offset-md-1">
+      <section id="reviews" class="col-md-10 mx-auto">
 
         <h3><span style="text-transform: capitalize"> {{companyName}} Reviews </span></h3>
 

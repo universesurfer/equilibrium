@@ -1,5 +1,9 @@
 @import "~angular-star-rating/assets/scss/star-rating";
 
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+}
+
 .company-info-box {
   display: flex;
   flex-direction: column;
@@ -22,6 +26,7 @@ h3 {
   max-width: 75%;
   height: auto;
   font-size: .8em;
+  margin-top: 1rem;
 }
 
 #averageReviews {
@@ -108,15 +113,21 @@ h3 {
   border-radius: 50%;
 }
 
+#review-wrapper {
+  background-color: rgb(255, 255, 248);
+  // rgb(251, 253, 244);
+}
+
 
 // Review Section
 #reviews {
-  height: 25rem;
+  min-height: 25rem;
   display: block;
   // align-items: left;
   overflow: auto;
   width: 100%;
   margin: 3rem;
+  background-color: white;
 }
 
 

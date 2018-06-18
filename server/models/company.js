@@ -54,19 +54,17 @@ module.exports = Company;
 //    ] );
 
 
-// db.companies.updateOne(
-//       { "companyName" : "nau" },
-//       { $set: {"logo": "https://i.imgur.com/SY7cXH6.jpg", category: ["men-apparel", "women-apparel"]} }
-//    );
+db.companies.updateOne(
+      { "companyName" : "eileen-fisher" },
+      { $set: {"logo": "https://i.imgur.com/Ol9RFgK.png"}
+   });
  //
- // db.companies.updateOne(
- //       { "companyName" : "people-tree" },
- //       { $set: {"bestFor": {
- //         "casual": true,
- //         "summerwear": true,
- //         "activewear": true,
- //       }} }
- //    );
+//  db.companies.updateOne(
+//        { "companyName" : "saltura" },
+//        { $set: {"about": "All of Saltura's products are designed, sourced, and manufactured along a 90-mile stretch of the Cali coast. Their sustainably-made tees and button-downs are a mix of hemp and organic cotton, with some of the softest cotton you’ve ever worn. Source local, support local."
+// }});
+
+// );
 
     // db.companies.insert(
     //     { companyName: "encircled", reviews : [], logo: "https://i.imgur.com/kci7ovg.png", category: ["men-apparel", "women-apparel"] }

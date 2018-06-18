@@ -2,6 +2,8 @@
   justify-content: center;
 }
 
+
+
 .container-fluid {
   min-height: 700px;
   display: flex;
@@ -56,6 +58,7 @@
   height: 575px;
   width: 475px;
 }
+
 
 .tile > div {
   font-weight: lighter;
@@ -227,4 +230,22 @@ a {
 #vintage {
   background-image: linear-gradient( rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url("https://images.unsplash.com/reserve/LJIZlzHgQ7WPSh5KVTCB_Typewriter.jpg?auto=format&fit=crop&w=941&q=80&ixid=dW5zcGxhc2guY29tOzs7Ozs%3D");
   background-size: cover;
+}
+
+
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+  .landing-tile {
+    height: 20rem;
+    width: 15rem;
+  }
+
+  .category-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
 }

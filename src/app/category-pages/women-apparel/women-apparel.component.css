@@ -11,12 +11,85 @@
   background-repeat: no-repeat;
 }
 
+#women-apparel-header {
+  position: absolute;
+  font-family: 'Philosopher', sans-serif;
+  top: 70px;
+  right: 70px;
+  color: white;
+  font-size: 4rem;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+  .category-hero {
+    height: 30rem;
+  }
+
+  #women-apparel-header {
+    position:absolute;
+    top:50%;
+    left:50%;
+    text-align:center;
+    transform: translateX(-50%) translateY(-50%);
+    color: white;
+    font-size: 3rem;
+  }
+
+  /* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+  .category-hero {
+    height: 30rem;
+  }
+
+  #women-apparel-header {
+    position:absolute;
+    top:50%;
+    left:50%;
+    text-align:center;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+}
+
+
+  /* Medium devices (landscape tablets, 768px and up) */
+  @media only screen and (max-width: 768px) {
+
+    .category-hero {
+      height: 33rem;
+    }
+
+    #women-apparel-header {
+      position:absolute;
+      top:50%;
+      left:50%;
+      text-align:center;
+      transform: translateX(-50%) translateY(-50%);
+    }
+
+
+  }
+
+
+
+}
+
+
+
+
 .certification-filter {
   display: flex;
-  /* align-items: center; */
+  align-items: center;
   justify-content: center;
   height: 80px;
   border-bottom: 1px solid black;
+}
+
+.custom-select {
+  margin: 0 3px 0 3px;
 }
 
 .filter-button {
@@ -44,53 +117,4 @@
 
 ul {
   list-style-type: none;
-}
-
-#everlane {
-  background-image: url("/../assets/logos/everlane-logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: .5px solid black;
-}
-
-
-#reformation {
-  background-image: url("/../assets/logos/reformation_header.png");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: .5px solid black;
-}
-
-#amour-vert {
-  background-image: url("/../assets/logos/amour-vert.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: .5px solid black;
-}
-
-#eileen-fisher {
-  background-image: url("/../assets/logos/eileen-fisher.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center top;
-  border: .5px solid black;
-}
-
-#tribe-alive {
-  background-image: url("/../assets/logos/tribe-alive-logo.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: .5px solid black;
-}
-
-#pact {
-  background-image: url("/../assets/logos/pact-logo.jpg");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  border: .5px solid black;
 }

@@ -54,10 +54,10 @@ module.exports = Company;
 //    ] );
 
 
-db.companies.updateOne(
-      { "companyName" : "eileen-fisher" },
-      { $set: {"logo": "https://i.imgur.com/Ol9RFgK.png"}
-   });
+// db.companies.updateOne(
+//       { "companyName" : "eileen-fisher" },
+//       { $set: {"logo": "https://i.imgur.com/Ol9RFgK.png"}
+//    });
  //
 //  db.companies.updateOne(
 //        { "companyName" : "saltura" },

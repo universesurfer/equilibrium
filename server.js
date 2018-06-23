@@ -14,7 +14,7 @@ const app = express();
 const cors = require('cors');
 
 //Connect MongoDB
-let MongoURI = process.env.MONGOURI || process.env.MONGOURI_DEV;
+let MongoURI = process.env.MONGOLAB_URI || process.env.MONGOURI_DEV;
 
 mongoose.connect(MongoURI, {useMongoClient: true}, function(err, res){
   if(err) {

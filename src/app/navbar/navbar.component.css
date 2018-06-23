@@ -12,6 +12,9 @@
   /* rgb(251, 253, 244); */
 }
 
+.logo {
+  max-width: 4rem !important;
+}
 
 .nav-image-wrapper {
   display: flex;

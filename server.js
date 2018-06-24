@@ -1,4 +1,5 @@
 //Require Dependencies
+require('dotenv').config();
 const express = require("express");
 const session = require("express-session");
 const path = require("path");
@@ -14,7 +15,8 @@ const app = express();
 const cors = require('cors');
 
 //Connect MongoDB
-let MongoURI = process.env.MONGOLAB_URI || process.env.MONGOURI_DEV;
+const MongoURI = process.env.MONGOLAB_URI || process.env.MONGOURI_DEV;
+// const MongoURI = process.env.MONGOURI_DEV;
 
 mongoose.connect(MongoURI, {useMongoClient: true}, function(err, res){
   if(err) {

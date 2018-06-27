@@ -10,13 +10,13 @@ const mongoose = require("mongoose");
 const passport = require("passport");
 const flash = require("connect-flash");
 const multer = require('multer');
-const logger = require("morgan");           //logs our requests to the console
+const logger = require("morgan");  //logs our requests to the console
 const app = express();
 const cors = require('cors');
 
 //Connect MongoDB
-const MongoURI = process.env.MONGOLAB_URI || process.env.MONGOURI_DEV;
-// const MongoURI = process.env.MONGOURI_DEV;
+// const MongoURI = process.env.MONGOLAB_URI || process.env.MONGOURI_DEV;
+const MongoURI = process.env.MONGOURI_DEV;
 
 mongoose.connect(MongoURI, {useMongoClient: true}, function(err, res){
   if(err) {

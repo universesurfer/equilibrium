@@ -1,4 +1,4 @@
-<nav class="navbar navbar-light bg-faded navbar-toggleable-md">
+<nav class="navbar navbar-light bg-faded navbar-toggleable-sm flex-row">
 
   <a href="#" class="logo">
   <img class="navbar-brand" src="/assets/logos/ethos-logo.png" alt="logo">
@@ -23,7 +23,7 @@
     </ul>
   </div>
 
-  <!-- If the user is logged in, display a profile ico and dropdown. -->
+  <!-- If the user is logged in, display a profile icon and dropdown. -->
   <ul *ngIf="isAuth" class="navbar-nav ml-auto">
 
     <div class="nav-image-wrapper">
@@ -31,9 +31,9 @@
 
         <div *ngIf="user.image">
           <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           <img src="/{{user.image.path}}" class="profile-dropdown" alt="">
-        </a>
+          </a>
 
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
               <a class="dropdown-item" (click)="goToProfile()">Profile</a>

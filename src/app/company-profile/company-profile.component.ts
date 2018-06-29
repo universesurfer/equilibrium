@@ -177,7 +177,7 @@ export class CompanyProfileComponent implements OnInit {
   //Checks if user has reviewed company already.  If so, hide review form.
   checkIfUserHasAlreadyReviewed() {
 
-    if (this.allReviews !== null && this.user !== null) {
+    if (this.allReviews !== null && this.user !== null || undefined) {
 
       this.allReviews.forEach(object => {
         this.reviewIds.push(object._id);

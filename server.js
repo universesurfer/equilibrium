@@ -37,16 +37,21 @@ const auth = require("./server/routes/auth");
 // const users = require("./server/routes/users");
 // const users = require("./server/routes/users");
 
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", 'http://ethos-app.herokuapp.com'); //<-- you can change this with a specific url like http://localhost:4200
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-    next();
-});
+// app.use(function(req, res, next) {
+//     res.header("Access-Control-Allow-Origin", 'http://ethos-app.herokuapp.com'); //<-- you can change this with a specific url like http://localhost:4200
+//     res.header("Access-Control-Allow-Credentials", true);
+//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+//     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
+//     next();
+// });
 
-app.use(cors());
-app.options('*', cors());
+var corsOptions = {credentials: true, origin: 'http://ethos-app.herokuapp.com'};
+
+app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
+
+// app.use(cors());
+// app.options('*', cors());
 
 app.use(logger('dev'));  //log every request to the console
 

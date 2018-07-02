@@ -15,7 +15,7 @@ const app = express();
 const cors = require('cors');
 
 //Connect MongoDB
-const MongoURI = process.env.MONGOLAB_URI; 
+const MongoURI = process.env.MONGOLAB_URI;
 // || process.env.MONGOURI_DEV;
 // const MongoURI = process.env.MONGOURI_DEV;
 

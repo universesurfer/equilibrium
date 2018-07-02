@@ -209,6 +209,10 @@
           </div>
         </div>
 
+        <div class="login-prompt" *ngIf="!isAuth">
+          <a href="" routerLink="/login">Log in</a> or <a href="" routerLink="/signup">signup</a> to post a new review.
+        </div>
+
 
       </section>
 </div>

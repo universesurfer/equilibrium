@@ -45,10 +45,10 @@ const auth = require("./server/routes/auth");
 //     next();
 // });
 
-var corsOptions = {credentials: false, origin: 'http://ethos-app.herokuapp.com'};
+// var corsOptions = {credentials: false, origin: 'http://ethos-app.herokuapp.com'};
 
-app.options('*', cors(corsOptions));
-app.use(cors(corsOptions));
+// app.options('*', cors(corsOptions));
+// app.use(cors(corsOptions));
 
 // app.use(cors());
 // app.options('*', cors());

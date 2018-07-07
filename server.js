@@ -15,7 +15,7 @@ const app = express();
 const cors = require('cors');
 
 //Connect MongoDB
-const MongoURI = process.env.MONGOLAB_URI || process.env.MONGODB_URI;
+const MongoURI = process.env.MONGOLAB_URI;
 // || process.env.MONGOURI_DEV;
 // const MongoURI = process.env.MONGOURI_DEV;
 
@@ -37,16 +37,8 @@ const auth = require("./server/routes/auth");
 // const users = require("./server/routes/users");
 // const users = require("./server/routes/users");
 
-// app.use(function(req, res, next) {
-//     res.header("Access-Control-Allow-Origin", '*'); //<-- you can change this with a specific url like http://localhost:4200
-//     res.header("Access-Control-Allow-Credentials", true);
-//     res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-//     res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-//     next();
-// });
 
 // var corsOptions = {credentials: false, origin: 'http://ethos-app.herokuapp.com'};
-
 // app.options('*', cors(corsOptions));
 // app.use(cors(corsOptions));
 
@@ -61,12 +53,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 //Initializing Express-Session
-app.use(session({
-  secret: "ironhack",
-  resave: true,
-  saveUninitialized: true,
-  cookie: { maxAge: 24 * 60 * 60 * 1000 }
-}));
+// app.use(session({
+//   secret: "ironhack",
+//   resave: true,
+//   saveUninitialized: true,
+//   cookie: { maxAge: 24 * 60 * 60 * 1000 }
+// }));
 
 app.set('view engine', 'ejs');  //setup ejs for templating
 

@@ -19,13 +19,21 @@ const MongoURI = process.env.MONGOLAB_URI;
 // || process.env.MONGOURI_DEV;
 // const MongoURI = process.env.MONGOURI_DEV;
 
-mongoose.connect(MongoURI, {useMongoClient: true}, function(err, res){
+mongoose.connect(MongoURI, {useMongoClient: false}, function(err, res){
   if(err) {
     console.log('Error connecting to: ' + MongoURI + '. ' + err);
   } else {
     console.log('Successful connection to ' + MongoURI + '.');
   }
 });
+
+// mongoose.connect(MongoURI, {useMongoClient: true}, function(err, res){
+//   if(err) {
+//     console.log('Error connecting to: ' + MongoURI + '. ' + err);
+//   } else {
+//     console.log('Successful connection to ' + MongoURI + '.');
+//   }
+// });
 
 // mongoose.connect("mongodb://localhost:27017/equilibrium");
 // require('./config/database');

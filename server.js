@@ -38,12 +38,12 @@ const auth = require("./server/routes/auth");
 // const users = require("./server/routes/users");
 
 
-// var corsOptions = {credentials: false, origin: 'http://ethos-app.herokuapp.com'};
-// app.options('*', cors(corsOptions));
-// app.use(cors(corsOptions));
+var corsOptions = {credentials: false, origin: 'http://ethos-app.herokuapp.com'};
+app.options('*', cors(corsOptions));
+app.use(cors(corsOptions));
 
-app.use(cors());
-app.options('*', cors());
+// app.use(cors());
+// app.options('*', cors());
 
 app.use(logger('dev'));  //log every request to the console
 

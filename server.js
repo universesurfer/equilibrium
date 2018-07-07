@@ -38,7 +38,7 @@ const auth = require("./server/routes/auth");
 // const users = require("./server/routes/users");
 
 
-var corsOptions = {credentials: false, origin: 'http://ethos-app.herokuapp.com'};
+var corsOptions = {credentials: true, origin: 'http://ethos-app.herokuapp.com'};
 app.options('*', cors(corsOptions));
 app.use(cors(corsOptions));
 

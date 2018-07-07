@@ -52,13 +52,13 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-//Initializing Express-Session
-// app.use(session({
-//   secret: "ironhack",
-//   resave: true,
-//   saveUninitialized: true,
-//   cookie: { maxAge: 24 * 60 * 60 * 1000 }
-// }));
+// Initializing Express-Session
+app.use(session({
+  secret: "ironhack",
+  resave: true,
+  saveUninitialized: true,
+  cookie: { maxAge: 24 * 60 * 60 * 1000 }
+}));
 
 app.set('view engine', 'ejs');  //setup ejs for templating
 

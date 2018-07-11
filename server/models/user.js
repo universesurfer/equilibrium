@@ -9,6 +9,10 @@ const userSchema = new Schema ({
   image: Object,
   aboutText: String,
   reviews: [ { type: Schema.Types.ObjectId, ref: "Review" } ]
+  // role: {
+  //   admin: Boolean,
+  //   user: Boolean
+  // }
 
 });
 

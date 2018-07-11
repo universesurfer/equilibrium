@@ -15,17 +15,17 @@ const app = express();
 const cors = require('cors');
 
 //Connect MongoDB
-const MongoURI = process.env.MONGODB_URI;
-// || process.env.MONGOURI_DEV;
-// const MongoURI = process.env.MONGOURI_DEV;
-
-mongoose.connect(MongoURI, {useMongoClient: true}, function(err, res){
-  if(err) {
-    console.log('Error connecting to: ' + MongoURI + '. ' + err);
-  } else {
-    console.log('Successful connection to ' + MongoURI + '.');
-  }
-});
+// const MongoURI = process.env.MONGODB_URI;
+// // || process.env.MONGOURI_DEV;
+// // const MongoURI = process.env.MONGOURI_DEV;
+//
+// mongoose.connect(MongoURI, {useMongoClient: true}, function(err, res){
+//   if(err) {
+//     console.log('Error connecting to: ' + MongoURI + '. ' + err);
+//   } else {
+//     console.log('Successful connection to ' + MongoURI + '.');
+//   }
+// });
 
 // mongoose.connect("mongodb://localhost:27017/equilibrium");
 // require('./config/database');

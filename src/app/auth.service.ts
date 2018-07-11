@@ -19,7 +19,8 @@ public companies: any;
 publicProfileId: string;
 
 imagePreviewUrl: any = "/assets/glyphicons/user.png";
-BASE_URL: string = 'http://localhost:3000';
+BASE_URL: string = 'http://localhost:3000' || 'http://ethos-app.herokuapp.com';
+
 
   constructor(
     private router: Router,

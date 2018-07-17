@@ -84,14 +84,18 @@ app.use('/', auth);
 // app.use('/profile/:id', users);
 // app.use('/', users);
 
+
 //Allows the use of /server filepath when serving uploaded user images
 app.use('/server', express.static(path.join(__dirname, '/server')));
+
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + 'node_modules/angular-star-rating/assets/images/star-rating-icons');
+});
 
 //Catch all other routes and return the index file.
 //Catch-all route MUST come after all other API routes have been defined.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
-  res.sendFile(__dirname + 'node_modules/angular-star-rating/assets/images/star-rating-icons');
 });
 
 

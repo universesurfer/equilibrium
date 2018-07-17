@@ -123,6 +123,7 @@ router.get('/:category', (req, res) => {
       res.status(400).json({ message: "Can't find any companies in this category or they don't exist yet." });
     } else {
 
+
       res.send({
         message: "getting companies!",
         companies: companies,

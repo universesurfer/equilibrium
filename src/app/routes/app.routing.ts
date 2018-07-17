@@ -34,9 +34,14 @@ import { SettingsComponent } from '../settings/settings.component';
 export const routes: Routes = [
 
   { path: '', component: CategoriesComponent },
-  { path: 'womens-apparel', component: WomenApparelComponent },
+  // { path: 'womens-apparel', component: WomenApparelComponent },
   { path: 'women-accessories', component: WomenAccessoriesComponent },
-  { path: 'men-apparel', component: MenApparelComponent },
+
+  // { path: 'category/:category', component: MenApparelComponent },
+
+  { path: 'category/men-apparel', component: MenApparelComponent },
+  { path: 'category/womens-apparel', component: WomenApparelComponent },
+
   { path: 'men-accessories', component: MenAccessoriesComponent },
   { path: 'beauty', component: BeautyComponent },
   { path: 'bath-body', component: BathBodyComponent },

@@ -116,6 +116,7 @@ router.put('/:category', (req, res) => {
 
 });
 
+
 router.get('/:category', (req, res) => {
   Company.find({ category: {$in: req.params.category } }, (err, companies) => {
     if (!companies) {
@@ -158,7 +159,7 @@ router.delete('/:category/:company/:reviewId/:userId', (req, res, next) => {
 });
 
 
-
+// router.get('/:category/:company', (req, res, next) =>
 //Retrieve all the reviews for the company and populate
 router.get('/:category/:company', (req, res, next) => {
 

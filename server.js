@@ -77,6 +77,7 @@ app.use(flash());     //use connect-flash for flash messages stored in session
 //Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
+
 //Set our api routes
 app.use('/', api);
 app.use('/', auth);
@@ -90,6 +91,7 @@ app.use('/server', express.static(path.join(__dirname, '/server')));
 //Catch-all route MUST come after all other API routes have been defined.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.sendFile(__dirname + 'node_modules/angular-star-rating/assets/images/star-rating-icons');
 });
 
 

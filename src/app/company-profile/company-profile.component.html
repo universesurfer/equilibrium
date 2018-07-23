@@ -46,7 +46,7 @@
 
 
       <div id="averageReviews" *ngIf="allReviews != undefined">
-        <star-rating-comp [starType]="'svg'" [size]="'medium'" [hoverEnabled]="false" [readOnly]="true" [rating]="averageRating"></star-rating-comp>
+        <star-rating-comp [starType]="'svg'" [hoverEnabled]="false" [readOnly]="true" [rating]="averageRating"></star-rating-comp>
         <p>{{allReviews.length}} reviews</p>
       </div>
 
@@ -94,7 +94,7 @@
 
                 <!-- Star Rating -->
                 <div class="review-stars">
-                  <star-rating-comp [starType]="'svg'" [size]="'medium'" [hoverEnabled]="false" [readOnly]="true" [rating]="review.starRating"></star-rating-comp>
+                  <star-rating-comp [starType]="'svg'" [hoverEnabled]="false" [readOnly]="true" [rating]="review.starRating"></star-rating-comp>
                 </div>
 
                 <!-- Review text -->
@@ -121,7 +121,7 @@
                 <form>
 
                   <div class="review-stars">
-                    <star-rating-comp [starType]="'icon'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" [rating]="review.starRating"></star-rating-comp>
+                    <star-rating-comp [starType]="'svg'" [hoverEnabled]="true" (onRatingChange)="onRatingChange($event)" [rating]="review.starRating"></star-rating-comp>
                     {{rating}}
                   </div>
 

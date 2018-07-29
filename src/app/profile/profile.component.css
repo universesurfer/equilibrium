@@ -26,16 +26,20 @@
 }
 
 
-#about-info {
+#about-form {
   display: flex;
   justify-content: center;
-  width: 100%;
-  padding: 15rem 0 15rem 0;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  width: 25rem;
+  /* padding: 15rem 0 15rem 0; */
 }
 
-.about-form {
-  width: 50%;
+#about-text {
+  width: 100%;
 }
+
 /* /Users/rufio/Desktop/EQUILIBRIUM/server/public/uploads/1516226707431.jpg */
 
 #user-image {

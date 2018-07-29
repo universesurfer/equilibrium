@@ -59,9 +59,9 @@ export class WomenApparelComponent implements OnInit {
     .subscribe(result => {
       if (result) {
         this.allCompanies = result.companies;
-        console.log("inside the result in getCompaniesForCategory()", result);
+        // console.log("inside the result in getCompaniesForCategory()", result);
       } else {
-        console.log("Unable to retrieve companies...");
+        // console.log("Unable to retrieve companies...");
       }
     });
   }

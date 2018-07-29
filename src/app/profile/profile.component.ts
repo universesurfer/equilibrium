@@ -50,11 +50,11 @@ export class ProfileComponent implements OnInit {
     //If the localStorage id matches the id in the url parameter, display buttons and allow user to edit bio.
     if (this.id === this.paramsId) {
       this.isAuth = true;
-      console.log("id's are equal.  Is auth should be working.")
+      // console.log("id's are equal.  Is auth should be working.")
     } else {
       this.isAuth = false;
       this.router.navigate(['/']);
-      console.log("something is wrong with isAuth");
+      // console.log("something is wrong with isAuth");
     }
   }
 
@@ -67,13 +67,13 @@ export class ProfileComponent implements OnInit {
           this.getUserDetails(params['id']);
 
           this.user = JSON.parse(localStorage.getItem('user'));
-          console.log("here's the current user", this.user);
+          // console.log("here's the current user", this.user);
           console.log(this.aboutText);
           //Get the url id params to check against localStorage in constructor above.
           this.id = localStorage.getItem('id');
-          console.log("user id", this.id);
+          // console.log("user id", this.id);
           this.paramsId = params['id'];
-          console.log("in params id", this.paramsId);
+          // console.log("in params id", this.paramsId);
 
         });
 
@@ -90,8 +90,8 @@ export class ProfileComponent implements OnInit {
         .subscribe((response) => {
           this.user = response.user;
           this.session.showSuccess();
-          console.log("showing the response in onSuccessItem", response);
-          console.log("in success response, showing the item", item );
+          // console.log("showing the response in onSuccessItem", response);
+          // console.log("in success response, showing the item", item );
         });
     };
 
@@ -121,42 +121,43 @@ export class ProfileComponent implements OnInit {
   }
 
 
-  // edit() {
-  //   this.editCheck = true;
-  // }
+  edit() {
+    this.editCheck = true;
+  }
 
 
   getUserDetails(id) {
     this.session.get(id)
       .subscribe((returnedUser) => {
         this.currentUser = returnedUser.user;
-        console.log("showing returnedUser in getUserDetails()", returnedUser.user);
+        // console.log("showing returnedUser in getUserDetails()", returnedUser.user);
         // NOTE: complete user route to successfully get and update user from this component
                   //Include in get or in PUT
       });
   }
 
 
-  updatePicture() {
-    this.session.editPicture(this.user)
-      .subscribe(result => {
-        if (result) {
-          console.log("getting the result of updatePicture()", result);
-        } else {
-          console.log("Was not able to update picture at this time.");
-        }
-      })
-  }
+  // updatePicture() {
+  //   this.session.editPicture(this.user)
+  //     .subscribe(result => {
+  //       if (result) {
+  //         // console.log("getting the result of updatePicture()", result);
+  //       } else {
+  //         console.log("Was not able to update picture at this time.");
+  //       }
+  //     })
+  // }
 
 
+//Update User Profile
   updateProfile() {
     this.session.edit(this.currentUser)
       .subscribe(result => {
         if (result) {
           // result.user.aboutText = this.aboutText;
-          console.log("inside the result in updateProfile()", result);
+          // console.log("inside the result in updateProfile()", result);
           // this.user.aboutText = this.aboutText;
-          console.log("here's the user", this.currentUser);
+          // console.log("here's the user", this.currentUser);
           // console.log("does it have about text?", this.currentUser.aboutText);
         } else {
           console.log("Something went wrong when editing profile.");

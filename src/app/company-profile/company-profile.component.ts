@@ -117,7 +117,7 @@ export class CompanyProfileComponent implements OnInit {
 
     //Save any star rating changes to review object
     this.review.starRating = $event.rating;
-    // this.editedReview.starRating = $event.rating;
+
   };
 
 
@@ -128,8 +128,8 @@ export class CompanyProfileComponent implements OnInit {
       .subscribe(result => {
         if (result) {
           this.company = result.company
-          console.log("inside the result in displayCompanyInfo()", this.company);
-          console.log("getting entire result in displayCompanyInfo()", result);
+          // console.log("inside the result in displayCompanyInfo()", this.company);
+          // console.log("getting entire result in displayCompanyInfo()", result);
 
         } else {
           console.log("Unable to retrieve this company's information with displayCompanyInfo()");
@@ -169,7 +169,7 @@ export class CompanyProfileComponent implements OnInit {
     this.session.get(id)
       .subscribe((returnedUser) => {
         this.currentUser = returnedUser.user;
-        console.log("showing returnedUser in getUserDetails()in company profile component", returnedUser.user);
+        // console.log("showing returnedUser in getUserDetails()in company profile component", returnedUser.user);
       });
   }
 
@@ -186,7 +186,7 @@ export class CompanyProfileComponent implements OnInit {
 
       this.currentUser.reviews.forEach(review => {
         this.userReviews.push(review);
-        console.log("showing all user reviews", this.userReviews);
+        // console.log("showing all user reviews", this.userReviews);
       });
 
       this.checkForIntersection(this.reviewIds, this.userReviews);
@@ -213,13 +213,13 @@ export class CompanyProfileComponent implements OnInit {
     var intersection = _.intersection(array1, array2);
 
     if (intersection.length != 0) {
-      console.log("intersection exists");
+      // console.log("intersection exists");
       this.intersectedId = intersection;
       this.reviewExists = true;
       console.log(this.reviewExists);
       return true;
     } else {
-      console.log("intersection doesn't exist");
+      // console.log("intersection doesn't exist");
       return false;
     }
   }
@@ -241,13 +241,13 @@ export class CompanyProfileComponent implements OnInit {
       .subscribe(result => {
         if (result) {
 
-          console.log("Review submitted from submitUserReview()", result);
+          // console.log("Review submitted from submitUserReview()", result);
           this.newReview = result.review;
-          console.log("showing newReview", this.newReview);
+          // console.log("showing newReview", this.newReview);
           this.addReviewToDom();
           return true;
         } else {
-          console.log("Unable to submit review from submitUserReview()", result);
+          // console.log("Unable to submit review from submitUserReview()", result);
           return false;
         };
       });
@@ -255,15 +255,15 @@ export class CompanyProfileComponent implements OnInit {
 
   editUserReview(thisReviewId) {
     this.review.originalId = thisReviewId;
-    console.log("showing review in component", this.review);
+    // console.log("showing review in component", this.review);
     this.session.editReview(this.category, this.companyName, this.review)
       .subscribe(result => {
         if (result) {
-          console.log("Edited review submitted from editUserReview()", result);
+          // console.log("Edited review submitted from editUserReview()", result);
           this.editCheck = false;
           return true;
         } else {
-          console.log("Unable to edit review from editUserReview()", result);
+          // console.log("Unable to edit review from editUserReview()", result);
           return false;
         }
       });
@@ -274,10 +274,10 @@ export class CompanyProfileComponent implements OnInit {
     this.session.deleteReview(this.category, this.companyName, this.deletedReviewId, this.user._id)
       .subscribe(result => {
         if (result) {
-          console.log("Inside deleteReview() function in company profile component", result);
+          // console.log("Inside deleteReview() function in company profile component", result);
           return true;
         } else {
-          console.log("Unable to see deleteReview() value in companyProfile", result);
+          // console.log("Unable to see deleteReview() value in companyProfile", result);
           return false;
         }
       });
@@ -292,11 +292,11 @@ export class CompanyProfileComponent implements OnInit {
           this.allReviews = result.reviews;
           this.checkIfUserHasAlreadyReviewed();
           this.getAverageCompanyRating();
-          console.log("Retrieving reviews in allReviews", this.allReviews);
+          // console.log("Retrieving reviews in allReviews", this.allReviews);
           // this.checkIfUserHasAlreadyReviewed();
           return true;
         } else {
-          console.log("Unable to retrieve reviews.");
+          // console.log("Unable to retrieve reviews.");
           return false;
         }
       })

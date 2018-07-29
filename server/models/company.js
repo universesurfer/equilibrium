@@ -12,9 +12,6 @@ const companySchema = new Schema ({
   productRange: [String],
   category: String,
   reviews: [ {type: Schema.Types.ObjectId, ref: 'Review'} ],
-  // socialImpactRating: Number,
-  // environmentalRating: Number,
-  // transparencyRating: Number,
   certifications: {
     bCorp: Boolean,
     fairTrade: Boolean,

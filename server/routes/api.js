@@ -171,8 +171,6 @@ router.get('/:category/:company', (req, res, next) => {
       res.status(400).json({ message: "Can't find the company you're looking for at the moment." });
     } else {
 
-      res.setHeader('Content-Type', 'image/svg+xml');
-
         Review.find({'_id': { $in: company.reviews }})
         .populate("createdBy")
         .exec((err, review) => {

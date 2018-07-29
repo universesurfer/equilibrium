@@ -63,7 +63,7 @@ app.use(session({
 }));
 
 app.set('view engine', 'ejs');  //setup ejs for templating
-
+//
 
 //Setup passport
 // app.use(session({

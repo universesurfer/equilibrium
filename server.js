@@ -63,7 +63,6 @@ app.use(session({
 }));
 
 app.set('view engine', 'ejs');  //setup ejs for templating
-//
 
 //Setup passport
 // app.use(session({
@@ -91,10 +90,12 @@ app.use('/', auth);
 app.use('/server', express.static(path.join(__dirname, '/server')));
 
 
+
 //Catch all other routes and return the index file.
 //Catch-all route MUST come after all other API routes have been defined.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
+  res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
 });
 
 

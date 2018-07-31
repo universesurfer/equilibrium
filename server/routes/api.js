@@ -7,6 +7,7 @@ const Company = require('../models/company');
 const Review = require('../models/review');
 const mongoose = require("mongoose");
 const upload = require('../config/multer');
+const mime = require('mime-types');
 
 
 
@@ -179,6 +180,8 @@ router.get('/:category/:company', (req, res, next) => {
             return;
           } else {
 
+            console.log("content type", mime.lookup('star-rating.icons.svg'));
+            res.setHeader("Content-Type", mime.lookup('star-rating.icons.svg'));
             res.json({
                    message: "Retrieving your company",
                    company: company,

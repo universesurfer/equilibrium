@@ -28,7 +28,7 @@ mongoose.connect(MongoURI, {useMongoClient: true}, function(err, res){
   }
 });
 
-// mime.lookup('star-rating.icons.svg');
+// mime.lookup('./src/assets/images/star-rating.icons.svg');
 // mime.contentType(path.extname('/src/assets/images/star-rating.icons.svg'));
 
 // mongoose.connect("mongodb://localhost:27017/equilibrium");
@@ -50,6 +50,8 @@ app.use(cors(corsOptions));
 // app.options('*', cors());
 
 app.use(logger('dev'));  //log every request to the console
+
+
 
 //Parsers for POST data
 app.use(bodyParser.json());
@@ -97,7 +99,7 @@ app.use('/server', express.static(path.join(__dirname, '/server')));
 //Catch-all route MUST come after all other API routes have been defined.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
-  // res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
+
 });
 
 

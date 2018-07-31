@@ -13,6 +13,7 @@ const multer = require('multer');
 const logger = require("morgan");  //logs our requests to the console
 const app = express();
 const cors = require('cors');
+const mime = require('mime-types');
 
 //Connect MongoDB
 const MongoURI = process.env.MONGODB_URI;
@@ -27,7 +28,8 @@ mongoose.connect(MongoURI, {useMongoClient: true}, function(err, res){
   }
 });
 
-// xxxxxxxx
+// mime.lookup('star-rating.icons.svg');
+mime.contentType(path.extname('/src/assets/images/star-rating.icons.svg'));
 
 // mongoose.connect("mongodb://localhost:27017/equilibrium");
 // require('./config/database');
@@ -95,7 +97,7 @@ app.use('/server', express.static(path.join(__dirname, '/server')));
 //Catch-all route MUST come after all other API routes have been defined.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
-  res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
+  // res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
 });
 
 

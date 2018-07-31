@@ -29,7 +29,7 @@ mongoose.connect(MongoURI, {useMongoClient: true}, function(err, res){
 });
 
 // mime.lookup('star-rating.icons.svg');
-mime.contentType(path.extname('/src/assets/images/star-rating.icons.svg'));
+// mime.contentType(path.extname('/src/assets/images/star-rating.icons.svg'));
 
 // mongoose.connect("mongodb://localhost:27017/equilibrium");
 // require('./config/database');

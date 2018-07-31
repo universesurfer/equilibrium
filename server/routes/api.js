@@ -165,6 +165,9 @@ router.delete('/:category/:company/:reviewId/:userId', (req, res, next) => {
 //Retrieve all the reviews for the company and populate
 router.get('/:category/:company', (req, res, next) => {
 
+  console.log("content type", mime.contentType(path.extname('../src/app/images/star-rating.icons.svg')));
+  res.setHeader("Content-Type", mime.contentType(path.extname('../src/app/images/star-rating.icons.svg')));
+
   Company.findOne({ "companyName": req.params.company}, (err, company) => {
 
     // console.log("printing all reviews", company.reviews);
@@ -181,8 +184,6 @@ router.get('/:category/:company', (req, res, next) => {
             return;
           } else {
 
-            console.log("content type", mime.contentType(path.extname('../src/app/images/star-rating.icons.svg')));
-            res.setHeader("Content-Type", mime.contentType(path.extname('../src/app/images/star-rating.icons.svg')));
             res.json({
                    message: "Retrieving your company",
                    company: company,

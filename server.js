@@ -111,7 +111,7 @@ app.get('*', (req, res) => {
 
 });
 
-app.get('/assets/images/star-rating.icons.svg', (req, res) => {
+app.get('/:category/:company', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
 });
 

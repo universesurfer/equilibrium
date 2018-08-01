@@ -166,7 +166,7 @@ router.delete('/:category/:company/:reviewId/:userId', (req, res, next) => {
 router.get('/:category/:company', (req, res, next) => {
 
   console.log("content type", mime.contentType(path.extname('../src/app/images/star-rating.icons.svg')));
-  res.header("Content-Type", mime.contentType(path.extname('../src/app/images/star-rating.icons.svg')));
+  res.set("Content-Type", mime.contentType(path.extname('../src/app/images/star-rating.icons.svg')));
 
   Company.findOne({ "companyName": req.params.company}, (err, company) => {
 

@@ -165,6 +165,9 @@ router.delete('/:category/:company/:reviewId/:userId', (req, res, next) => {
 router.get('/:category/:company', (req, res, next) => {
 
   // console.log("content type", mime.contentType(path.extname('../src/app/images/star-rating.icons.svg')));
+  //
+  // res.setHeader("Content-Type", 'image/svg+xml');
+  // res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
 
 
   Company.findOne({ "companyName": req.params.company}, (err, company) => {
@@ -195,10 +198,6 @@ router.get('/:category/:company', (req, res, next) => {
 
   }
 });
-
-res.setHeader("Content-Type", 'image/svg+xml');
-res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
-
 });
 
 

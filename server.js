@@ -82,7 +82,6 @@ app.use(flash());     //use connect-flash for flash messages stored in session
 
 //Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use(express.static(path.join(__dirname, 'src/assets/images')));
 
 // app.use((req, res, next) => {
 //     // res.append('Access-Control-Allow-Origin', ['*']);
@@ -102,6 +101,7 @@ app.use('/', auth);
 //Allows the use of /server filepath when serving uploaded user images
 app.use('/server', express.static(path.join(__dirname, '/server')));
 
+app.use('/src/assets', express.static(path.join(__dirname, 'src/assets/images')));
 
 
 //Catch all other routes and return the index file.

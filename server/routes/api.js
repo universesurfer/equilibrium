@@ -183,8 +183,8 @@ router.get('/:category/:company', (req, res, next) => {
             return;
           } else {
             res.setHeader("Content-Type", 'image/svg+xml');
-            res.sendFile(path.join(__dirname, '/src/assets/images/star-rating.icons.svg'));
-            
+            res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
+
             res.json({
                    message: "Retrieving your company",
                    company: company,

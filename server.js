@@ -79,9 +79,10 @@ app.use(flash());     //use connect-flash for flash messages stored in session
 
 
 
+
 //Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
-app.use(express.static(path.join(__dirname), 'src/assets/images'));
+app.use(express.static(path.join(__dirname, 'src/assets/images')));
 
 // app.use((req, res, next) => {
 //     // res.append('Access-Control-Allow-Origin', ['*']);

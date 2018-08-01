@@ -28,12 +28,6 @@ mongoose.connect(MongoURI, {useMongoClient: true}, function(err, res){
   }
 });
 
-// mime.lookup('./src/assets/images/star-rating.icons.svg');
-// mime.contentType(path.extname('/src/assets/images/star-rating.icons.svg'));
-
-// mongoose.connect("mongodb://localhost:27017/equilibrium");
-// require('./config/database');
-
 
 //Get our API routes
 const api = require("./server/routes/api");
@@ -83,12 +77,6 @@ app.use(flash());     //use connect-flash for flash messages stored in session
 //Point static path to dist
 app.use(express.static(path.join(__dirname, 'dist')));
 
-// app.use((req, res, next) => {
-//     // res.append('Access-Control-Allow-Origin', ['*']);
-//     res.append('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-//     res.append('Access-Control-Allow-Headers', 'Content-Type');
-//     next();
-// });
 
 // NOTE: causing issues?
 //Set our api routes
@@ -108,13 +96,8 @@ app.use('/assets/images', express.static(path.join(__dirname, 'src/assets/images
 //Catch-all route MUST come after all other API routes have been defined.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
-  res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
-
 });
 
-// app.get('/:category/:company', (req, res) => {
-//   res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
-// });
 
 // Get port from environment and store in Express
 const port = process.env.PORT || '3000';

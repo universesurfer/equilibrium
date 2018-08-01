@@ -108,12 +108,13 @@ app.use('/assets/images', express.static(path.join(__dirname, 'src/assets/images
 //Catch-all route MUST come after all other API routes have been defined.
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'dist/index.html'));
-
-});
-
-app.get('/:category/:company', (req, res) => {
   res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
+
 });
+
+// app.get('/:category/:company', (req, res) => {
+//   res.sendFile(path.join(__dirname, 'src/assets/images/star-rating.icons.svg'));
+// });
 
 // Get port from environment and store in Express
 const port = process.env.PORT || '3000';

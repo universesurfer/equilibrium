@@ -211,8 +211,8 @@ edit(user) {
 get(id) {
   this.id = localStorage.getItem('id');
   let headers = new Headers({
-    'Authorization': 'JWT' + this.token,
-    'Content-Type': 'image/*'
+    'Authorization': 'JWT' + this.token
+    // 'Content-Type': 'image/*'
  });
   let options = new RequestOptions({ headers: headers });
   return this.http.get(`${this.BASE_URL}/profile/${this.id}`, options)

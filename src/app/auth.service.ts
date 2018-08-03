@@ -212,11 +212,14 @@ get(id) {
   this.id = localStorage.getItem('id');
   let headers = new Headers({
     'Authorization': 'JWT' + this.token,
-    'Content-Type': 'image'
+    'Content-Type': 'image/*'
  });
   let options = new RequestOptions({ headers: headers });
   return this.http.get(`${this.BASE_URL}/profile/${this.id}`, options)
-    .map((res) => res.json());
+    .map((res) => res.json())
+    .catch((err) => {
+      return Observable.throw(err);
+    })
 }
 
 
@@ -226,14 +229,14 @@ get(id) {
 //     "Accept": "application/json"
 // });
 
-getPublicProfile(id) {
-  var userId = id;
-  return this.http.get(`${this.BASE_URL}/profile/${userId}`)
-    .map((res) => res.json())
-    .catch((err) => {
-      return Observable.throw(err);
-    })
-}
+// getPublicProfile(id) {
+//   var userId = id;
+//   return this.http.get(`${this.BASE_URL}/profile/${userId}`)
+//     .map((res) => res.json())
+//     .catch((err) => {
+//       return Observable.throw(err);
+//     })
+// }
 
 
 getCompaniesForCategory(category) {

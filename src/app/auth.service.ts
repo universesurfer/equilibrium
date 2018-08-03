@@ -216,10 +216,7 @@ get(id) {
  });
   let options = new RequestOptions({ headers: headers });
   return this.http.get(`${this.BASE_URL}/profile/${this.id}`, options)
-    .map((res) => res.json())
-    .catch((err) => {
-      return Observable.throw(err);
-    })
+    .map((res) => res.json());
 }
 
 

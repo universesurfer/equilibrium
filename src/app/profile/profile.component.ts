@@ -67,7 +67,7 @@ export class ProfileComponent implements OnInit {
           this.getUserDetails(params['id']);
 
           this.user = JSON.parse(localStorage.getItem('user'));
-          // console.log("here's the current user", this.user);
+          console.log("here's the current user", this.user);
           console.log(this.aboutText);
           //Get the url id params to check against localStorage in constructor above.
           this.id = localStorage.getItem('id');

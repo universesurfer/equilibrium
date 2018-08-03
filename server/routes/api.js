@@ -85,6 +85,7 @@ router.post('/profile/:id', upload.single('file'), (req, res, next) => {
     if (err) {
       next(err);
     } else {
+
       res.json({
         user: "Getting the user in image update" + user,
         file: "Here's the image file" + image

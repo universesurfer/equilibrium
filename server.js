@@ -88,8 +88,7 @@ app.use('/', auth);
 
 //Allows the use of /server filepath when serving uploaded user images
 app.use('/server', express.static(path.join(__dirname, '/server')));
-
-app.use('/assets/images', express.static('../src/assets/images'));
+app.use('/assets/images', express.static(path.join(__dirname, '/src/assets/images')));
 
 
 //Catch all other routes and return the index file.

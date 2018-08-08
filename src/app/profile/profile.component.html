@@ -8,7 +8,6 @@
     <!-- <div class="image-section"> -->
     <!-- <div class="col-md-4 offset-md-4"> -->
     <section id="profile-hero" class="col">
-
       <form id="picture-upload-section">
       <fieldset class="form-group">
 
@@ -21,40 +20,43 @@
             <img src="/{{currentUser.image.path}}" class="profile-picture">
         </div>
 
+        <div id="username" style="font-size: 1em">{{currentUser.firstName}} {{currentUser.lastName}}</div>
+
         <!-- <button type="button" name="button" (click)="edit()"></button> -->
         <!-- <div *ngIf="editCheck"> -->
 
-          <div class="progress" style="">
+          <!-- <div class="progress" style="">
               <div class="progress-bar" role="progressbar" [ngStyle]="{ 'width': uploader.progress + '%' }"></div>
-          </div>
-          <input type="file" name="avatar" ng2FileSelect [uploader]="uploader" (change)="readUrl($event)"/>
-          <button type="button" name="button" (click)="saveAvatar()">Save Image</button>
+          </div> -->
+          <input type="file" name="avatar" class="btn btn-link" ng2FileSelect [uploader]="uploader" (change)="readUrl($event)"/>
+          <button type="button" name="button" class="btn btn-primary" (click)="saveAvatar()">Save Image</button>
 
 
       </fieldset>
       </form>
 
     </section>
-    </div>
+  </div>
 
 <hr>
 
 
-<div class="row center">
+<div class="row center about-wrapper">
 
     <form id="about-form">
 
       <fieldset class="form-group">
         <label for="aboutText">About</label>
-        <input *ngIf="!editCheck" type="text" value="lorem ipsum" readonly>
-        <textarea *ngIf="editCheck" class="form-control" id="aboutText" rows="3"></textarea>
+        <div *ngIf="!editCheck" type="text">{{currentUser.aboutText}}</div>
+        <textarea *ngIf="editCheck" style="min-width: 100%" name="aboutText" class="form-control" id="aboutText" rows="5" cols="50" [(ngModel)]="currentUser.aboutText"></textarea>
 
       </fieldset>
 
-      <button *ngIf="editCheck" type="submit" class="btn btn-primary btn-block">Submit</button>
+      <button *ngIf="editCheck" type="submit" class="btn btn-primary btn-block" (click)="updateProfile()">Submit</button>
       <button (click)="edit()" *ngIf="!editCheck" class="btn btn-info btn-block" type="button" name="button">Edit</button>
 
     </form>
+
 
 </div>
 

@@ -1,13 +1,19 @@
 #profile-hero {
   display: flex;
-  height: 15rem;
+  height: 18rem;
   justify-content: center;
   align-items: center;
+}
+
+.about-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 #picture-upload-section {
   display: flex;
   flex-direction: column;
+  align-items: center;
   width: 15rem;
 }
 
@@ -36,9 +42,10 @@
   /* padding: 15rem 0 15rem 0; */
 }
 
-#about-text {
+/* #aboutText {
   width: 100%;
-}
+} */
+
 
 /* /Users/rufio/Desktop/EQUILIBRIUM/server/public/uploads/1516226707431.jpg */
 

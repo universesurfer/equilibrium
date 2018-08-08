@@ -15,6 +15,8 @@ const bcryptSalt = 10;
 
 //SIGNUP POST
 router.post('/signup', (req, res, next) => {
+  var firstName = req.body.firstName;
+  var lastName = req.body.lastName;
   var email = req.body.email;
   var password = req.body.password;
 
@@ -33,6 +35,8 @@ router.post('/signup', (req, res, next) => {
     var hashPass = bcrypt.hashSync(password, salt);
 
     var newUser = User({
+      firstName,
+      lastName,
       email,
       password: hashPass
     });

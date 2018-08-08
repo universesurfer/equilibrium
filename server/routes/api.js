@@ -58,9 +58,9 @@ router.put('/profile/:id', (req, res) => {
     } else {
 
       res.json({
-        message: "Getting the aboutText req.body " + req.body.aboutText,
+        message: "Getting the aboutText",
         user: user,
-        aboutText: aboutText
+        aboutText: req.body.aboutText
       });
     }
   });

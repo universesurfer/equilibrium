@@ -130,6 +130,7 @@ export class ProfileComponent implements OnInit {
     this.session.get(id)
       .subscribe((returnedUser) => {
         this.currentUser = returnedUser.user;
+        this.aboutText = returnedUser.user.aboutText;
         // console.log("showing returnedUser in getUserDetails()", returnedUser.user);
         // NOTE: complete user route to successfully get and update user from this component
                   //Include in get or in PUT
@@ -154,8 +155,11 @@ export class ProfileComponent implements OnInit {
     this.session.edit(this.currentUser)
       .subscribe(result => {
         if (result) {
-          // result.user.aboutText = this.aboutText;
-          // console.log("inside the result in updateProfile()", result);
+          result.user.aboutText = this.aboutText;
+          console.log("inside the result in updateProfile()", result);
+          console.log(this.currentUser);
+          this.editCheck = false;
+          // console.log(this.currentUser.aboutText);
           // this.user.aboutText = this.aboutText;
           // console.log("here's the user", this.currentUser);
           // console.log("does it have about text?", this.currentUser.aboutText);

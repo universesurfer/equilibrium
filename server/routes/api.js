@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
 // NOTE: Move profile routes to separate file for refactor
 
 router.get('/profile/:id', (req, res) => {
+
   console.log("Getting a user from the database");
   if(!mongoose.Types.ObjectId.isValid(req.params.id)) {
     return res.status(400).json({ message: 'Specified id is not valid' });
@@ -34,11 +35,28 @@ router.get('/profile/:id', (req, res) => {
     if (err) {
       return res.send(err);
     } else {
-      res.json({ user });
-    }
-  });
-});
 
+      Review.find({'_id': { $in: user.reviews }})
+      .populate("createdBy")
+      .exec((err, reviews) => {
+        if (err) {
+          next(err);
+          return;
+        } else {
+                // var companyNames = reviews.map(review => review.companyName);
+              res.json({
+                     message: "Retrieving user and their reviews",
+                     user: user,
+                     reviews: reviews
+                   });
+
+              console.log("returning review", reviews);
+            }
+          });
+
+            }
+      });
+  });
 
 
 //EDIT USER PROFILE

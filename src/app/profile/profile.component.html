@@ -12,11 +12,12 @@
       <fieldset class="form-group">
 
 
-        <div *ngIf="!currentUser.image">
+        <div id="userImage" *ngIf="!currentUser.image">
             <img [src]="imagePreviewUrl" class="profile-picture" alt="">
         </div>
 
-        <div *ngIf="currentUser.image">
+        <div id="userImage"*ngIf="currentUser.image">
+          <!-- <object id="profile-picture"></object> -->
             <img src="/{{currentUser.image.path}}" class="profile-picture">
         </div>
 
@@ -40,7 +41,7 @@
 
 <hr>
 
-
+<!-- ABOUT TEXT -->
 <div class="row center about-wrapper">
 
     <form id="about-form">
@@ -57,8 +58,21 @@
 
     </form>
 
-
 </div>
 
+<hr>
+<!-- USER REVIEWS -->
+<div class="row center review-wrapper">
+
+  <label for="myReviews">My Reviews</label>
+  <br>
+  <ul *ngFor="let review of userReviews">
+
+    <li class="review-box">{{review.commentBody}}</li>
+
+  </ul>
+
+
+</div>
 
 </div>

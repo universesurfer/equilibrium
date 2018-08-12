@@ -9,6 +9,7 @@ const reviewSchema = new Schema ({
   subject: String,
   commentBody: String,
   createdBy: { type: Schema.Types.ObjectId, ref: 'User'},
+  companyDetails: { Object },
   originalId: String
 
 });

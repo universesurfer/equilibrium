@@ -10,17 +10,26 @@
   justify-content: center;
 }
 
+.review-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
 #picture-upload-section {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  width: 15rem;
+  width: 17rem;
 }
+
+#userImage {
+  text-align: center;
+}
+
 
 .profile-picture {
   border-radius: 50%;
-  height: 120px;
-  width: 120px;
+  height: 150px;
+  width: 150px;
   border: 1px solid black;
 }
 
@@ -42,22 +51,6 @@
   /* padding: 15rem 0 15rem 0; */
 }
 
-/* #aboutText {
-  width: 100%;
-} */
-
-
-/* /Users/rufio/Desktop/EQUILIBRIUM/server/public/uploads/1516226707431.jpg */
-
-#user-image {
-  height: 200px;
-  width: 200px;
-  border: 1px black solid;
-  /* background-image: url("/server/public/uploads/1516226707431.jpg"); */
-}
-
-#user-image-style {
-  height: 100%;
-  width: 100%;
-
+.form-group {
+  text-align: center;
 }

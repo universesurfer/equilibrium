@@ -40,6 +40,7 @@ import { CompanyProfileComponent } from './company-profile/company-profile.compo
 import { FooterComponent } from './footer/footer.component';
 import { SettingsComponent } from './settings/settings.component';
 import { FilterOptionPipe } from './filter-option.pipe';
+import { CompanyImagePipe } from './company-image.pipe';
 
 
 
@@ -75,7 +76,8 @@ import { FilterOptionPipe } from './filter-option.pipe';
     FileSelectDirective,
     FooterComponent,
     SettingsComponent,
-    FilterOptionPipe
+    FilterOptionPipe,
+    CompanyImagePipe
 
   ],
   imports: [

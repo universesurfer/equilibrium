@@ -18,6 +18,7 @@ export class ProfileComponent implements OnInit {
 
   currentUser = Object; //holds user details from getUserDetails()
   user: any;  //holds user data from localStorage
+  userReviews: any;
 
 
   paramsId: string;
@@ -32,6 +33,8 @@ export class ProfileComponent implements OnInit {
   //Holds avatar.  Displays user image preview on page before multer upload.
   imagePreviewUrl: any = "/assets/glyphicons/user.png";
 
+  userImage: string;
+  imageMimeType: string;
 
 
   constructor(
@@ -74,6 +77,8 @@ export class ProfileComponent implements OnInit {
           // console.log("user id", this.id);
           this.paramsId = params['id'];
           // console.log("in params id", this.paramsId);
+          // this.setData(this.currentUser.image.path);
+          // this.setMimeType(this.currentUser.image.mimeType);
 
         });
 
@@ -95,10 +100,17 @@ export class ProfileComponent implements OnInit {
         });
     };
 
-
   }
 
-
+  //Set data url in profile image
+  // setData(imagePath) {
+  //     document.getElementById("profile-picture").setAttribute('data', imagePath);
+  // }
+  //
+  // setMimeType(mimeType) {
+  //   document.getElementById("profile-picture").setAttribute('type', mimeType);
+  // }
+  //
 
   //Upload new image
   saveAvatar() {
@@ -129,6 +141,8 @@ export class ProfileComponent implements OnInit {
   getUserDetails(id) {
     this.session.get(id)
       .subscribe((returnedUser) => {
+        this.userReviews = returnedUser.reviews;
+        console.log("reviews", this.userReviews);
         this.currentUser = returnedUser.user;
         this.aboutText = returnedUser.user.aboutText;
         // console.log("showing returnedUser in getUserDetails()", returnedUser.user);
@@ -136,18 +150,6 @@ export class ProfileComponent implements OnInit {
                   //Include in get or in PUT
       });
   }
-
-
-  // updatePicture() {
-  //   this.session.editPicture(this.user)
-  //     .subscribe(result => {
-  //       if (result) {
-  //         // console.log("getting the result of updatePicture()", result);
-  //       } else {
-  //         console.log("Was not able to update picture at this time.");
-  //       }
-  //     })
-  // }
 
 
 //Update User Profile

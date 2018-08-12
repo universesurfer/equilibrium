@@ -1,7 +1,26 @@
-.row {
+/* .row {
   justify-content: center;
+} */
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
 }
 
+/* Create four equal columns that sits next to each other */
+.column {
+  /* flex: 50%; */
+  max-width: 100%;
+  text-align: center;
+  /* padding: 0 4px; */
+}
+
+.column img {
+  max-width: 24%;
+  display: inline-block;  /*push the images together */
+  vertical-align: middle;
+}
 
 
 .container-fluid {

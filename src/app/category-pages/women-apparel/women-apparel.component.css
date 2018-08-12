@@ -11,14 +11,32 @@
   background-repeat: no-repeat;
 }
 
-#women-apparel-header {
+#header {
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  font-family: 'Philosopher', sans-serif;
   top: 70px;
-  right: 70px;
+  right: 80px;
+  width: 35rem;
+  height: 10rem;
+}
+
+#women-apparel-header {
+  font-family: 'Philosopher', cursive;
   color: white;
   font-size: 4rem;
+  text-align: center;
 }
+
+
+#women-apparel-tagline {
+  font-family: 'Philosopher', cursive;
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 2.5px;
+  text-align: center;
+}
+
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -27,55 +45,88 @@
     height: 30rem;
   }
 
-  #women-apparel-header {
+  #header {
+    display: flex;
+    flex-direction: column;
     position:absolute;
-    top:50%;
+    text-align: center;
+    top:6%;
     left:50%;
-    text-align:center;
+    height: 10rem;
     transform: translateX(-50%) translateY(-50%);
+  }
+
+
+  #women-apparel-header {
+    font-family: 'Philosopher', cursive;
     color: white;
     font-size: 3rem;
   }
 
+  #women-apparel-tagline {
+    font-family: 'Philosopher', cursive;
+    color: white;
+    font-size: 1.0rem;
+    letter-spacing: 2.3px;
+  }
+
+
+
+}
+
   /* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+/* @media only screen and (min-width: 600px) {
 
   .category-hero {
     height: 30rem;
   }
 
-  #women-apparel-header {
-    position:absolute;
-    top:50%;
-    left:50%;
-    text-align:center;
-    transform: translateX(-50%) translateY(-50%);
+  #header {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    right: 80px;
+    width: 35rem;
+    height: 10rem;
   }
 
-}
+
+  #women-apparel-header {
+    font-family: 'Philosopher', cursive;
+    color: white;
+    font-size: 4rem;
+    text-align: center;
+  }
+
+  #women-apparel-tagline {
+    font-family: 'Philosopher', cursive;
+    color: white;
+    font-size: 1rem;
+    letter-spacing: 2.5px;
+    text-align: center;
+    /* transform: translateX(-50%) translateY(-50%); */
+  /* } */
+
+
+/* } */
 
 
   /* Medium devices (landscape tablets, 768px and up) */
-  @media only screen and (max-width: 768px) {
+  /* @media only screen and (max-width: 768px) {
 
     .category-hero {
       height: 33rem;
     }
 
     #women-apparel-header {
-      position:absolute;
-      top:50%;
-      left:50%;
       text-align:center;
       transform: translateX(-50%) translateY(-50%);
     }
 
 
-  }
 
-
-
-}
+  } */
 
 
 

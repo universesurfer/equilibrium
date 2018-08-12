@@ -18,13 +18,29 @@
   background-repeat: no-repeat;
 }
 
-#men-apparel-header {
+#header {
+  display: flex;
+  flex-direction: column;
   position: absolute;
-  font-family: 'Philosopher', cursive;
   top: 70px;
   right: 80px;
+  width: 35rem;
+  height: 10rem;
+}
+
+#men-apparel-header {
+  font-family: 'Philosopher', cursive;
   color: white;
   font-size: 4rem;
+  text-align: center;
+}
+
+#men-apparel-tagline {
+  font-family: 'Philosopher', cursive;
+  color: white;
+  font-size: 1.5rem;
+  letter-spacing: 2.5px;
+  text-align: center;
 }
 
 
@@ -35,15 +51,34 @@
     height: 30rem;
   }
 
-  #men-apparel-header {
+  #header {
+    display: flex;
+    flex-direction: column;
     position:absolute;
+    text-align: center;
     top:50%;
     left:50%;
-    text-align:center;
+    height: 10rem;
     transform: translateX(-50%) translateY(-50%);
+  }
+
+  #men-apparel-header {
+    /* position:absolute;
+    top:50%;
+    left:50%; */
+    /* text-align:center; */
+    /* transform: translateX(-50%) translateY(-50%); */
     color: white;
     font-size: 3rem;
   }
+
+  #men-apparel-tagline {
+    font-family: 'Philosopher', cursive;
+    color: white;
+    font-size: 1.0rem;
+    letter-spacing: 2.3px;
+  }
+
 }
 
 .certification-filter {

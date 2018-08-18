@@ -44,6 +44,9 @@ router.get('/profile/:id', (req, res) => {
           return;
         } else {
                 // var companyNames = reviews.map(review => review.companyName);
+            // if (user.image.mimeType === 'image/png' | 'image/jpeg') {
+            //   res.user.image.mimeType.setHeader('content-type', 'image/jpeg');
+            // }
               res.json({
                      message: "Retrieving user and their reviews",
                      user: user,

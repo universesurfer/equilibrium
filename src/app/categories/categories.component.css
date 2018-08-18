@@ -10,24 +10,33 @@
 
 /* Create four equal columns that sits next to each other */
 .column {
-  /* flex: 50%; */
-  max-width: 100%;
+  /* display: flex; */
   text-align: center;
-  /* padding: 0 4px; */
+  /* flex-wrap: wrap; */
 }
 
 .column img {
-  max-width: 24%;
-  display: inline-block;  /*push the images together */
+  display: inline-block;  /*push the images together*/
   vertical-align: middle;
+  width: 24%;
+}
+
+.column::before {
+  content: '';
+  position:absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));
 }
 
 
-.container-fluid {
+/* .container-fluid {
   min-height: 700px;
   display: flex;
   justify-content: center;
-}
+} */
 
 
 .category-wrapper {

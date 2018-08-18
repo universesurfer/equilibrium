@@ -18,7 +18,7 @@
 
         <div id="userImage"*ngIf="currentUser.image">
           <!-- <object id="profile-picture"></object> -->
-            <img src="/{{currentUser.image.path}}" class="profile-picture">
+            <img [src]="currentUser.image.path" class="profile-picture">
         </div>
 
         <div id="username" style="font-size: 1em">{{currentUser.firstName}} {{currentUser.lastName}}</div>

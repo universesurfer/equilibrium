@@ -292,7 +292,7 @@ export class CompanyProfileComponent implements OnInit {
           this.allReviews = result.reviews;
           this.checkIfUserHasAlreadyReviewed();
           this.getAverageCompanyRating();
-          // console.log("Retrieving reviews in allReviews", this.allReviews);
+          console.log("Retrieving reviews in allReviews", this.allReviews);
           // this.checkIfUserHasAlreadyReviewed();
           return true;
         } else {

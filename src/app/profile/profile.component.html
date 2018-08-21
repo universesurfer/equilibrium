@@ -61,14 +61,42 @@
 </div>
 
 <hr>
+
 <!-- USER REVIEWS -->
 <div class="row center review-wrapper">
-
   <label for="myReviews">My Reviews</label>
   <br>
+
   <ul *ngFor="let review of userReviews">
 
-    <li class="review-box">{{review.commentBody}}</li>
+    <li class="review-box">
+
+      <div id="company-star-wrap">
+
+        <!-- Company -->
+        <div class="company w3-padding-large w3-wide w3-border w3-text-light-black w3-left">
+          {{review.companyName}}
+        </div>
+
+        <!-- Review star rating -->
+        <div class="review-star-rating">
+          <star-rating-comp [starType]="'icon'" [hoverEnabled]="false" [readOnly]="true" [rating]="review.starRating"></star-rating-comp>
+        </div>
+
+      </div>
+
+      <!-- Review body -->
+      <div class="review-comment-body">
+        <div>
+          {{review.commentBody}}
+        </div>
+      </div>
+
+
+
+    </li>
+
+
 
   </ul>
 

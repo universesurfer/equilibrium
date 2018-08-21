@@ -13,6 +13,51 @@
 .review-wrapper {
   display: flex;
   justify-content: center;
+  flex-direction: column;
+}
+
+.review-wrapper label {
+  text-align: center;
+}
+
+.review-box {
+  display: flex;
+  flex-direction: column;
+  min-height: 8rem;
+  width: 100%;
+  border-bottom: .2px solid black;
+}
+
+.review-star-rating {
+  margin-left: 2rem;
+}
+
+#company-star-wrap {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+}
+
+.review-comment-body {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  flex: 1;
+  margin-left: 1rem;
+  margin-right: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+.review-comment-body div {
+  flex: 1;
+}
+
+
+ul {
+  list-style-type: none;
+  margin-right: 3rem;
 }
 
 #picture-upload-section {
@@ -31,6 +76,7 @@
   height: 150px;
   width: 150px;
   border: 1px solid black;
+  object-fit: cover;
 }
 
 .user-avatar {

@@ -8,7 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 850px;
+  height: 750px;
 }
 
 
@@ -206,15 +206,21 @@ a {
 @media only screen and (max-width: 600px) {
 
   .landing-tile {
-    height: 20rem;
-    width: 15rem;
+    color: white;
+    height: 100%;
+  }
+
+  #tile-wrapper {
+    width: 50%;
   }
 
   .category-wrapper {
     display: flex;
     justify-content: center;
+    height: 350px;
+    width: 500px;
     padding-top: 0;
-    /* align-items: center; */
   }
+
 
 }

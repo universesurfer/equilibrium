@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../auth.service';
 import { Router } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+// import { CustomValidators } from 'ng2-validation';
 
 @Component({
   selector: 'app-signup-modal',

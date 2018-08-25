@@ -9,12 +9,12 @@
 
         <fieldset class="form-group">
           <label for="email">Email</label>
-          <input type="email" class="form-control transform-text" placeholder="email" name="email" value="email" [(ngModel)]="user.email">
+          <input type="email" class="form-control transform-text" placeholder="email" name="email" value="email" [(ngModel)]="user.email" required>
         </fieldset>
 
         <fieldset class="form-group">
           <label for="password">Password</label>
-          <input type="password" class="form-control login-form" placeholder="password" name="password" value="password" [(ngModel)]="user.password">
+          <input type="password" class="form-control login-form" placeholder="password" name="password" value="password" [(ngModel)]="user.password" required>
         </fieldset>
 
         <button type="submit" class="btn btn-block btn-primary" (click)="login()" ng-click="submitted=true">Login</button>

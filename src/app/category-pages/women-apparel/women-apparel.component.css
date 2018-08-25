@@ -38,6 +38,28 @@
 }
 
 
+/* iPhone X */
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3)
+and (orientation : portrait) {
+
+  #header {
+    display: flex;
+    flex-direction: column;
+    position:absolute;
+    text-align: center;
+    top:50%;
+    left:50%;
+    height: 10rem;
+    transform: translateX(-50%) translateY(-50%);
+  }
+
+
+}
+
+
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
 
@@ -137,11 +159,16 @@
   justify-content: center;
   height: 80px;
   border-bottom: 1px solid black;
+  background-color: rgb(255, 255, 248);
 }
 
 .custom-select {
   margin: 0 3px 0 3px;
+  height: 90%;
 }
+
+
+/* w3-padding-large w3-wide w3-border w3-text-light-black w3-left */
 
 .filter-button {
   border: 1px solid black;

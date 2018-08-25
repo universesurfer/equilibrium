@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router'
 import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms'; //ng2-validation
 import { routes } from './routes/app.routing';
 import { HttpModule } from '@angular/http';
 
@@ -83,6 +84,8 @@ import { CompanyImagePipe } from './company-image.pipe';
   imports: [
     FormsModule,
     BrowserModule,
+    ReactiveFormsModule,
+    // CustomFormsModule,
     HttpModule,
     StarRatingModule.forRoot(),
     BrowserAnimationsModule,  //Toastr

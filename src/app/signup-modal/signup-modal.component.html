@@ -5,23 +5,23 @@
     <div class="col-md-6">
       <div class="panel panel-default">
         <div class="panel-body">
-          <form>
+          <form [formGroup]="form">
             <fieldset class="form-group">
               <label for="exampleInputEmail1">First name</label>
-              <input type="text" class="form-control" [(ngModel)]="newUser.firstName" placeholder="Enter first name" name="firstName">
+              <input type="text" class="form-control" [(ngModel)]="newUser.firstName" placeholder="Enter first name" name="firstName" required>
             </fieldset>
             <fieldset class="form-group">
               <label for="exampleInputEmail1">Last name</label>
-              <input type="text" class="form-control" [(ngModel)]="newUser.lastName" placeholder="Enter last name" name="lastName">
+              <input type="text" class="form-control" [(ngModel)]="newUser.lastName" placeholder="Enter last name" name="lastName" required>
             </fieldset>
             <fieldset class="form-group">
               <label for="exampleInputEmail1">Email address</label>
-              <input type="email" class="form-control" [(ngModel)]="newUser.email" placeholder="Enter email" name="email">
+              <input type="email" class="form-control" [(ngModel)]="newUser.email" placeholder="Enter email" name="email" required>
               <small class="text-muted">We'll never share your email with anyone else.</small>
             </fieldset>
             <fieldset class="form-group">
               <label for="exampleInputPassword1">Password</label>
-              <input type="password" class="form-control" [(ngModel)]="newUser.password" placeholder="Create a password" name="password">
+              <input type="password" class="form-control" [(ngModel)]="newUser.password" placeholder="Create a password" name="password" required>
             </fieldset>
 
 

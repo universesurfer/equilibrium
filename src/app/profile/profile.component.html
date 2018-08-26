@@ -47,7 +47,7 @@
     <form id="about-form">
 
       <fieldset class="form-group">
-        <label for="aboutText">About</label>
+        <label for="aboutText">ABOUT</label>
         <div *ngIf="!editCheck" type="text">{{currentUser.aboutText}}</div>
         <textarea *ngIf="editCheck" style="min-width: 100%" name="aboutText" class="form-control" id="aboutText" rows="5" cols="50" [(ngModel)]="currentUser.aboutText"></textarea>
 
@@ -64,7 +64,7 @@
 
 <!-- USER REVIEWS -->
 <div class="row center review-wrapper">
-  <label for="myReviews">My Reviews</label>
+  <label for="myReviews">MY REVIEWS</label>
   <br>
 
   <ul *ngFor="let review of userReviews">

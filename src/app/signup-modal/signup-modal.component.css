@@ -1,7 +1,25 @@
 
 
+.form-wrapper {
+  width: 50%;
+}
 
+.auth-form {
+  height: 100%;
+}
 
+.panel {
+  border: none;
+  margin-right: 4rem;
+}
+
+.background {
+  height: 800px;
+  background-image:url("https://i.imgur.com/c1458zL.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
 /* Extra small devices (phones, 600px and down) */
 @media only screen and (max-width: 600px) {
@@ -9,6 +27,10 @@
   .auth-form {
     padding: 0;
     padding-top: 5rem;
+  }
+
+  .form-wrapper {
+    width: 70%;
   }
 
 
@@ -20,6 +42,36 @@
   .auth-form {
     padding: 0;
     padding-top: 5rem;
+  }
+
+  .form-wrapper {
+    width: 50%;
+  }
+
+}
+
+/* iPhone 6, 7, 8 */
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+
+  .form-wrapper {
+    width: 70%;
+  }
+
+}
+
+
+/* iPhone X */
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 812px)
+and (-webkit-device-pixel-ratio : 3)
+and (orientation : portrait) {
+
+  .form-wrapper {
+    width: 70%;
   }
 
 }

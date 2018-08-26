@@ -1,11 +1,13 @@
 <app-navbar></app-navbar>
 
+
+<div class="background">
 <div class="auth-form">
 
-    <div class="col-md-6">
+    <div class="center form-wrapper">
       <div class="panel panel-default">
         <div class="panel-body">
-          <form [formGroup]="form">
+          <form>
             <fieldset class="form-group">
               <label for="exampleInputEmail1">First name</label>
               <input type="text" class="form-control" [(ngModel)]="newUser.firstName" placeholder="Enter first name" name="firstName" required>
@@ -32,4 +34,5 @@
         </div>
       </div>
     </div>
+</div>
 </div>

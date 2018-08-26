@@ -1,27 +1,29 @@
 <app-navbar></app-navbar>
 
+<div class="background">
 <div class="auth-form">
-<div class="col-md-6">
-	<div class="panel panel-default">
-    <div class="panel-body">
+	<div class="center form-wrapper">
+		<div class="panel panel-default">
+	    <div class="panel-body">
 
-      <form>
+	      <form>
 
-        <fieldset class="form-group">
-          <label for="email">Email</label>
-          <input type="email" class="form-control transform-text" placeholder="email" name="email" value="email" [(ngModel)]="user.email" required>
-        </fieldset>
+	        <fieldset class="form-group">
+	          <label for="email">Email</label>
+	          <input type="email" class="form-control transform-text" placeholder="email" name="email" value="email" [(ngModel)]="user.email" required>
+	        </fieldset>
 
-        <fieldset class="form-group">
-          <label for="password">Password</label>
-          <input type="password" class="form-control login-form" placeholder="password" name="password" value="password" [(ngModel)]="user.password" required>
-        </fieldset>
+	        <fieldset class="form-group">
+	          <label for="password">Password</label>
+	          <input type="password" class="form-control login-form" placeholder="password" name="password" value="password" [(ngModel)]="user.password" required>
+	        </fieldset>
 
-        <button type="submit" class="btn btn-block btn-primary" (click)="login()" ng-click="submitted=true">Login</button>
+	        <button type="submit" class="btn btn-block btn-primary" (click)="login()" ng-click="submitted=true">Login</button>
 
-      </form>
+	      </form>
 
-    </div>
-</div>
+	    </div>
+		</div>
+	</div>
 </div>
 </div>

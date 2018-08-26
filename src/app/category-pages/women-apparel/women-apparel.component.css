@@ -4,7 +4,7 @@
 }
 
 .category-hero {
-  height: 50rem;
+  height: 45rem;
   background-image: url("https://i.imgur.com/vUyyF0P.jpg");
   background-size: cover;
   background-position: top;
@@ -55,7 +55,23 @@ and (orientation : portrait) {
     height: 10rem;
     transform: translateX(-50%) translateY(-50%);
   }
+}
 
+/* iPhone 6, 7, 8 */
+@media only screen
+and (min-device-width : 375px)
+and (max-device-width : 667px) {
+
+  #header {
+    display: flex;
+    flex-direction: column;
+    position:absolute;
+    text-align: center;
+    top:50%;
+    left:50%;
+    height: 10rem;
+    transform: translateX(-50%) translateY(-50%);
+  }
 
 }
 

@@ -4,7 +4,7 @@
 }
 
 .category-hero {
-  height: 40rem;
+  height: 50rem;
   background-image: url("https://i.imgur.com/vUyyF0P.jpg");
   background-size: cover;
   background-position: top;
@@ -80,16 +80,16 @@ and (orientation : portrait) {
 
 
   #women-apparel-header {
-    font-family: 'Philosopher', cursive;
+    font-family: 'Philosopher';
     color: white;
-    font-size: 3rem;
+    font-size: 4rem;
   }
 
   #women-apparel-tagline {
-    font-family: 'Philosopher', cursive;
+    font-family: 'Philosopher';
     color: white;
     font-size: 1.0rem;
-    letter-spacing: 2.3px;
+    letter-spacing: 2.5px;
   }
 
 
@@ -164,7 +164,6 @@ and (orientation : portrait) {
 
 .custom-select {
   margin: 0 3px 0 3px;
-  height: 90%;
 }
 
 

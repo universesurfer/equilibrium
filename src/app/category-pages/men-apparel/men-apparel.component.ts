@@ -31,7 +31,6 @@ allCompanies: any;
     this.user = JSON.parse(localStorage.getItem('user'));
     // this.user = localStorage.getItem('user');
     // console.log("getting current user", this.user);
-
     //Retrieve all companies within this category from Mongo
     this.getCompaniesForCategory();
   }
@@ -80,11 +79,9 @@ getCompanyFromArray(company) {
     //   return false;
     // }
 // });
-
 }
 
 // NOTE: Need to display the data even if company page is not accessed from category page.
-
 
 
 

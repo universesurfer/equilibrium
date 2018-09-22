@@ -5,83 +5,26 @@
 }
 
 .company-list-wrapper {
-  /* margin-left: 5rem;
-  margin-right: 5rem; */
+  margin-left: 5rem;
+  margin-right: 5rem;
 }
 
 
 .category-hero {
-  height: 45rem;
+  height: 40rem;
   background-image: url("https://i.imgur.com/UC0HFx8.jpg");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
 }
 
-#header {
-  display: flex;
-  flex-direction: column;
+#men-apparel-header {
   position: absolute;
-  /* top: 16%;
-  right: 17%; */
+  font-family: 'Philosopher', cursive;
   top: 70px;
   right: 80px;
-  width: 35rem;
-  height: 10rem;
-}
-
-#men-apparel-header {
-  font-family: 'Philosopher', cursive;
   color: white;
   font-size: 4rem;
-  text-align: center;
-}
-
-#men-apparel-tagline {
-  font-family: 'Philosopher', cursive;
-  color: white;
-  font-size: 1.5rem;
-  letter-spacing: 2.5px;
-  text-align: center;
-}
-
-
-/* iPhone X */
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 812px)
-and (-webkit-device-pixel-ratio : 3)
-and (orientation : portrait) {
-
-  #header {
-    display: flex;
-    flex-direction: column;
-    position:absolute;
-    text-align: center;
-    top:50%;
-    left:50%;
-    height: 10rem;
-    transform: translateX(-50%) translateY(-50%);
-  }
-
-}
-
-/* iPhone 6, 7, 8 */
-@media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px) {
-
-  #header {
-    display: flex;
-    flex-direction: column;
-    position:absolute;
-    text-align: center;
-    top:50%;
-    left:50%;
-    height: 10rem;
-    transform: translateX(-50%) translateY(-50%);
-  }
-
 }
 
 
@@ -92,33 +35,15 @@ and (max-device-width : 667px) {
     height: 30rem;
   }
 
-  #header {
-    display: flex;
-    flex-direction: column;
+  #men-apparel-header {
     position:absolute;
-    text-align: center;
     top:50%;
     left:50%;
-    height: 10rem;
+    text-align:center;
     transform: translateX(-50%) translateY(-50%);
-  }
-
-  #men-apparel-header {
-    font-family: 'Philosopher';
     color: white;
     font-size: 3rem;
-    text-align: center;
   }
-
-  #men-apparel-tagline {
-    font-family: 'Philosopher';
-    color: white;
-    font-size: 1.5rem;
-    letter-spacing: 2.5px;
-    text-align: center;
-  }
-
-
 }
 
 .certification-filter {
@@ -128,7 +53,6 @@ and (max-device-width : 667px) {
   flex-direction: row;
   height: 80px;
   border-bottom: 1px solid black;
-  background-color: rgb(255, 255, 242);
 }
 
 ul {
